@@ -1,0 +1,47 @@
+.workout-header {
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    background-color: #a3a3a3; /* 상단 배경색 추가 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.workout-container {
+    display: flex;
+    justify-content: center; /* 화면 중앙 정렬 */
+    padding: 40px 20px; /* 위아래 여백 */
+    background-color: rgb(73, 73, 73);
+}
+
+.workout-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4열 그리드 */
+    gap: 30px; /* 카드 간격 */
+    width: fit-content; /* 내용에 맞게 크기 조절 */
+}
+
+.workout-card {
+    width: 200px;
+    height: 200px;
+    background: white;
+    background-image: none;
+    background-size: cover;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1); /* 그림자 추가 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    transition: all 0.3s ease; /* 부드러운 호버 효과 */
+    cursor: pointer;
+}
+
+.workout-card:hover {
+    transform: translateY(-8px); /* 살짝 위로 이동 */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2); /* 그림자 강조 */
+    background-image: url("../../public/images/squat_icon.jpg");
+}
