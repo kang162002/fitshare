@@ -1,0 +1,475 @@
+기본 색상 변수 설정
+:root {
+  --main-color: #1b1b1b;
+  /* 배경색 */
+  --accent-color: #ffffff;
+  /* 강조 색상 */
+  --text-color: #F7374F;
+  /* 텍스트 색상 */
+}
+
+/* 전체 페이지의 스타일 설정 */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Pretendard', sans-serif;
+  /* 글꼴 설정 */
+  color: var(--text-color);
+  /* 글자 색상을 변수로 설정 */
+  background-color: var(--main-color);
+  /* 배경색을 변수로 설정 */
+  overflow-x: hidden;
+  /* 가로 스크롤 방지 */
+}
+
+/* 웹 페이지  클래스  */
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+} 
+
+/* 전체 배경 비디오 설정 */
+.bio-background-video {
+  position: absolute;
+  /* 절대 위치 설정 */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  /* 전체 화면 너비 */
+  height: 100vh;
+  /* 전체 화면 높이 */
+  object-fit: cover;
+  /* 비디오가 화면을 꽉 채우도록 설정 */
+  z-index: 0;
+  /* 가장 뒤에 배치 */
+  opacity: 0;
+  /* 초기에는 보이지 않도록 설정 */
+  transition: opacity 1.5s ease-in-out;
+  /* 부드러운 전환 효과 */
+  pointer-events: none;
+  /* 클릭을 방지 */
+}
+
+/* 배경 비디오 활성화 시 */
+.bio-background-video.active {
+  opacity: 1;
+  /* 나타나도록 설정 */
+  z-index: 0;
+}
+
+/* 상단 네비게이션 바 스타일 */
+.bio-top-nav {
+  display: flex;
+  /* 가로 정렬 */
+  justify-content: flex-end;
+  /* 오른쪽 정렬 */
+  padding: 10px 30px;
+  
+  /* backdrop-filter: blur(1px); */
+  /* 반투명 배경 */
+  font-size: 10px;
+  font-size: 0.8rem;
+  /* 글자 크기 */
+  
+}
+
+.bio-left-nav {
+  display: flex;
+  align-items: center;
+  gap: 80px; /* 로고와 메뉴 사이 간격 */
+}
+
+/* 네비게이션 바 내 링크 스타일 */
+.bio-top-nav a {
+  color: var(--text-color);
+  /* 텍스트 색상 */
+  margin-left: 20px;
+  bottom: 80px;
+  text-decoration: none;
+  /* 밑줄 제거 */
+  padding: 6px 12px;
+  z-index: 2;
+}
+
+/* 네비게이션 바 링크 호버 효과 */
+.bio-top-nav a:hover {
+  color: var(--accent-color);
+  /* 강조 색상 */
+  background: rgba(252, 239, 239, 0.2);
+  /* 연한 배경 */
+  border-radius: 4px;
+  /* 모서리를 둥글게 */
+  border-bottom: 2px solid #ffff;
+  transition: 0.5s;
+}
+
+/* 주 메뉴 스타일 */
+.bio-main-menu {
+  display: flex;
+  /* 가로 정렬 */
+  align-items: center;
+  /* 가운데 정렬 */
+  justify-content: space-between;
+  /* 양 끝 정렬 */
+  /* background: rgba(49, 49, 49, 0.507); */
+  /* 반투명 배경 */
+  backdrop-filter: blur(5px);
+  /* 블러 효과 */
+  padding: 10px 40px;
+}
+
+/* 로고 스타일 */
+.bio-logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #b71c1c;
+  /* 로고 색상 */
+  cursor: pointer;
+}
+
+
+/* 메뉴 링크 스타일 */
+.bio-menu-links {
+  display: flex;
+  /* 가로 정렬 */
+  gap: 85px;
+  /* 간격 설정 */
+  /* position: absolute;
+  right: 1px;
+  padding-right: 20px; */
+
+}
+
+.bio-menu-links a {
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 6px 12px;
+  font-size: 16px;
+}
+
+/* 활성화된 메뉴 항목 스타일 */
+.bio-menu-links a.active {
+  color: var(--accent-color);
+  background: rgba(151, 151, 151, 0.568);
+  border-radius: 4px;
+}
+
+/* 메뉴 링크 호버 효과 */
+.bio-menu-links a:hover {
+  color: var(--accent-color);
+  background: rgba(252, 239, 239, 0.507);
+  border-radius: 5px;
+  border-bottom: 2px solid #ffff;
+  transition: 0.5s;
+}
+
+/* 검색 박스 스타일 */
+.bio-search-box {
+  position: relative;
+}
+
+.bio-search-box input {
+  padding: 10px 10px;
+  border-radius: 4px;
+  border: none;
+}
+
+/* 히어로 섹션 스타일 */
+.bio-hero {
+  display: flex;
+  flex-direction: column; /* 수직 정렬 */
+  justify-content: center; /* 수직 중앙 정렬 */
+  align-items: center;     /* 가로 중앙 정렬 */
+ 
+  
+  width: 100%;
+  height: 80vh; 
+  /* 화면 전체 높이 */
+  padding: 0 20px;
+  text-align: center;
+  z-index: 1;
+}
+
+.mainScreen-content {
+  flex: 1; /* 본문이 남은 영역 채움 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+
+.bio-hero .bio-content {
+  z-index: 2;
+}
+
+/* 히어로 섹션 제목 스타일 */
+.bio-hero h1 {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-shadow: 3px 3px 9px rgba(196, 196, 196, 0.8);
+  color: #F7374F;
+  /* 그림자 효과 */
+}
+
+/* 버튼 스타일 */
+.bio-hero button {
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--accent-color);
+  color: #000000;
+  cursor: pointer;
+}
+
+/* 버튼 호버 효과 */
+.bio-hero button:hover {
+  background-color: #b71c1c;
+}
+
+@media (max-width: 768px) {
+  .bio-main-menu {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .bio-menu-links {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .bio-hero h1 {
+    font-size: 28px;
+  }
+
+  .bio-hero button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  .bio-top-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
+
+  .bio-op-nav a {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+
+  .bio-top-nav a:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@keyframes pageFlip {
+  from {
+    opacity: 0;
+  }
+  end {
+    opacity: 1;
+  }
+
+}
+
+/*  미디어 배경화면면 */
+.bio-background-video {
+  animation: pageFlip 2s ease-in-out;
+ 
+}
+
+.bio-main-menu .bio-menu-links a:hover {
+  color: #efefef;
+}
+
+/*   top-nav  에서부터  Main menu a 버튼튼호버 모양 CSS    */
+.bio-main-menu .bio-menu-links a:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #333333;
+  z-index: -1;
+  transition: all 0.1s cubic-bezier(0.000, 0.590, 1.000, 0.260);
+}
+
+.bio-main-menu .bio-menu-links a:hover:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #333333;
+  z-index: -1;
+}
+
+.bio-menu-links a {
+  display: inline-block;
+  position: relative;
+  color: #F7374F;
+  text-decoration: none;
+  padding: 0.2em 0.05em;
+  border-bottom: 2px solid white;
+}
+
+.bio-top-nav a {
+  display: inline-block;
+  position: relative;
+  color: #F7374F;
+  text-decoration: none;
+  padding: 0.2em 0.05em;
+  border-bottom: 2px solid white;
+}
+
+.bio-top-nav a:hover {
+  color: #ffffff;
+  background: rgba(252, 239, 239, 0.2);
+  border-radius: 4px;
+}
+
+.bio-top-nav a:hover:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #333333;
+  z-index: -1;
+}
+
+
+.bio-main-menu .bio-top-nav a:hover {
+  color: #ffffff;
+  background: rgba(252, 239, 239, 0.2);
+  border-radius: 4px;
+}
+
+.bio-main-menu .bio-menu-links a:hover:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #333333;
+  z-index: -1;
+}
+
+.bio-main-logo-image a {
+  width: 50px;
+  height: 100px;
+}
+
+
+
+
+
+
+
+/* 검색바 래퍼 */
+.bio-search-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+/* bio-search 스타일 수정 */
+.bio-search {
+  width: 25px;
+  height: 25px;
+  /* background-image: url("./image/reading.png"); */
+  background-size: cover;
+  z-index: 1;
+  transition: all 0.25s ease-in 0.25s;
+  color: transparent;
+  font-size: 1rem;
+  line-height: 25px;
+  border: none;
+  border-radius: 4px;
+}
+
+.bio-search:focus {
+  width: 300px;
+  padding: 0 10px;
+  outline: none;
+  color: white;
+  background: rgba(160, 160, 160, 0.5);
+}
+
+.bio-search+span {
+  z-index: 1;
+  position: absolute;
+  border: 2px solid black;
+  top: 0;
+  left: 0;
+  width: 25px;
+  height: 25px;
+  transition: all 0.25s ease-in 0.25s;
+}
+
+.bio-search+span::before {
+  content: ' ';
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 5px;
+  background: #777;
+  transform: rotate(45deg) translate(26px, -2px);
+}
+
+
+/*  스플래시 페이지 CSS */
+
+.mainScreen-Splash {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 2rem;
+  background-color: white;
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+  z-index: 100;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.mainScreen-Splash.fade-out {
+  opacity: 0;
+}
+
+
+/* 푸터 부분  */
+.mainScreen-footer {
+  width: 100%;
+  padding: 10px 20px;
+  background-color: rgb(165, 165, 165);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  text-align: center;
+}
+
+.mainScreen-footer span {
+  display: inline-block;
+ float: left;
+  font-size: 0.7rem;
+
+}
