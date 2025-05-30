@@ -1,0 +1,10 @@
+
+function Board_all(){
+
+    return(
+        <>
+        </>
+    );
+}
+
+export default Board_all;
