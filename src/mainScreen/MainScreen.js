@@ -49,19 +49,19 @@ function MainScreen() {
         playsInline
       >
         <source
-          src="/media/main-media/main-Screen-media01.mp4"
+          src="/media/main-media/main_Screen_media01.mp4"
           type="video/mp4"
         />
       </video>
       <video id="video2" className="bio-background-video" muted playsInline>
         <source
-          src="/media/main-media/main-Screen-media02.mp4"
+          src="/media/main-media/main_Screen_media02.mp4"
           type="video/mp4"
         />
       </video>
       <video id="video3" className="bio-background-video" muted playsInline>
         <source
-          src="/media/main-media/main-Screen-media03.mp4"
+          src="/media/main-media/main_Screen_media03.mp4"
           type="video/mp4"
         />
       </video>
@@ -72,7 +72,7 @@ function MainScreen() {
           <div className="bio-logo">
             <a href="#" className="bio-main-logo-image">
               <img
-                src="/images/mainImage/fitShare-logo.png"
+                src="/images/mainImage/fitShare_logo.png"
                 width="90"
                 height="50"
                 alt="Logo"
