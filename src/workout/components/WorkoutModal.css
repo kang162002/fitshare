@@ -15,7 +15,7 @@
 .workout-modal-box {
     background-color: #5c1a1a;
     color: #fff;
-    width: 800px;
+    width: 1000px;
     border-radius: 20px;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
     padding: 2rem;
@@ -29,12 +29,12 @@
     margin-bottom: 1.5rem;
 }
 
-.exercise-title {
+.workout-exercise-title {
     font-size: 2rem;
     color: #ffcccc;
 }
 
-.close-button {
+.workout-modal-close-button {
     background: none;
     border: none;
     font-size: 1.8rem;
@@ -43,7 +43,7 @@
     transition: transform 0.2s ease;
 }
 
-.close-button:hover {
+.workout-modal-close-button:hover {
     transform: scale(1.2);
 }
 
@@ -53,26 +53,25 @@
     flex-wrap: wrap;
 }
 
-.image-area img {
+.workout-image-area img {
     width: 280px;
     height: auto;
     border-radius: 12px;
-    /* background-color: rgba(255, 255, 255, 0.1); */
 }
 
-.info-area {
+.workout-info-area {
     flex: 1;
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
 }
 
-.tabs {
+.workout-tabs {
     display: flex;
     gap: 1rem;
 }
 
-.tab {
+.workout-tab {
     padding: 0.5rem 1rem;
     border: none;
     background-color: #8c2c2c;
@@ -82,15 +81,15 @@
     transition: background-color 0.2s;
 }
 
-.tab:hover {
+.workout-tab:hover {
     background-color: #a33a3a;
 }
 
-.tab.active {
+.workout-tab.active {
     background-color: #d94f4f;
 }
 
-.tab-content {
+.workout-tab-content {
     background-color: #7a1f1f;
     padding: 1rem;
     border-radius: 10px;
@@ -98,22 +97,22 @@
     line-height: 1.5;
 }
 
-.routine {
+.workout-routine {
     background-color: #7a1f1f;
     padding: 1rem;
     border-radius: 10px;
 }
 
-.routine h3 {
+.workout-routine h3 {
     margin-bottom: 0.5rem;
     color: #ffcccc;
 }
 
-.routine ul {
+.workout-routine ul {
 
     padding-left: 1.2rem;
 }
 
-.text-line-break {
+.workout-text-line-break {
     white-space: pre-line;
 }

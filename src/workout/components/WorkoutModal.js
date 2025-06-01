@@ -14,41 +14,41 @@ function WorkoutModal({ closeModal, workoutData }) {
         <div className="workout-modal-fullscreen">
             <div className="workout-modal-box">
                 <div className="workout-modal-header">
-                    <h1 className="exercise-title">{workoutData.title}</h1>
-                    <button className="close-button" onClick={closeModal}>✕</button>
+                    <h1 className="workout-exercise-title">{workoutData.title}</h1>
+                    <button className="workout-modal-close-button" onClick={closeModal}>✕</button>
                 </div>
 
                 <div className="workout-modal-body">
-                    <div className="image-area">
+                    <div className="workout-image-area">
                         <img src={workoutData.imgPath}/>
                     </div>
 
-                    <div className="info-area">
-                        <div className="tabs">
+                    <div className="workout-info-area">
+                        <div className="workout-tabs">
                             <button
-                                className='tab active'
+                                className='workout-tab workout-active'
                                 id='workout-modal-information-tab'
                                 onClick={() => {
                                     info_tab = document.getElementById('workout-modal-information-tab');
                                     level_tab = document.getElementById('workout-modal-level-tab');
                                     if(currentTab==1)
-                                        level_tab.classList.remove('active');
-                                    info_tab.classList.add('active');
+                                        level_tab.classList.remove('workout-active');
+                                    info_tab.classList.add('workout-active');
                                     setCurrentTab(0);
                                 }}
                             >
                                 운동 설명
                             </button>
                             <button
-                                className='tab'
+                                className='workout-tab'
                                 id='workout-modal-level-tab'
 
                                 onClick={() => {
                                     info_tab = document.getElementById('workout-modal-information-tab');
                                     level_tab = document.getElementById('workout-modal-level-tab');
                                     if(currentTab==0)
-                                        info_tab.classList.remove('active');
-                                    level_tab.classList.add('active');
+                                        info_tab.classList.remove('workout-active');
+                                    level_tab.classList.add('workout-active');
                                     setCurrentTab(1);
                                 }}
                             >
@@ -56,10 +56,10 @@ function WorkoutModal({ closeModal, workoutData }) {
                             </button>
                         </div>
 
-                        <div className="tab-content">
+                        <div className="workout-tab-content">
                             {
                                 currentTab == 0 && 
-                                (<p className='text-line-break'>{workoutData.content}</p>)
+                                (<p className='workout-text-line-break'>{workoutData.content}</p>)
                             }
                             {
                                 currentTab == 1 && 
@@ -67,7 +67,7 @@ function WorkoutModal({ closeModal, workoutData }) {
                             }
                         </div>
 
-                        <div className="routine">
+                        <div className="workout-routine">
                             <h3>추천 루틴</h3>
                             <ul>
                                 <li>3세트 × 12회</li>
