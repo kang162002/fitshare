@@ -1,26 +1,44 @@
-import React, { useEffect } from "react";
+// MainScreen.js
+import React, { useEffect, useRef, useState } from "react";
 import "./MainScreen.css";
+import MainEffect from "../mainRipple/MainEffect";
+
+// 비디오 소스 배열 정의
+const videoSources = [
+  "/media/main-media/main_Screen_media01.mp4",
+  "/media/main-media/main_Screen_media02.mp4",
+  "/media/main-media/main_Screen_media03.mp4",
+];
 
 function MainScreen() {
-  useEffect(() => {
-    const videoList = [
-      {
-        element: document.getElementById("video1"),
-      },
-      {
-        element: document.getElementById("video2"),
-      },
-      {
-        element: document.getElementById("video3"),
-      },
-    ];
+  const [ripples, setRipples] = useState([]); // 클릭 효과 저장
+  const wrapperRef = useRef(null); // ripple 위치 계산용 ref
 
+  // 클릭 시 ripple 효과 위치 계산 및 추가
+  const handleClick = (e) => {
+    if (!wrapperRef.current) return;
+    const rect = wrapperRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const id = Date.now();
+
+    setRipples((prev) => [...prev, { x, y, id }]);
+
+    setTimeout(() => {
+      setRipples((prev) => prev.filter((r) => r.id !== id));
+    }, 600);
+  };
+
+  const videoRefs = useRef([]);
+  useEffect(() => {
     let current = 0;
 
+    // 비디오 순차 재생
     function playVideo(index) {
-      const currentVideo = videoList[index].element;
-      const nextIndex = (index + 1) % videoList.length;
-      const nextVideo = videoList[nextIndex].element;
+      const currentVideo = videoRefs.current[index];
+      const nextIndex = (index + 1) % videoRefs.current.length;
+      const nextVideo = videoRefs.current[nextIndex];
+      if (!currentVideo || !nextVideo) return;
 
       nextVideo.classList.remove("active");
       nextVideo.currentTime = 0;
@@ -36,101 +54,107 @@ function MainScreen() {
       };
     }
 
-    playVideo(current);
+    playVideo(current); // 첫 비디오 시작
   }, []);
 
   return (
-    <div className="main-Screen-page-wrapper">
-      {/* 비디오 배경 */}
-      <video
-        id="video1"
-        className="bio-background-video active"
-        muted
-        playsInline
+    <div className="main_Screen_page_wrapper">
+      {/* Ripple 배경 효과 */}
+      <div
+        ref={wrapperRef}
+        onClick={handleClick}
+        className="main_Screen_page_wrapper"
+        style={{ position: "relative", overflow: "hidden" }}
       >
-        <source
-          src="/media/main-media/main_Screen_media01.mp4"
-          type="video/mp4"
-        />
-      </video>
-      <video id="video2" className="bio-background-video" muted playsInline>
-        <source
-          src="/media/main-media/main_Screen_media02.mp4"
-          type="video/mp4"
-        />
-      </video>
-      <video id="video3" className="bio-background-video" muted playsInline>
-        <source
-          src="/media/main-media/main_Screen_media03.mp4"
-          type="video/mp4"
-        />
-      </video>
+        {ripples.map((r) => (
+          <MainEffect key={r.id} x={r.x} y={r.y} />
+        ))}
 
-      {/* 네비게이션 */}
-      <div className="bio-main-menu">
-        <div className="bio-left-nav">
-          <div className="bio-logo">
-            <a href="#" className="bio-main-logo-image">
-              <img
-                src="/images/mainImage/fitShare_logo.png"
-                width="90"
-                height="50"
-                alt="Logo"
-              />
+        {/* 배경 비디오 */}
+        {videoSources.map((src, idx) => (
+          <video
+            key={idx}
+            ref={(el) => (videoRefs.current[idx] = el)}
+            className={`mainScreen_background_video ${idx === 0 ? "active" : ""}`}
+            muted
+            playsInline
+          >
+            <source src={src} type="video/mp4" />
+          </video>
+        ))}
+
+        {/* 네비게이션 바 */}
+        <div className="mainScreen_main_menu">
+          <div className="mainScreen_logo">
+            <a href="#" className="mainScreen_main_logo_image">
+              <img src="" width="90" height="50" alt="Logo" />
             </a>
           </div>
-          <nav className="bio-menu-links">
-            <a href="#">소개</a>
-            <a href="#">운동</a>
-            <a href="#">게시판</a>
-          </nav>
-        </div>
-        <div className="bio-search-box"></div>
-      </div>
-      <div className="bio-top-nav">
-        <a href="#">로그인</a>
-      </div>
 
-      {/* 메인 콘텐츠 */}
-      <main className="mainScreen-content">
-        <div className="bio-hero">
-          <div className="bio-content">
-            <div className="bio-search-wrapper">
-              <input
-                type="text"
-                placeholder=" "
-                spellCheck="false"
-                className="bio-search"
-                style={{
-                  backgroundImage: "url('/images/reading.png')",
-                  backgroundSize: "cover",
-                  width: "500px",
-                  height: "100px",
-                  fontSize: "5rem",
-                  border: "none",
-                  borderRadius: "20px",
-                  padding: "0 10px",
-                  outline: "none",
-                  color: "white",
-                }}
-              />
+          <nav className="mainScreen_menu_links">
+            <a href="#">소개</a>
+
+            {/* 운동 서브메뉴 */}
+            <div className="mainScreen_menu_with_submenu">
+              <a href="#">운동</a>
+              <div className="mainScreen_main_submenu_container">
+                <a href="#" className="main_submenu_item">GYM</a>
+                <a href="#" className="main_submenu_item">홈트레이닝</a>
+                <a href="#" className="main_submenu_item">스트레칭</a>
+                <a href="#" className="main_submenu_item">다이어트</a>
+              </div>
             </div>
-            <h1>처음 운동하는 마음 BIOMIND</h1>
+
+            {/* 게시판 서브메뉴 */}
+            <div className="mainScreen_menu_with_submenu">
+              <a href="#">게시판</a>
+              <div className="mainScreen_main_submenu_container">
+                <a href="#" className="main_submenu_item">전체게시판</a>
+                <a href="#" className="main_submenu_item">GYM게시판</a>
+                <a href="#" className="main_submenu_item">홈트레이닝 게시판</a>
+                <a href="#" className="main_submenu_item">스포츠동호회 게시판</a>
+                <a href="#" className="main_submenu_item">다이어트 게시판</a>
+                <a href="#" className="main_submenu_item">기타게시판</a>
+              </div>
+            </div>
+          </nav>
+
+          {/* 로그인 링크 */}
+          <div className="mainScreen_top_nav">
+            <a href="#">로그인</a>
           </div>
         </div>
-      </main>
+
+        {/* 메인 콘텐츠 영역 */}
+        <main className="mainScreen_content">
+          <div className="mainScreen_hero">
+            <div className="mainScreen_content">
+              {/* 검색 입력창 */}
+              <div className="mainScreen_search_wrapper">
+                <input
+                  type="text"
+                  placeholder=" "
+                  spellCheck="false"
+                  className="mainScreen_search mainScreen_custom_search"
+                />
+              </div>
+              {/* 메인 문구 */}
+              <h1>처음 운동하는 마음 BIOMIND</h1>
+            </div>
+          </div>
+        </main>
+      </div>
 
       {/* 푸터 */}
-      <footer className="mainScreen-footer">
-        <span>회사 주소 : </span>
-        <br />
-        <a href="#">
-          <span>고객센터</span>
-        </a>
-        <br />
-        <a href="#">
-          <span>이용약관</span>
-        </a>
+      <footer className="mainScreen_footer">
+        <div className="mainScreen_footer_content">
+          <span>
+            회사 주소 : 충남 천안시 동남구 대흥로 215 7층, 8층 상담 번호:
+            1566-9564
+          </span>
+          <a href="#"><span>고객센터</span></a>
+          <a href="#"><span>이용약관</span></a>
+        </div>
       </footer>
     </div>
   );
