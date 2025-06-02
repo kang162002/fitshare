@@ -6,6 +6,7 @@ import { useState } from 'react';
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
+  
   return(
     <>
      {showSplash ? (

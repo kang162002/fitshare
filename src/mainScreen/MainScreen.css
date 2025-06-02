@@ -1,4 +1,3 @@
-기본 색상 변수 설정
 :root {
   --main-color: #1b1b1b;
   /* 배경색 */
@@ -27,7 +26,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-} 
+}
 
 /* 전체 배경 비디오 설정 */
 .bio-background-video {
@@ -65,19 +64,20 @@ body {
   justify-content: flex-end;
   /* 오른쪽 정렬 */
   padding: 10px 30px;
-  
+
   /* backdrop-filter: blur(1px); */
   /* 반투명 배경 */
   font-size: 10px;
   font-size: 0.8rem;
   /* 글자 크기 */
-  
+
 }
 
 .bio-left-nav {
   display: flex;
   align-items: center;
-  gap: 80px; /* 로고와 메뉴 사이 간격 */
+  gap: 80px;
+  /* 로고와 메뉴 사이 간격 */
 }
 
 /* 네비게이션 바 내 링크 스타일 */
@@ -178,13 +178,17 @@ body {
 /* 히어로 섹션 스타일 */
 .bio-hero {
   display: flex;
-  flex-direction: column; /* 수직 정렬 */
-  justify-content: center; /* 수직 중앙 정렬 */
-  align-items: center;     /* 가로 중앙 정렬 */
- 
-  
+  flex-direction: column;
+  /* 수직 정렬 */
+  justify-content: center;
+  /* 수직 중앙 정렬 */
+  align-items: center;
+  /* 가로 중앙 정렬 */
+  height: 80vh;
+
+
   width: 100%;
-  height: 80vh; 
+  height: 80vh;
   /* 화면 전체 높이 */
   padding: 0 20px;
   text-align: center;
@@ -192,7 +196,8 @@ body {
 }
 
 .mainScreen-content {
-  flex: 1; /* 본문이 남은 영역 채움 */
+  flex: 1;
+  /* 본문이 남은 영역 채움 */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -269,11 +274,12 @@ body {
 
 @keyframes pageFlip {
   from {
-   
+
     opacity: 0;
   }
+
   end {
-    
+
     opacity: 1;
   }
 
@@ -282,7 +288,7 @@ body {
 /*  미디어 배경화면면 */
 .bio-background-video {
   animation: pageFlip 2s ease-in-out;
- 
+
 }
 
 .bio-main-menu .bio-menu-links a:hover {
@@ -460,8 +466,9 @@ body {
 /* 푸터 부분  */
 .mainScreen-footer {
   width: 100%;
+  height: 100px;
   padding: 10px 20px;
-  background-color: rgb(165, 165, 165);
+  background-color: rgb(37, 37, 37);
   position: fixed;
   bottom: 0;
   left: 0;
@@ -471,7 +478,8 @@ body {
 
 .mainScreen-footer span {
   display: inline-block;
- float: left;
-  font-size: 0.7rem;
+  float: left;
+  font-size: 0.8rem;
+  color: white;
 
 }
