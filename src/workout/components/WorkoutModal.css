@@ -13,7 +13,7 @@
 
 
 .workout-modal-box {
-    background-color: #5c1a1a;
+    background-color: #444444;
     color: #fff;
     width: 1000px;
     border-radius: 20px;
@@ -74,7 +74,7 @@
 .workout-tab {
     padding: 0.5rem 1rem;
     border: none;
-    background-color: #8c2c2c;
+    background-color: #636363;
     color: #fff;
     border-radius: 8px;
     cursor: pointer;
@@ -82,15 +82,15 @@
 }
 
 .workout-tab:hover {
-    background-color: #a33a3a;
+    background-color: #494949;
 }
 
 .workout-tab.active {
-    background-color: #d94f4f;
+    background-color: #6d6d6d;
 }
 
 .workout-tab-content {
-    background-color: #7a1f1f;
+    background-color: #4e4e4e;
     padding: 1rem;
     border-radius: 10px;
     font-size: 0.95rem;
@@ -98,7 +98,7 @@
 }
 
 .workout-routine {
-    background-color: #7a1f1f;
+    background-color: #525252;
     padding: 1rem;
     border-radius: 10px;
 }
