@@ -16,21 +16,33 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #ebecf0;
-
+    align-content: center;
+    background: #353535;
     overflow: hidden;
 }
 
+.account-title {
+    background-image: url('../account/image/Fitlogo2.png');
+    width: 210px;
+    height: 160px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0px;
+
+}
+
+
+
 .account-container {
     border-radius: 10px;
-    box-shadow: -5px -5px 10px #fff, 5px 5px 10px #babebc;
     position: absolute;
     width: 768px;
     min-height: 480px;
     overflow: hidden;
 }
 
-form {
+.account-form {
     background: #ebecf0;
     display: flex;
     flex-direction: column;
@@ -40,7 +52,7 @@ form {
     align-items: center;
 }
 
-form input {
+.account-form .account-input {
     background: #eee;
     padding: 16px;
     margin: 8px 0;
@@ -51,7 +63,7 @@ form input {
     box-shadow: inset 7px 2px 10px #babebc, inset -5px -5px 12px #fff;
 }
 
-button {
+.account-button {
     border-radius: 20px;
     border: none;
     outline: none;
@@ -62,7 +74,7 @@ button {
     letter-spacing: 1px;
     text-transform: uppercase;
     cursor: pointer;
-    transition: transform 80ms ease-in;
+    transition: trasnsform 80ms ease-in;
 }
 
 .account-form-btn {
@@ -74,9 +86,8 @@ button {
 }
 
 .account-overlay-btn {
-    background-color: #ff4b2b;
-    color: #fff;
-    box-shadow: -5px -5px 10px #ff6b3f, 5px 5px 8px #bf4b2b;
+    opacity: 0.8;
+    box-shadow: -5px -5px 10px, 5px 5px 8px;
 }
 
 .account-sign-in-container {
@@ -110,6 +121,7 @@ button {
     background-color: #ff4b2b;
     color: #fff;
     transition: all 0.5s;
+    filter: grayscale(1);
 }
 
 .account-overlay-right {
@@ -125,6 +137,7 @@ button {
     background-color: #ff4b2b;
     color: #fff;
     transition: all 0.5s;
+    filter: grayscale(1);
 }
 
 .account-container.right-panel-active .account-sign-in-container {
@@ -153,20 +166,20 @@ button {
     margin: 20px 0;
 }
 
-form h1 {
+.account-form .account-h1 {
     font-weight: bold;
     margin: 0;
     color: #000;
 }
 
-p {
-    font-size: 16px;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-    margin: 20px 0 30px;
+.account-a {
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    margin: 15px 0;
 }
 
-span {
+.account-span {
     font-size: 12px;
     color: #000;
     letter-spacing: 0.5px;
@@ -181,13 +194,12 @@ span {
     justify-content: center;
     align-items: center;
     margin: 0 10px;
-    margin-top: 10px;
     border-radius: 50%;
     box-shadow: -1px -1px 1px #fff, 1px 2px 4px #babebc;
     cursor: pointer;
 }
 
-.account-social-links a {
+.account-social-links .account-a {
     color: #000;
 }
 

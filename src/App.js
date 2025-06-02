@@ -1,10 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
 import Account from './account/Account';
+import AccountRecoveryModal from './account/AccountRecoveryModal';
 
 function App() {
 
-  return <Account/>;
+  // return <Account/>;
+  return <AccountRecoveryModal/>;
 
   // return (
   //   <div className="App">
