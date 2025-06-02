@@ -1,0 +1,102 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css");
+
+
+* {
+    box-sizing: border-box;
+}
+
+.account-re-body {
+    height: 100vh;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    align-content: center;
+}
+
+.account-re-div {
+    align-content: center;
+    
+}
+
+.account-re-wrapper {
+    display: flex;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+.account-re-email-container {
+    width: 450px;
+    height: 500px;
+    background-color: lightgray;
+    border-radius: 30px;
+
+}
+
+.account-re-email-h1 {
+
+}
+
+.account-re-pass-container {
+    width: 450px;
+    height: 500px;
+    background-color: lightgray;
+    border-left: 2px dashed lightcoral;
+    border-radius: 30px;
+
+}
+
+.account-re-form .account-re-input {
+    background: #fdfafa;
+    padding: 12px;
+    margin: 8px 0;
+    width: 55%;
+    border: 0;
+    outline: none;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 15px;
+
+    margin-left: 50px;
+}
+
+.account-re-sub-btn {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    height: 40px;
+    border-radius: 30px;
+    color: #000000;
+    font-size: 15px;
+    justify-content: flex-end;
+    margin-top: 30px;
+
+    cursor: pointer;
+}
+
+.account-re-btn {
+    margin-left: 10px;
+    width: 100px;
+    height: 40px;
+    border-radius: 30px;
+    color: #000000;
+    font-size: 14px;
+
+
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.account-re-select {
+    margin-right: 5px;
+    width: 60px;
+    height: 30px;
+    border-color: #fdfafa;
+    border-radius: 10px;
+    color: #000000;
+    font-size: 15px;
+}
+
+.account-re-h1 {
+    text-align: center;
+}
