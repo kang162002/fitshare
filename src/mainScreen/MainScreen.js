@@ -169,7 +169,7 @@ function MainScreen() {
                 <div className="mainScreen_search_container">
                   <input
                     type="text"
-                    placeholder="검색하세요"
+                    placeholder="검색하세요.."
                     spellCheck="false"
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
