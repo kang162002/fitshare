@@ -5,14 +5,12 @@ import MainSplash from './mainSplash/MainSplash';
 import { useState } from 'react';
 
 function App() {
-  const [showSplash, setShowSplash] = useState(true);
-  
-   const [isSplashVisible, setIsSplashVisible] = useState(true);
+  const [isSplashVisible, setIsSplashVisible] = useState(true);
 
   return(
     <>
-    {showSplash ? (
-        <MainSplash onFinish={() => setShowSplash(false)} />
+      {isSplashVisible ? (
+        <MainSplash onFinish={() => setIsSplashVisible(false)} />
       ) : (
         <MainScreen />
       )}
