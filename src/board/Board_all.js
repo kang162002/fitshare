@@ -1,41 +1,19 @@
 import { useState } from "react";
 import { POSTS_PER_PAGE } from './constants';
+import { Navigate, useNavigate } from "react-router";
+import allPosts from './Posts';
 
-const allPosts = {
-    all: [
-        { id: 1, title: "GYM 추천 드려요~", writer: "PERSONAL TRAINER", date: "2025.05.30", type: "GYM", views: 3250 },
-        { id: 2, title: "꿀팁 대방출!", writer: "이승권(물리치료사)", date: "2025.05.30", type: "TIP", views: 8632 },
-        { id: 3, title: "축구팀 회원 모집 합니다", writer: "BoatFC(청주)", date: "2025.05.29", type: "TEAM", views: 8500 },
-        { id: 4, title: "다이어트 후기(100KG → 53KG)", writer: "다이어트요정", date: "2025.05.29", type: "DIET", views: 2224 },
-        { id: 5, title: "홈트 장비 추천!", writer: "홈트레이닝마스터", date: "2025.05.28", type: "HT", views: 33326 },
-        { id: 6, title: "GYM 가슴 운동 루틴", writer: "이승권(헬스트레이너)", date: "2025.05.27", type: "GYM", views: 65653 },
-        { id: 7, title: "다이어트 유산소 운동 추천", writer: "유산소여왕", date: "2025.05.26", type: "DIET", views: 523 },
-        { id: 8, title: "다이어트 근력 운동 추천", writer: "유산소여왕", date: "2025.05.26", type: "DIET", views: 321 },
-        { id: 9, title: "축구 입문자를 위한 팁", writer: "손흥민(축구선수)", date: "2025.05.25", type: "TIP", views: 2632 },
-        { id: 10, title: "사회인야구팀 회원 모집 합니다", writer: "EAGLES(대전)", date: "2025.05.24", type: "TEAM", views: 10200 },
-        { id: 11, title: "쉽게 하는 홈트레이닝", writer: "홈트레이닝입문자", date: "2025.05.22", type: "HT", views: 8523 },
-        { id: 12, title: "다이어트를 위한 홈트레이닝", writer: "HT다이어트", date: "2025.05.23", type: "HT", views: 33322 },
-        { id: 13, title: "GYM 어깨 운동 루틴", writer: "이승권(헬스트레이너)", date: "2025.05.15", type: "GYM", views: 5001 },
-        { id: 14, title: "GYM 등 운동 루틴", writer: "이승권(헬스트레이너)", date: "2025.04.15", type: "GYM", views: 96312 },
-        { id: 15, title: "GYM 하체 운동 루틴", writer: "이승권(헬스트레이너)", date: "2025.03.23", type: "GYM", views: 22452 },
-        { id: 16, title: "야구 입문자를 위한 팁", writer: "박찬호(야구선수)", date: "2024.12.30", type: "TIP", views: 68963 },
-        { id: 17, title: "농구 입문자를 위한 팁", writer: "마이클 조던(농구선수)", date: "2023.09.27", type: "TIP", views: 98963 },
-        { id: 18, title: "배구 입문자를 위한 팁", writer: "김연경(배구선수)", date: "2024.03.20", type: "TIP", views: 66532 },
-        { id: 19, title: "족구팀 회원 모집 합니다", writer: "JOKBAL(마산)", date: "2023.05.11", type: "TEAM", views: 3039 },
-        { id: 20, title: "볼링팀 회원 모집 합니다", writer: "BALLBALL(천안)", date: "2025.01.11", type: "TEAM", views: 693 },
-    ],
-        gym: [],
-        tips: [],
-        sports: [],
-        diet: [],
-        ht: []
-    };
+
+
+    
 
         export default function Board_all() {
+            const navigate = useNavigate();
             const [selectedBoard, setSelectedBoard] = useState("all");
             const [sortType, setSortType] = useState("id"); // 'id', 'views', 'date'
             const [currentPage, setCurrentPage] = useState(1);
 
+            
 
             const filteredPosts = selectedBoard === "all"
                 ? allPosts.all
@@ -53,6 +31,8 @@ const allPosts = {
         if (sortType === "date") return new Date(b.date) - new Date(a.date);
         return b.id - a.id;
     });
+
+    
 
     const totalPages = Math.ceil(sortedPosts.length / POSTS_PER_PAGE);
     
@@ -180,6 +160,7 @@ const allPosts = {
         </div>
 
         <button
+            onClick={()=>Navigate("/write")}
             style={{
             marginTop: '16px',
             padding: '10px 20px',
