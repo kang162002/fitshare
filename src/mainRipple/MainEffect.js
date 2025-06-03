@@ -7,10 +7,10 @@ function MainEffect({x,y,id}) {
     return (
     <span
       key={id}
-      className="mainScreen_ripple"
+      className="ripple"
       style={{
-        left: `${x - 20}px`,
-        top: `${y - 20}px`,
+        left: `${x - 5}px`,
+        top: `${y - 5}px`,
         // animation: "rippleEffect 0.6s ease-out forwards",
       }}
     />

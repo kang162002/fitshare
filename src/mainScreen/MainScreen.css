@@ -55,20 +55,23 @@ body {
 }
 
 .mainScreen_logo {
-  font-size: 24px;
-  font-weight: bold;
-  color: #b71c1c;
-  cursor: pointer;
+display: flex;
+align-items: center;
+height: 100%;
+}
+
+.mainScreen_main_logo_image>img {
+  object-fit: cover;
 }
 
 .mainScreen_menu_links,
-.mainScreen_menu_with_submenu > a {
+.mainScreen_menu_with_submenu>a {
   display: flex;
   gap: 85px;
 }
 
 .mainScreen_menu_links a,
-.mainScreen_menu_with_submenu > a {
+.mainScreen_menu_with_submenu>a {
   position: relative;
   display: inline-block;
   color: var(--text-color);
@@ -89,27 +92,37 @@ body {
 .mainScreen_top_nav a:hover {
   color: var(--accent-color);
   background: rgba(190, 190, 190, 0.21);
-  border-radius: 50px;
+  border-radius: 30px;
   border-bottom: 2px solid #ffffff76;
   transition: 0.5s;
+}
+
+.mainScreen_top_nav>a{
+  color: #ff3c53;
 }
 
 /* 서브 메뉴 호버 시 열림 */
 .mainScreen_menu_with_submenu {
   position: relative;
   display: inline-block;
+  text-align: center;
+  align-items: center;
 }
+
 
 .mainScreen_menu_with_submenu:hover .mainScreen_main_submenu_container {
   display: flex;
   cursor: pointer;
 }
 
+
+
 .mainScreen_main_submenu_container {
   display: none;
   position: absolute;
   top: 100%;
-  left: 0;
+  left: 0%;
+  transform: translateX(-50%);
   background: rgba(0, 0, 0, 0.406);
   padding: 20px;
   border-radius: 50px;
@@ -119,13 +132,14 @@ body {
 }
 
 .main_submenu_item {
-  all: unset;
+  /* all: unset; */
   display: block;
   color: white;
   padding: 10px 15px;
   font-size: 0.5rem;
   line-height: 1.6;
   cursor: pointer;
+
 }
 
 .main_submenu_item:hover {
@@ -133,11 +147,16 @@ body {
   color: #ff3c53;
   width: 110px;
   font-size: 0.8rem;
+
+
 }
 
 /* 검색창 래퍼 */
 .mainScreen_search_wrapper {
   display: flex;
+  width: 100%;
+  max-width: 600px;
+  padding: 0 20px;
   justify-content: center;
   margin-bottom: 25px;
   background-size: cover;
@@ -159,28 +178,96 @@ body {
   
 }
 
+/*  검색창 돋보기  */
+
+.mainScreen_search_container {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  max-width: 90%;
+}
+
+
+.mainScreen_search_container>input {
+  text-align: center;
+}
+
+.mainScreen_search {
+  flex: 1;
+  /* padding: 10px 40px 10px 35px; */
+  /* 왼쪽 여백 이미지 공간 확보 */
+  border: none;
+  border-radius: 50px 0 0 50px;
+  font-size: 0.8rem;
+  background: rgba(255, 255, 255, 0.596);
+  color: white;
+  outline: none;
+
+}
+
+.mainScreen_search_button {
+  padding: 10px 16px;
+  border: none;
+  background-color: var(--text-color);
+  color: white;
+  border-radius: 0 50px 50px 0;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+
+  /* ✅ 핵심 추가 스타일 */
+  white-space: nowrap;
+  /* 텍스트 줄바꿈 방지 */
+  display: flex;
+  /* 수평 정렬 */
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  /* 텍스트 위아래 정렬 */
+}
+
+
+
+
+
+
+.mainScreen_search_button {
+  padding: 10px 15px;
+  border: none;
+  background-color: var(--text-color);
+  color: white;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.mainScreen_search_button:hover {
+  background-color: #ff4e5e;
+}
+
+/* 돋보기 이미지 끝 */
+
 /* 검색 input 기본 스타일 */
 .mainScreen_search {
-  width: 85px;
+  /* width: 100%; */
+  width: 150px;
   height: 25px;
   background-size: cover;
-  color: transparent;
+
   font-size: 1rem;
   transition: all 0.25s ease-in 0.25s;
   padding: 10px;
   border: none;
   border-radius: 50px;
   outline: none;
+  
 }
-
-/* .mainScreen_search input{ */
-  /* left: 10%; */
-/* } */
-
 
 /* 검색창 포커스 확장 */
 .mainScreen_search:focus {
-  width: 500px;
+  width: 400px;
   color: white;
   background: rgba(160, 160, 160, 0.5);
 }
@@ -234,12 +321,16 @@ body {
   position: relative;
 }
 
+
+
+
+
 /* 푸터 영역 */
 .mainScreen_footer {
   width: 100%;
   height: 40px;
   padding: 10px 20px;
-  background-color: rgba(206, 206, 206, 0.422);
+  background-color: rgb(165, 165, 165);
   position: fixed;
   bottom: 0;
   left: 0;
@@ -265,6 +356,7 @@ body {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -275,6 +367,7 @@ body {
     opacity: 0;
     transform: scale(0.8);
   }
+
   100% {
     opacity: 1;
     transform: scale(1);
@@ -282,10 +375,14 @@ body {
 }
 
 @keyframes dotFlashing {
+
+  0%,
+  100% {
   0%,
   100% {
     opacity: 0.2;
   }
+
   50% {
     opacity: 1;
   }

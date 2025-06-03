@@ -13,8 +13,12 @@ const videoSources = [
 function MainScreen() {
   const [ripples, setRipples] = useState([]); // 클릭 효과 저장
   const wrapperRef = useRef(null); // ripple 위치 계산용 ref
+  const [query, setQuery]= useState(" ");
+  const videoRefs = useRef([]);
 
   // 클릭 시 ripple 효과 위치 계산 및 추가
+
+
   const handleClick = (e) => {
     if (!wrapperRef.current) return;
     const rect = wrapperRef.current.getBoundingClientRect();
@@ -29,7 +33,7 @@ function MainScreen() {
     }, 600);
   };
 
-  const videoRefs = useRef([]);
+
   useEffect(() => {
     let current = 0;
 
@@ -57,6 +61,12 @@ function MainScreen() {
     playVideo(current); // 첫 비디오 시작
   }, []);
 
+  // 검색 폼 제출 핸들러
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    console.log("검색어:", query);
+    // TODO: 검색 실행 로직 추가
+  };
   return (
     <div className="main_Screen_page_wrapper">
       {/* Ripple 배경 효과 */}
@@ -75,7 +85,9 @@ function MainScreen() {
           <video
             key={idx}
             ref={(el) => (videoRefs.current[idx] = el)}
-            className={`mainScreen_background_video ${idx === 0 ? "active" : ""}`}
+            className={`mainScreen_background_video ${
+              idx === 0 ? "active" : ""
+            }`}
             muted
             playsInline
           >
@@ -87,7 +99,7 @@ function MainScreen() {
         <div className="mainScreen_main_menu">
           <div className="mainScreen_logo">
             <a href="#" className="mainScreen_main_logo_image">
-              <img src="" width="90" height="50" alt="Logo" />
+              <img src="/images/mainImage/Fitlogo2.png" width="90" height="50" alt="Logo" />
             </a>
           </div>
 
@@ -98,10 +110,18 @@ function MainScreen() {
             <div className="mainScreen_menu_with_submenu">
               <a href="#">운동</a>
               <div className="mainScreen_main_submenu_container">
-                <a href="#" className="main_submenu_item">GYM</a>
-                <a href="#" className="main_submenu_item">홈트레이닝</a>
-                <a href="#" className="main_submenu_item">스트레칭</a>
-                <a href="#" className="main_submenu_item">다이어트</a>
+                <a href="#" className="main_submenu_item">
+                  GYM
+                </a>
+                <a href="#" className="main_submenu_item">
+                  홈트레이닝
+                </a>
+                <a href="#" className="main_submenu_item">
+                  스트레칭
+                </a>
+                <a href="#" className="main_submenu_item">
+                  다이어트
+                </a>
               </div>
             </div>
 
@@ -109,12 +129,24 @@ function MainScreen() {
             <div className="mainScreen_menu_with_submenu">
               <a href="#">게시판</a>
               <div className="mainScreen_main_submenu_container">
-                <a href="#" className="main_submenu_item">전체게시판</a>
-                <a href="#" className="main_submenu_item">GYM게시판</a>
-                <a href="#" className="main_submenu_item">홈트레이닝 게시판</a>
-                <a href="#" className="main_submenu_item">스포츠동호회 게시판</a>
-                <a href="#" className="main_submenu_item">다이어트 게시판</a>
-                <a href="#" className="main_submenu_item">기타게시판</a>
+                <a href="#" className="main_submenu_item">
+                  전체게시판
+                </a>
+                <a href="#" className="main_submenu_item">
+                  GYM게시판
+                </a>
+                <a href="#" className="main_submenu_item">
+                  홈트레이닝 게시판
+                </a>
+                <a href="#" className="main_submenu_item">
+                  스포츠동호회 게시판
+                </a>
+                <a href="#" className="main_submenu_item">
+                  다이어트 게시판
+                </a>
+                <a href="#" className="main_submenu_item">
+                  기타게시판
+                </a>
               </div>
             </div>
           </nav>
@@ -129,6 +161,7 @@ function MainScreen() {
         <main className="mainScreen_content">
           <div className="mainScreen_hero">
             <div className="mainScreen_content">
+<<<<<<< HEAD
               {/* 검색 입력창 */}
               <div className="mainScreen_search_wrapper">
                 <input
@@ -139,6 +172,28 @@ function MainScreen() {
                 ></input>
                 <img  src={process.env.PUBLIC_URL + '/images/mainImage/reading.png'}></img>
               </div>
+=======
+              {/* 검색 입력창 (엔터+버튼 가능) */}
+              <form
+                onSubmit={handleSearchSubmit}
+                className="mainScreen_search_wrapper"
+              >
+                <div className="mainScreen_search_container">
+                  <input
+                    type="text"
+                    placeholder="검색하세요.."
+                    spellCheck="false"
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                    className="mainScreen_search"
+                  />
+                  <button type="submit" className="mainScreen_search_button">
+                    검색
+                  </button>
+                </div>
+              </form>
+
+>>>>>>> d55596a1bfaeb546e1ba3bdde1e42f7586665b6f
               {/* 메인 문구 */}
               <h1>처음 운동하는 마음 BIOMIND</h1>
             </div>
@@ -153,8 +208,12 @@ function MainScreen() {
             회사 주소 : 충남 천안시 동남구 대흥로 215 7층, 8층 상담 번호:
             1566-9564
           </span>
-          <a href="#"><span>고객센터</span></a>
-          <a href="#"><span>이용약관</span></a>
+          <a href="#">
+            <span>고객센터</span>
+          </a>
+          <a href="#">
+            <span>이용약관</span>
+          </a>
         </div>
       </footer>
     </div>

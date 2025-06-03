@@ -5,7 +5,7 @@ function MainSplash({ onFinish = () => {} }) {
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    const timer1 = setTimeout(() => setFadeOut(true), 2000);
+    const timer1 = setTimeout(() => setFadeOut(true), 2300);
     const timer2 = setTimeout(onFinish, 2500);
 
     return () => {
