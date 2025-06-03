@@ -140,11 +140,28 @@ body {
   display: flex;
   justify-content: center;
   margin-bottom: 25px;
+  background-size: cover;
+  color: transparent;
+  font-size: 1rem;
+  transition: all 0.25s ease-in 0.25s;
+  padding: 10px;
+  border: none;
+  border-radius: 50px;
+  outline: none;
+  justify-content: space-between;
+
+}
+
+.mainScreen_search_wrapper img{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  
 }
 
 /* 검색 input 기본 스타일 */
 .mainScreen_search {
-  width: 25px;
+  width: 85px;
   height: 25px;
   background-size: cover;
   color: transparent;
@@ -155,6 +172,11 @@ body {
   border-radius: 50px;
   outline: none;
 }
+
+/* .mainScreen_search input{ */
+  /* left: 10%; */
+/* } */
+
 
 /* 검색창 포커스 확장 */
 .mainScreen_search:focus {
@@ -226,7 +248,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
 .mainScreen_footer_content {
@@ -238,7 +259,6 @@ body {
   font-size: 0.8rem;
   color: #222;
 }
-
 
 /* 애니메이션 정의 */
 @keyframes pageFlip {
@@ -262,7 +282,8 @@ body {
 }
 
 @keyframes dotFlashing {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.2;
   }
   50% {

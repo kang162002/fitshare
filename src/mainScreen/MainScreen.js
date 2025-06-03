@@ -136,12 +136,13 @@ function MainScreen() {
                   placeholder=" "
                   spellCheck="false"
                   className="mainScreen_search mainScreen_custom_search"
-                />
+                ></input>
+                <img  src={process.env.PUBLIC_URL + '/images/mainImage/reading.png'}></img>
               </div>
               {/* 메인 문구 */}
               <h1>처음 운동하는 마음 BIOMIND</h1>
             </div>
-          </div>
+          </div> 
         </main>
       </div>
 
