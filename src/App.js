@@ -5,8 +5,8 @@ import AccountRecoveryModal from './account/AccountRecoveryModal';
 
 function App() {
 
-  // return <Account/>;
-  return <AccountRecoveryModal/>;
+  return <Account/>;
+  // return <AccountRecoveryModal/>;
 
   // return (
   //   <div className="App">

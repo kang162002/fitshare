@@ -14,22 +14,52 @@
 }
 
 .account-re-div {
-    align-content: center;
-    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px; /* 여백 추가 */
+    width: 100%;
 }
-
 .account-re-wrapper {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-
-    overflow: hidden;
+    align-items: center;
+    height: 100vh;
 }
+
+.account-re-container {
+    display: flex; /* 양쪽 박스를 가로로 배치 */
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* 양쪽 박스 간 간격 */
+    border-radius: 10px;
+    width: 900px;
+    min-height: 500px;
+    background-color: transparent; /* 배경 없으면 지워도 됨 */
+}
+
+.account-re-form {
+    background: #ebecf0;
+    display: flex;
+    flex-direction: column;
+    padding: 0 30px;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 350px; /* 입력 폼 폭 제한 */
+}
+
+
 
 .account-re-email-container {
     width: 450px;
     height: 500px;
     background-color: lightgray;
+
     border-radius: 30px;
+
 
 }
 
@@ -41,50 +71,57 @@
     width: 450px;
     height: 500px;
     background-color: lightgray;
-    border-left: 2px dashed lightcoral;
     border-radius: 30px;
-
 }
 
 .account-re-form .account-re-input {
     background: #fdfafa;
     padding: 12px;
-    margin: 8px 0;
-    width: 55%;
-    border: 0;
+    width: 100%; /* 부모의 너비를 꽉 채움 */
+    border: 1px solid #ccc;
     outline: none;
     border-radius: 10px;
-    text-align: center;
     font-size: 15px;
-
-    margin-left: 50px;
+    text-align: left; /* ← 왼쪽 정렬 */
+    margin: 5px 0; /* 위아래 여백 추가 */
 }
 
+
 .account-re-sub-btn {
-    display: block;
-    margin: 0 auto;
+    margin-top: auto;
+    align-self: center;
     width: 200px;
     height: 40px;
     border-radius: 30px;
     color: #000000;
     font-size: 15px;
-    justify-content: flex-end;
-    margin-top: 30px;
-
     cursor: pointer;
+}
+
+.account-re-emailsub-btn {
+    margin-top: 140px;
 }
 
 .account-re-btn {
     margin-left: 10px;
-    width: 100px;
+    width: 115px;
     height: 40px;
     border-radius: 30px;
     color: #000000;
-    font-size: 14px;
-
-
+    font-size: 12px;
     text-transform: uppercase;
     cursor: pointer;
+}
+
+.account-re-modal-close-btn {
+    margin-top: 20px; /* 위 여백 */
+    width: 200px;
+    height: 40px;
+    border-radius: 30px;
+    color: #000000;
+    font-size: 15px;
+    cursor: pointer;
+    align-self: center; /* 중앙 정렬 */
 }
 
 .account-re-select {
@@ -99,4 +136,5 @@
 
 .account-re-h1 {
     text-align: center;
+    
 }
