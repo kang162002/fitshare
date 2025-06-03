@@ -19,13 +19,23 @@
     margin: 0;
 }
 
+.workout-header h1 {
+    color: #f52e2b;
+    font-size: 5rem;
+}
+
+.workout-header p {
+    color: #e53935;
+    font-size: 2rem;
+}
+
 .workout-container {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     padding: 40px 20px;
-    background-color: rgb(73, 73, 73);
+    background-color: rgb(40, 40, 40);
 }
 
 .workout-tag-buttons {
@@ -43,11 +53,19 @@
     height: 100%;
     border: 1px solid black;
     align-content: center;
-    background-color: #a3a3a3;
+    background-color: #2e2e2e;
+    color: #cccccc;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.workout-tag:hover {
+    background-color: #c0392b;
 }
 
 .workout-tag-selected {
-    background-color: #7c7c7c;
+    background-color: #b71c1c;
+    color: white;
     font-weight: bold;
 }
 
@@ -55,6 +73,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 30px;
+    margin: 100px;
     height: 400px;
     width: fit-content;
     background-color: #a3a3a3;
@@ -78,13 +97,14 @@
 }
 
 .workout-card {
-    width: 150px;
-    height: 150px;
-    background: rgb(187, 187, 187);
+    width: 180px;
+    height: 180px;
+    background: rgb(158, 158, 158);
     background-image: none;
     background-size: cover;
     border-radius: 16px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -93,12 +113,12 @@
     cursor: pointer;
     white-space: pre-line;
     text-align: center;
+    
 }
 
 .workout-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
-    /* background-image: url("../../public/images/squat_icon.jpg"); */
     opacity: 0.8;
 }
 
