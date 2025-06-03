@@ -1,0 +1,15 @@
+.workout-header {
+    height: 230px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #a3a3a3;
+    background-image: url('../../public/images/running_main.jpg');
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    font-weight: bold;
+    color: rgb(205, 2, 2);
+}
