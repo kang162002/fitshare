@@ -13,27 +13,47 @@
     align-content: center;
     top: 0;
     position: fixed;
-    background-color: rgba(92, 92, 92, 0.404);
+}
+
+.account-re-bg {
+    width: 900px;
+    height: 700px;
+    background: #242424;
+    position: fixed;
+    top: 160px;
+    display: flex;
+    flex-direction: column;
+
+    animation: slideUpFadeIn 0.6s ease-out forwards;
+}
+
+.account-re-bg-top {
+    display: flex;
+    margin-top: 50px;
+}
+
+.account-re-bg-bottom {
+    display: flex;
+    justify-content: center;
 }
 
 .account-re-div {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     /* 여백 추가 */
     width: 100%;
 }
 
 .account-re-wrapper {
-    left: 15px;
-    top: 29px;
+
+    top: 160px;
     position: fixed;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 }
 
 .account-re-container {
@@ -41,46 +61,29 @@
     /* 양쪽 박스를 가로로 배치 */
     justify-content: center;
     align-items: center;
-    gap: 20px;
+
     /* 양쪽 박스 간 간격 */
     border-radius: 10px;
-    width: 900px;
+    width: 780px;
     min-height: 500px;
     background-color: transparent;
     /* 배경 없으면 지워도 됨 */
 }
 
 .account-re-form {
+    border-radius: 10px;
+
     background: #ebecf0;
     display: flex;
     flex-direction: column;
     padding: 0 30px;
     height: 100%;
     justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-width: 350px;
+    width: 370px;
+    height: 520px;
     /* 입력 폼 폭 제한 */
 }
 
-
-
-.account-re-email-container {
-    width: 450px;
-    height: 500px;
-    background-color: lightgray;
-
-    border-radius: 30px;
-}
-
-.account-re-email-h1 {}
-
-.account-re-pass-container {
-    width: 450px;
-    height: 500px;
-    background-color: lightgray;
-    border-radius: 30px;
-}
 
 .account-re-form .account-re-input {
     text-align: left;
@@ -102,6 +105,7 @@
 
 .account-re-sub-btn {
     box-shadow: -2px -3px 5px #fff, 4px 4px 1px #babebc;
+    background-color: #e0dfdf;
     border: none;
     margin-top: auto;
     align-self: center;
@@ -123,7 +127,8 @@
 }
 
 .account-re-btn {
-    box-shadow: -5px -5px 10px #fff, 4px 2px 1px #babebc;
+    box-shadow: -5px -5px 10px #fff, 4px 2px 1px #999999;
+    background-color: #e0dfdf;
     border: none;
     margin-left: 10px;
     width: 115px;
@@ -141,7 +146,9 @@
 }
 
 .account-re-modal-close-btn {
-    margin-top: 20px;
+    margin-top: 50px;
+
+
     /* 위 여백 */
     width: 200px;
     height: 40px;
@@ -177,3 +184,25 @@
     line-height: 250%;
 }
 
+@keyframes slideUpFadeIn {
+    0% {
+        transform: translateY(500px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUpFadeOut {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(800px);
+    }
+}
+
+.account-re-body.fade-out {
+    animation: slideUpFadeOut 0.6s ease-out forwards;
+}
