@@ -4,6 +4,9 @@ import { Routes, Route, useRoutes, useNavigate }  from "react-router";
 import MainScreen from "./MainScreen";
 import ErrorPage from "../errorPage/ErrorPage";
 import Account from "../account/Account";
+import Workout_stretch from "../workout/Workout_stretch";
+import Workout_aero from "../workout/Workout_aero";
+import Workout_gym from "../workout/Workout_gym";
 
 function Fitshare() {
 
@@ -32,15 +35,16 @@ function Fitshare() {
 
           {/* 운동 서브메뉴 */}
           <div className="mainScreen-menu-with-submenu">
-            <a href="/">운동</a>
+            <a>운동</a>
             <div className="mainScreen-main-submenu-container">
-              <a href="/" className="main-submenu-item">
+              <a onClick={()=>{ navigate("/Workout_gym")}} className="main-submenu-item">
                 근력운동
               </a>
-              <a href="/" className="main-submenu-item">
+              
+                <a onClick={()=>{ navigate("/Workout_aero")}}className="main-submenu-item">
                 유산소운동
               </a>
-              <a href="/" className="main-submenu-item">
+                <a onClick={()=>{ navigate("/Workout_stretch")}} className="main-submenu-item">
                 스트레칭
               </a>
             </div>
@@ -82,6 +86,9 @@ function Fitshare() {
         <Route path="/" element={<MainScreen/>}></Route>
         <Route path="/MainScreen" element={<MainScreen />}></Route>
         <Route path="/Account" element={<Account />}></Route>
+        <Route path="/Workout_aero" element={<Workout_aero />}></Route>
+        <Route path="/Workout_stretch" element={<Workout_stretch />}></Route>
+        <Route path="/Workout_gym" element={<Workout_gym />}></Route>
 
         <Route
           path="*"

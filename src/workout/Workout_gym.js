@@ -37,8 +37,8 @@ function Workout_gym() {
     return (
         <>
             <div className='workout-gym-header'>
-                <h1>Gym</h1>
-                <p>체육관에서 할 수 있는 운동 모음</p>
+                <h1>근력 운동</h1>
+                <p>근육을 키우기 위한 운동 모음</p>
             </div>
             <div className='workout-container'>
                 <div className='workout-tag-buttons'>
