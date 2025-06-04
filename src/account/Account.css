@@ -1,7 +1,14 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css");
 
-* {
+
+.account-all {
     box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 999;
 }
 
 .account-body {
@@ -29,7 +36,7 @@
     background-repeat: no-repeat;
     position: absolute;
     top: 0px;
-
+    cursor:pointer;
 }
 
 
@@ -110,7 +117,7 @@
 .account-overlay-left {
     display: flex;
     flex-direction: column;
-    padding: 0 50px;
+    /* padding: 0 50px; */
     justify-content: center;
     align-items: center;
     position: absolute;
@@ -127,7 +134,7 @@
 .account-overlay-right {
     display: flex;
     flex-direction: column;
-    padding: 0 50px;
+    /* padding: 0 50px; */
     justify-content: center;
     align-items: center;
     position: absolute;

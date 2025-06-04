@@ -3,6 +3,7 @@ import { Routes, Route, useRoutes }  from "react-router";
 import { useNavigate} from "react-router-dom";
 import MainScreen from "./MainScreen";
 import ErrorPage from "../errorPage/ErrorPage";
+import Account from "../account/Account";
 
 function Fitshare() {
 
@@ -12,7 +13,7 @@ function Fitshare() {
     }
 
   return (
-    <>
+    <div className="fitshare-nav">
       {/* 네비게이션 바 */}
       <div className="mainScreen-main-menu">
         <div className="mainScreen-logo">
@@ -73,13 +74,14 @@ function Fitshare() {
 
         {/* 로그인 링크 */}
         <div className="mainScreen-top-nav">
-          <a href="/">로그인/회원가입</a>
+          <a onClick={()=>{ navigate("/Account")}} style={{cursor:"pointer"}}>로그인/회원가입</a>
         </div>
       </div>
     
       <Routes>
         <Route path="/" element={<MainScreen/>}></Route>
         <Route path="/MainScreen" element={<MainScreen />}></Route>
+        <Route path="/Account" element={<Account />}></Route>
 
         <Route
           path="*"
@@ -88,7 +90,7 @@ function Fitshare() {
           }
         ></Route>
       </Routes>
-    </>
+    </div>
   );
 }
 

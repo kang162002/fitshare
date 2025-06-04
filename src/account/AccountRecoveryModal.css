@@ -1,8 +1,12 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css");
 
 
-* {
+.account-all {
     box-sizing: border-box;
+}
+
+.account-re-h1 {
+    color: black;
 }
 
 .account-re-body {
@@ -48,8 +52,6 @@
 
 .account-re-wrapper {
 
-    top: 160px;
-    position: fixed;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -76,24 +78,25 @@
     background: #ebecf0;
     display: flex;
     flex-direction: column;
-    padding: 0 30px;
+    padding: 0 15px;
     height: 100%;
     justify-content: center;
-    width: 370px;
+    width: 350px;
     height: 520px;
     /* 입력 폼 폭 제한 */
 }
 
 
 .account-re-form .account-re-input {
-    text-align: left;
+    /* text-align: left; */
     /* ← 왼쪽 정렬 */
-    margin: 5px 0;
+    margin: 10px 0;
+    margin-left: 10px;
     /* 위아래 여백 추가 */
 
     background: #eee;
-    padding: 16px;
-    margin: 8px 0;
+    /* padding: 16px; */
+    /* margin: 8px 0; */
     width: 95%;
     height: 40px;
     border: 0;
@@ -134,7 +137,7 @@
     width: 115px;
     height: 40px;
     border-radius: 30px;
-    font-size: 13px;
+    font-size: 14px;
     text-transform: uppercase;
     cursor: pointer;
     letter-spacing: 1px;

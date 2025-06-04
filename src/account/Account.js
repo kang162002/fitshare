@@ -6,6 +6,10 @@ import account_overlay_right from './image/account_overlay_right.jpg';
 import Fitlogo2 from './image/Fitlogo2.png';
 
 import AccountRecoveryModal from './AccountRecoveryModal';
+import { Routes, Route, useNavigate } from 'react-router';
+import MainScreen from '../mainScreen/MainScreen';
+
+
 
 
 function Account() {
@@ -20,17 +24,20 @@ function Account() {
         setIsRightPanelActive(true);
     };
 
+    let navigate = useNavigate();
+
+
 // ======================== 모달창 ================================================
     const [openModal, setOpenModal] = useState(false);
 
     
     return (
 
-        <>
+        <div className='account-all'>
         <div className="account-body account-div">
             <div className="account-wrapper account-div">
                 <span className='account-bg'></span>
-                <span className='account-title'></span>
+                <span className='account-title' onClick={()=>{ navigate("/")}}></span>
                 <div className={`account-div account-container ${isRightPanelActive ? 'account-right-panel-active' : ''}`}>
                     {/* ====================회원가입 ================== */}
                     <div className="account-sign-up-container account-div">
@@ -58,7 +65,7 @@ function Account() {
                     {/* ====================로그인 ================== */}
                     <div className="account-sign-in-container account-div">
                         <form className='account-form'>
-                            <h1 className='account-h'>Sign In</h1>
+                            <h1 className='account-h1'>Sign In</h1>
                             <input type="email" placeholder="Email" className='account-input'></input>
                             <input type="password" placeholder="Password" className='account-input'></input>
 
@@ -102,9 +109,13 @@ function Account() {
             </div>
 
         </div>
+        <Routes>
+            <Route path="/" element={<MainScreen/>}></Route>
+        
+        </Routes>
 
         {openModal ? <AccountRecoveryModal openModal={openModal} setOpenModal={setOpenModal} /> : null}
-        </>
+        </div>
     );
 }
 

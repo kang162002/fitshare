@@ -51,7 +51,7 @@ function AccountRecoveryModal({ openModal, setOpenModal }) {
 
 
     return (
-        <>
+        <div className='account-all'>
             <div className={`account-re-body account-re-div ${isAnimating ? 'fade-out' : ''}`}>
                 <div className='account-re-wrapper account-re-div'>
                     <div className='account-re-container'>
@@ -61,7 +61,7 @@ function AccountRecoveryModal({ openModal, setOpenModal }) {
                                 <div className='account-re-email-container account-re-div'>
 
                                     <form className='account-re-form'>
-                                        <h1 className='account-re-h1 account-re-email-h1'>Email 찾기</h1>
+                                        <h1 className='account-re-h1 account-re-email-h1 account-re-div'>Email 찾기</h1>
                                         <input type='text' placeholder='이름' className='account-re-input'></input>
 
                                         <div className='account-re-div'>
@@ -128,7 +128,7 @@ function AccountRecoveryModal({ openModal, setOpenModal }) {
                 </div>
 
             </div>
-        </>
+        </div>
     );
 
 }
