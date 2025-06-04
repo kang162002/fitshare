@@ -15,16 +15,23 @@ function Workout_aero() {
     let [dataIndex, setDataIndex] = useState(0);
 
     let workout_tags = ['모든 운동'];
-
     let [selectedTag, setSelectedTag] = useState(workout_tags[0]);
-
     let imageUrl = ['/images/aerobic_main.jpg'];
 
     const [backgroundImage, setBackgroundImage] = useState(imageUrl[0]);
 
+    const [animationTrigger, setAnimationTrigger] = useState(false);
+
     useEffect(() => {
         const index = workout_tags.indexOf(selectedTag);
         setBackgroundImage(imageUrl[index]);
+        setAnimationTrigger(true);
+
+        const timer = setTimeout(() => {
+            setAnimationTrigger(false);
+        }, 1000);
+
+        return () => clearTimeout(timer);
     }, [selectedTag]);
 
 
@@ -53,14 +60,14 @@ function Workout_aero() {
                 <div className='workout-grid' style={{ backgroundImage: `url(${backgroundImage})` }}>
                     {aeroDatas.map((name, index) => {
                         if (selectedTag === "모든 운동") {
-                            return <div key={index} className='workout-card' onClick={() => {
+                            return <div key={index} className={`workout-card ${animationTrigger ? 'workout-slide-animation' : ''}`} onClick={() => {
                                 setDataIndex(index);
                                 setShowModal(true);
                             }}>{name.title}</div>
                         }
 
                         if (aeroDatas[index].tool === selectedTag) {
-                            return <div key={index} className='workout-card' onClick={() => {
+                            return <div key={index} className={`workout-card ${animationTrigger ? 'workout-slide-animation' : ''}`}onClick={() => {
                                 setDataIndex(index);
                                 setShowModal(true);
                             }}>{name.title}</div>

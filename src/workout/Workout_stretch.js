@@ -1,21 +1,21 @@
-import './Workout_gym.css';
+import './Workout_stretch.css';
 import { useEffect, useState } from 'react';
 import WorkoutModal from './components/WorkoutModal';
-import workoutData from './data/workoutData';
+import stretchData from './data/stretchData';
 
 
 
-function Workout_gym() {
+function Workout_stretch() {
 
     const [showModal, setShowModal] = useState(false);
 
-    let [workoutDatas, setWorkoutDatas] = useState(workoutData);
+    let [stretchDatas, setStretchDatas] = useState(stretchData);
 
     let [dataIndex, setDataIndex] = useState(0);
 
-    let workout_tags = ['모든 운동', '덤벨', '바벨', '스미스머신', '케이블', '맨몸'];
+    let workout_tags = ['모든 스트레칭', '허리', '허벅지', '가슴', '등', '어깨','엉덩이'];
     let [selectedTag, setSelectedTag] = useState(workout_tags[0]);
-    let imageUrl = ['/images/gym_main.jpg', '/images/dumbbell_main.png', '/images/barbell_main.jpg', '/images/smithMachine_main.jpg', '/images/cable_main.jpg', '/images/freeweight_main.jpg'];
+    let imageUrl = ['/images/stretch_main.jpg', '/images/waist_main.jpg', '/images/thigh_main.jpg', '/images/chest_main.jpg', '/images/back_main.jpg', '/images/shoulder_main.jpg','/images/hips_main.jpg'];
 
     const [backgroundImage, setBackgroundImage] = useState(imageUrl[0]);
 
@@ -37,8 +37,8 @@ function Workout_gym() {
     return (
         <>
             <div className='workout-header'>
-                <h1>Gym</h1>
-                <p>체육관에서 할 수 있는 운동 모음</p>
+                <h1>Stretch</h1>
+                <p>근육을 유연하게 하는 스트레칭</p>
             </div>
             <div className='workout-container'>
                 <div className='workout-tag-buttons'>
@@ -57,15 +57,15 @@ function Workout_gym() {
                 </div>
 
                 <div className='workout-grid' style={{ backgroundImage: `url(${backgroundImage})` }}>
-                    {workoutDatas.map((name, index) => {
-                        if (selectedTag === "모든 운동") {
+                    {stretchDatas.map((name, index) => {
+                        if (selectedTag === "모든 스트레칭") {
                             return <div key={index} className={`workout-card ${animationTrigger ? 'workout-slide-animation' : ''}`} onClick={() => {
                                 setDataIndex(index);
                                 setShowModal(true);
                             }}>{name.title}</div>
                         }
 
-                        if (workoutDatas[index].tool === selectedTag) {
+                        if (stretchDatas[index].area.includes(selectedTag)) {
                             return <div key={index} className={`workout-card ${animationTrigger ? 'workout-slide-animation' : ''}`} onClick={() => {
                                 setDataIndex(index);
                                 setShowModal(true);
@@ -81,10 +81,10 @@ function Workout_gym() {
             </div>
 
             {showModal && (
-                <WorkoutModal closeModal={() => setShowModal(false)} workoutData={workoutDatas[dataIndex]} />
+                <WorkoutModal closeModal={() => setShowModal(false)} workoutData={stretchDatas[dataIndex]} />
             )}
         </>
     );
 }
 
-export default Workout_gym;
+export default Workout_stretch;
