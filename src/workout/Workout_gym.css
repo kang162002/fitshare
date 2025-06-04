@@ -1,4 +1,4 @@
-.workout-header {
+.workout-gym-header {
     height: 230px;
     background-size: cover;
     background-repeat: no-repeat;
@@ -15,16 +15,16 @@
 }
 
 /* 페이지 상단 메뉴 설명 간격 조정*/
-.workout-header * {
+.workout-gym-header * {
     margin: 0;
 }
 
-.workout-header h1 {
+.workout-gym-header h1 {
     color: #f52e2b;
     font-size: 5rem;
 }
 
-.workout-header p {
+.workout-gym-header p {
     color: #e53935;
     font-size: 2rem;
 }

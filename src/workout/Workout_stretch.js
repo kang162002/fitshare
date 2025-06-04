@@ -36,7 +36,7 @@ function Workout_stretch() {
 
     return (
         <>
-            <div className='workout-header'>
+            <div className='workout-stretch-header'>
                 <h1>Stretch</h1>
                 <p>근육을 유연하게 하는 스트레칭</p>
             </div>

@@ -6,9 +6,9 @@ import Workout_stretch from './workout/Workout_stretch';
 
 function App() {
 
-  // return <Workout_gym/>;
+  return <Workout_gym/>;
   // return <Workout_aero/>;
-  return <Workout_stretch/>;
+  // return <Workout_stretch/>;
 
   // return (
   //   <div className="App">

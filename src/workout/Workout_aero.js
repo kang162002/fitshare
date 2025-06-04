@@ -1,4 +1,3 @@
-import './Workout_gym.css';
 import './Workout_aero.css';
 import { useEffect, useState } from 'react';
 import WorkoutModal from './components/WorkoutModal';
@@ -37,7 +36,7 @@ function Workout_aero() {
 
     return (
         <>
-            <div className='workout-header'>
+            <div className='workout-aero-header'>
                 <h1>유산소 운동</h1>
                 <p>살이 잘 빠지는 운동 모음</p>
             </div>

@@ -36,7 +36,7 @@ function Workout_gym() {
 
     return (
         <>
-            <div className='workout-header'>
+            <div className='workout-gym-header'>
                 <h1>Gym</h1>
                 <p>체육관에서 할 수 있는 운동 모음</p>
             </div>
