@@ -11,16 +11,24 @@
     margin: 0;
     padding: 0;
     align-content: center;
+    top: 0;
+    position: fixed;
+    background-color: rgba(92, 92, 92, 0.404);
 }
 
 .account-re-div {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 10px; /* 여백 추가 */
+    gap: 10px;
+    /* 여백 추가 */
     width: 100%;
 }
+
 .account-re-wrapper {
+    left: 15px;
+    top: 29px;
+    position: fixed;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -29,14 +37,17 @@
 }
 
 .account-re-container {
-    display: flex; /* 양쪽 박스를 가로로 배치 */
+    display: flex;
+    /* 양쪽 박스를 가로로 배치 */
     justify-content: center;
     align-items: center;
-    gap: 20px; /* 양쪽 박스 간 간격 */
+    gap: 20px;
+    /* 양쪽 박스 간 간격 */
     border-radius: 10px;
     width: 900px;
     min-height: 500px;
-    background-color: transparent; /* 배경 없으면 지워도 됨 */
+    background-color: transparent;
+    /* 배경 없으면 지워도 됨 */
 }
 
 .account-re-form {
@@ -48,7 +59,8 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 350px; /* 입력 폼 폭 제한 */
+    max-width: 350px;
+    /* 입력 폼 폭 제한 */
 }
 
 
@@ -59,13 +71,9 @@
     background-color: lightgray;
 
     border-radius: 30px;
-
-
 }
 
-.account-re-email-h1 {
-
-}
+.account-re-email-h1 {}
 
 .account-re-pass-container {
     width: 450px;
@@ -75,53 +83,77 @@
 }
 
 .account-re-form .account-re-input {
-    background: #fdfafa;
-    padding: 12px;
-    width: 100%; /* 부모의 너비를 꽉 채움 */
-    border: 1px solid #ccc;
+    text-align: left;
+    /* ← 왼쪽 정렬 */
+    margin: 5px 0;
+    /* 위아래 여백 추가 */
+
+    background: #eee;
+    padding: 16px;
+    margin: 8px 0;
+    width: 95%;
+    height: 40px;
+    border: 0;
     outline: none;
-    border-radius: 10px;
-    font-size: 15px;
-    text-align: left; /* ← 왼쪽 정렬 */
-    margin: 5px 0; /* 위아래 여백 추가 */
+    border-radius: 20px;
+    box-shadow: inset 7px 2px 10px #babebc, inset -5px -5px 12px #fff;
 }
 
 
 .account-re-sub-btn {
+    box-shadow: -2px -3px 5px #fff, 4px 4px 1px #babebc;
+    border: none;
     margin-top: auto;
     align-self: center;
     width: 200px;
     height: 40px;
     border-radius: 30px;
-    color: #000000;
+    letter-spacing: 1px;
     font-size: 15px;
     cursor: pointer;
 }
+
+.account-re-sub-btn:active {
+    box-shadow: inset 1px 1px 2px #babebc, inset -1px -1px 1px #fff;
+}
+
 
 .account-re-emailsub-btn {
     margin-top: 140px;
 }
 
 .account-re-btn {
+    box-shadow: -5px -5px 10px #fff, 4px 2px 1px #babebc;
+    border: none;
     margin-left: 10px;
     width: 115px;
     height: 40px;
     border-radius: 30px;
-    color: #000000;
-    font-size: 12px;
+    font-size: 13px;
     text-transform: uppercase;
     cursor: pointer;
+    letter-spacing: 1px;
+    /*자간 여백*/
+}
+
+.account-re-btn:active {
+    box-shadow: inset 1px 1px 2px #babebc, inset -1px -1px 1px #fff;
 }
 
 .account-re-modal-close-btn {
-    margin-top: 20px; /* 위 여백 */
+    margin-top: 20px;
+    /* 위 여백 */
     width: 200px;
     height: 40px;
     border-radius: 30px;
-    color: #000000;
     font-size: 15px;
     cursor: pointer;
-    align-self: center; /* 중앙 정렬 */
+    align-self: center;
+    /* 중앙 정렬 */
+}
+
+.account-re-modal-close-btn:active {
+    box-shadow: inset 1px 1px 2px #babebc, inset -1px -1px 1px #fff;
 }
 
 .account-re-select {
@@ -136,5 +168,12 @@
 
 .account-re-h1 {
     text-align: center;
-    
+
 }
+
+.account-re-userEmail {
+    font-weight: bolder;
+    font-size: 20px;
+    line-height: 250%;
+}
+
