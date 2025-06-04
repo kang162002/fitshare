@@ -1,13 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-import Account from './account/Account';
-import AccountRecoveryModal from './account/AccountRecoveryModal';
+import "./App.css";
+import ErrorPage from "./errorPage/ErrorPage";
+import Fitshare from "./mainScreen/Fitshare";
+
+import MainScreen from "./mainScreen/MainScreen";
+import MainSplash from "./mainSplash/MainSplash";
+import { useState } from "react";
+import { BrowserRouter } from "react-router";
 
 function App() {
+  const [isSplashVisible, setIsSplashVisible] = useState(true);
 
-  return <Account/>;
-  // return <AccountRecoveryModal/>;
+  return(
+  
+    <Fitshare/>
+    
 
+  )
+  // return<ErrorPage/>
 
   // return (
   //   <div className="App">

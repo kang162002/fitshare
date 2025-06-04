@@ -1,0 +1,439 @@
+/* MainScreen.css - 전체 레이아웃 및 시각 스타일 정의 */
+
+/* 색상 변수 정의 */
+:root {
+  --main-color: #1b1b1b;
+  --accent-color: #ffffff;
+  --text-color: #f7374f;
+}
+
+/* 전체 페이지 기본 설정 */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Pretendard", sans-serif;
+  color: var(--text-color);
+  background-color: var(--main-color);
+  overflow-x: hidden;
+}
+
+/* 메인 페이지 래퍼 (flex 방향 수직) */
+.main-Screen-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* 비디오 배경 - 화면 전체 커버 */
+.mainScreen-background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  pointer-events: none;
+  animation: pageFlip 2s ease-in-out;
+}
+
+.mainScreen-background-video.active {
+  opacity: 1;
+}
+
+/* 네비게이션 영역 스타일 */
+.mainScreen-main-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  backdrop-filter: blur(5px);
+  position: relative;
+  z-index: 10;
+}
+
+.mainScreen-logo {
+display: flex;
+align-items: center;
+height: 100%;
+}
+
+.mainScreen-main-logo-image>img {
+  object-fit: cover;
+  
+}
+
+
+.mainScreen-menu-links,
+.mainScreen-menu-with-submenu>a {
+  display: flex;
+  gap: 85px;
+}
+
+.mainScreen-menu-links a,
+.mainScreen-menu-with-submenu>a {
+  position: relative;
+  display: inline-block;
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 10px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.mainScreen-menu-links a.active {
+  color: var(--accent-color);
+  background: rgba(151, 151, 151, 0.568);
+  border-radius: 4px;
+}
+
+.mainScreen-menu-links a:hover,
+.mainScreen-top-nav a:hover {
+  color: var(--accent-color);
+  background: rgba(190, 190, 190, 0.21);
+  border-radius: 30px;
+  border-bottom: 2px solid #ffffff76;
+  transition: 0.5s;
+}
+
+.mainScreen-top-nav>a{
+  color: #ff3c53;
+   text-decoration-line: none;
+   font-size: 0.8rem;
+}
+
+/* 서브 메뉴 호버 시 열림 */
+.mainScreen-menu-with-submenu {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  align-items: center;
+}
+
+
+.mainScreen-menu-with-submenu:hover .mainScreen-main-submenu-container {
+  display: flex;
+  cursor: pointer;
+}
+
+
+
+.mainScreen-main-submenu-container {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.406);
+  padding: 20px;
+  border-radius: 50px;
+  white-space: nowrap;
+  gap: 10px;
+  z-index: 20;
+}
+
+.main-submenu-item {
+  /* all: unset; */
+  display: block;
+  color: white;
+  padding: 10px 15px;
+  font-size: 0.5rem;
+  line-height: 1.6;
+  cursor: pointer;
+
+}
+
+.main-submenu-item:hover {
+  background: rgba(153, 153, 153, 0.068);
+  color: #ff3c53;
+  width: 110px;
+  font-size: 0.8rem;
+
+
+}
+
+/* 검색창 래퍼 */
+.mainScreen-search-wrapper {
+  display: flex;
+  width: 100%;
+  padding-top: 45px;
+  justify-content: center;
+  margin-bottom: 25px;
+  align-content: center;
+}
+
+/*  검색창 돋보기  */
+
+.mainScreen-search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  max-width: 90%;
+}
+
+
+.mainScreen-search-container>input {
+  text-align: center;
+}
+
+.mainScreen-search {
+  flex: 1;
+  /* padding: 10px 40px 10px 35px; */
+  /* 왼쪽 여백 이미지 공간 확보 */
+  border: none;
+  border-radius: 50px 0 0 50px;
+  font-size: 0.8rem;
+  background: rgba(255, 255, 255, 0.596);
+  color: white;
+  outline: none;
+
+}
+
+.mainScreen-search-button {
+  padding: 10px 16px;
+  margin-left: 10px;
+  border: none;
+  background-color: var(--text-color);
+  color: white;
+  border-radius: 0 50px 50px 0;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+
+  /* ✅ 핵심 추가 스타일 */
+  white-space: nowrap;
+  /* 텍스트 줄바꿈 방지 */
+  display: flex;
+  /* 수평 정렬 */
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  /* 텍스트 위아래 정렬 */
+}
+
+
+
+
+
+
+.mainScreen-search-button {
+  padding: 10px 15px;
+  border: none;
+  background-color: var(--text-color);
+  color: white;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.mainScreen-search-button:hover {
+  background-color: #ff4e5e;
+}
+
+/* 돋보기 이미지 끝 */
+
+/* 검색 input 기본 스타일 */
+.mainScreen-search {
+  /* width: 100%; */
+  width: 150px;
+  height: 25px;
+  background-size: cover;
+
+  font-size: 1rem;
+  transition: all 0.25s ease-in 0.25s;
+  padding: 10px;
+  border: none;
+  border-radius: 50px;
+  outline: none;
+  
+}
+
+
+
+/* 검색창 포커스 확장 */
+.mainScreen-search:focus {
+  width: 400px;
+  color: white;
+  background: rgba(160, 160, 160, 0.5);
+}
+
+/* 히어로 영역 - 메인 텍스트 */
+.mainScreen-hero {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 5;
+}
+
+.mainScreen-hero h1 {
+  font-size: 55px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-shadow: 3px 3px 9px rgba(71, 71, 71, 0.829);
+  color: var(--text-color);
+}
+
+/* 스플래시 전체 화면 */
+.mainScreen-Splash {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 2rem;
+  background-color: white;
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+  z-index: 100;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+
+/*  페이드아웃  시작*/
+.mainScreen-Splash.fade-out {
+  opacity: 0;
+}
+
+/* 페이드 아웃 끝 */
+
+/*  스플래시 텍스트  */
+.mainScreen-splash-text {
+  animation: splashTextIn 1.5s ease-in-out;
+  font-size: 2.5rem;  
+  color: var(--text-color);
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+}
+
+
+
+
+
+/* 푸터 영역 */
+footer.footer {
+  background-color: #00000062;
+  color: #eee;
+  padding: 2rem 1rem;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #444;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.footer-links,
+.footer-social {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-links a,
+.footer-social a {
+  color: #aaa;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover,
+.footer-social a:hover {
+  color: #fff;
+}
+
+.footer-bottom {
+  font-size: 13px;
+  color: #777;
+}
+
+.footer-bottom p {
+  margin: 0.2rem 0;
+}
+
+/* 반응형 모바일 대응 */
+@media (max-width: 768px) {
+  .footer-top {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .footer-links,
+  .footer-social {
+    justify-content: center;
+  }
+
+  .footer-bottom {
+    text-align: center;
+  }
+}
+
+
+
+
+.mainScreen-footer-content {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: #222;
+  
+  
+}
+
+.mainScreen-footer-content a{
+  text-decoration-line: none;
+}
+
+
+/* 애니메이션 정의 */
+@keyframes pageFlip {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes splashTextIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes dotFlashing {
+
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
