@@ -17,7 +17,7 @@ function MainScreen() {
   const [query, setQuery] = useState(" ");
   const videoRefs = useRef([]);
 
-  // 클릭 시 ripple 효과 위치 계산 및 추가
+  // 클릭 시 ripple 효과 위치 계산 및 추가 합니다
 
   const handleClick = (e) => {
     if (!wrapperRef.current) return;
