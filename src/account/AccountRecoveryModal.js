@@ -5,7 +5,7 @@ import 'sweetalert2/dist/sweetalert2.min.css';
 
 function AccountRecoveryModal({ openModal, setOpenModal }) {
 
-    const [userEmail, setUserEmail] = useState(false);
+    // const [userEmail, setUserEmail] = useState(false);
     const [userPass, setUserPass] = useState(false);
 
     const [isAnimating, setIsAnimating] = useState(false); // 애니메이션 상태
@@ -18,7 +18,49 @@ function AccountRecoveryModal({ openModal, setOpenModal }) {
         });
     };
 
-    const passwordChange = () => {
+    // const passwordChange = () => {
+    //     Swal.fire({
+    //         icon: 'success',
+    //         title: 'Password가 변경되었습니다.',
+    //         text: '확인 버튼을 누르시면 로그인 창으로 돌아갑니다.',
+    //     }).then((result) => {
+    //         if (result.isConfirmed) {
+    //             setUserPass(false); // 예: 컴포넌트 숨기기
+    //             setOpenModal(false);
+    //         }
+    //     });
+    // };
+
+    const handleClose = () => {
+        setIsAnimating(true); // 애니메이션 시작
+        setTimeout(() => {
+            setOpenModal(false); // 애니메이션 종료 후 모달 닫기
+        }, 600); // 애니메이션 시간과 맞춰서 설정
+    };
+
+    // ===================================== input 입력 제한 걸기 =======================================
+    const [newPassword, setNewPassword] = useState('');
+    const [newPasswordCon, setNewPasswordCon] = useState('');
+    const [inputValue, setInputValue] = useState('');
+
+
+    const signUpPassCon = (event) => {
+        const hasSpecialChar = /[!@#$%^&*?]/.test(inputValue);
+
+        if (!(newPassword == newPasswordCon)) {
+            Swal.fire({
+                icon: 'error',
+                title: '비밀번호 오류',
+                text: '2차 비밀번호와 일치하지 않습니다. 다시 입력해주세요.',
+            });
+        } else if (!hasSpecialChar) {
+            Swal.fire({
+                icon: 'error',
+                title: '비밀번호 오류',
+                text: '8~12자 이내이며 특수문자(!@#$%^&*?)를 포함해야 합니다.',
+            });
+        }
+
         Swal.fire({
             icon: 'success',
             title: 'Password가 변경되었습니다.',
@@ -29,22 +71,18 @@ function AccountRecoveryModal({ openModal, setOpenModal }) {
                 setOpenModal(false);
             }
         });
-    };
 
-    const handleClose = () => {
-        setIsAnimating(true); // 애니메이션 시작
-        setTimeout(() => {
-            setOpenModal(false); // 애니메이션 종료 후 모달 닫기
-        }, 600); // 애니메이션 시간과 맞춰서 설정
-    };
+        setOpenModal(false);
+
+    }
 
 
 
     return (
         <div className='account-all'>
-            <div className={`account-re-body account-re-div ${isAnimating ? 'fade-out' : ''}`}>
+            <div className={`account-re-body account-re-div ${isAnimating ? 'fade-out' : ''}`} onClick={handleClose}>
                 <div className='account-re-wrapper account-re-div'>
-                    <div className='account-re-container'>
+                    <div className='account-re-container' onClick={(e) => { e.stopPropagation(); }}>
                         <div className='account-re-bg'>
                             {/*================== Email 찾기================= */}
                             <div className='account-re-bg-top'>
@@ -89,18 +127,31 @@ function AccountRecoveryModal({ openModal, setOpenModal }) {
                                         </div>
 
                                         <div className='account-re-div'>
-                                            <input type='password' placeholder='새로운 비밀번호(8 - 12 자리)' className='account-re-input'></input>
+                                            <input
+                                                type='password'
+                                                placeholder='새로운 비밀번호(8 - 12 자리)'
+                                                className='account-re-input'
+                                                value={newPassword}
+                                                onChange={(e) => setNewPassword(e.target.value)}
+                                                minLength={8}
+                                                maxLength={12}
+                                            ></input>
                                         </div>
 
                                         <div className='account-re-div'>
-                                            <input type='password' placeholder='새로운 비밀번호 2차 확인(8 - 12 자리)' className='account-re-input'></input>
+                                            <input
+                                                type='password'
+                                                placeholder='새로운 비밀번호 2차 확인(8 - 12 자리)'
+                                                className='account-re-input'
+                                                value={newPasswordCon}
+                                                onChange={(e) => setNewPasswordCon(e.target.value)}
+                                                minLength={8}
+                                                maxLength={12}
+                                            ></input>
                                         </div>
 
                                         <div className='account-re-div'>
-                                            <button className='account-re-sub-btn' onClick={() => {
-                                                passwordChange();
-                                                setOpenModal(false);
-                                            }}>Password 변경하기</button>
+                                            <button className='account-re-sub-btn' onClick={signUpPassCon} >Password 변경하기</button>
                                         </div>
 
                                     </form>
