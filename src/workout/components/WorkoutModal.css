@@ -1,0 +1,118 @@
+.workout-modal-fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #3a0d0d37;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+
+.workout-modal-box {
+    background-color: #444444;
+    color: #fff;
+    width: 1000px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+    position: relative;
+}
+
+.workout-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.workout-exercise-title {
+    font-size: 2rem;
+    color: #ffcccc;
+}
+
+.workout-modal-close-button {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: #ffcccc;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.workout-modal-close-button:hover {
+    transform: scale(1.2);
+}
+
+.workout-modal-body {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.workout-image-area img {
+    width: 280px;
+    height: auto;
+    border-radius: 12px;
+}
+
+.workout-info-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.workout-tabs {
+    display: flex;
+    gap: 1rem;
+}
+
+.workout-tab {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #636363;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.workout-tab:hover {
+    background-color: #494949;
+}
+
+.workout-tab.active {
+    background-color: #6d6d6d;
+}
+
+.workout-tab-content {
+    background-color: #4e4e4e;
+    padding: 1rem;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.workout-routine {
+    background-color: #525252;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.workout-routine h3 {
+    margin-bottom: 0.5rem;
+    color: #ffcccc;
+}
+
+.workout-routine ul {
+
+    padding-left: 1.2rem;
+}
+
+.workout-text-line-break {
+    white-space: pre-line;
+}
