@@ -98,7 +98,7 @@ function Account() {
                             {/* <h1>Hi😉</h1> */}
                             <button className="account-overlay-btn account-button" onClick={handleSignUpClick}>Sign Up</button>
                         </div>
-
+                            
                     </div>
 
 
