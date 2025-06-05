@@ -151,28 +151,7 @@ function MainScreen() {
         </div>
       </div>
 
-      {/* 푸터 */}
-      <footer className="footer">
-        <div className="footer-top">
-          <div className="footer-links">
-            <a href="/about">회사소개</a>
-            <a href="/terms">이용약관</a>
-            <a href="/privacy">개인정보처리방침</a>
-            <a href="/support">고객센터</a>
-          </div>
-          <div className="footer-social">
-            <a href="https://instagram.com/biomind">Instagram</a>
-            <a href="https://youtube.com/biomind">YouTube</a>
-          </div>
-        </div>
-
-        <div className="footer-bottom">
-          <p>© 2025 BIOMIND Inc. | 사업자번호: 123-45-67890 | 대표: 김바이오</p>
-          <p>
-            주소: 충남 천안시 동남구 대흥로 215 7층 | 이메일: info@biomind.kr
-          </p>
-        </div>
-      </footer>
+      
     </div>
   );
 }

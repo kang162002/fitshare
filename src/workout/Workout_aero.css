@@ -74,7 +74,7 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 30px;
     margin: 100px;
-    height: 400px;
+    height: 800px;
     width: fit-content;
     background-color: #a3a3a3;
     padding: 50px;
@@ -104,11 +104,11 @@
 .workout-card {
     width: 180px;
     height: 180px;
-    background: rgb(158, 158, 158);
+    background: rgba(158, 158, 158, 0.863);
     background-image: none;
     background-size: cover;
     border-radius: 16px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    box-shadow: 0 4px 8px rgb(138, 12, 8);
     color: white;
     display: flex;
     justify-content: center;
@@ -118,6 +118,7 @@
     cursor: pointer;
     white-space: pre-line;
     text-align: center;
+    opacity: 0.9;
 
 }
 

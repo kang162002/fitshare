@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './WorkoutModal.css';
 
 function WorkoutModal({ closeModal, workoutData }) {
@@ -11,8 +11,8 @@ function WorkoutModal({ closeModal, workoutData }) {
 
 
     return (
-        <div className="workout-modal-fullscreen">
-            <div className="workout-modal-box">
+        <div className="workout-modal-fullscreen"  onClick={closeModal}>
+            <div className="workout-modal-box" onClick={(e)=>{ e.stopPropagation(); }}>
                 <div className="workout-modal-header">
                     <h1 className="workout-exercise-title">{workoutData.title}</h1>
                     <button className="workout-modal-close-button" onClick={closeModal}>✕</button>
