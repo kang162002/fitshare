@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "./MainScreen.css";
 import MainEffect from "../mainRipple/MainEffect";
 import MainSplash from "../mainSplash/MainSplash";
+import { useNavigate } from "react-router";
 
 // 비디오 소스 배열 정의
 const videoSources = [
@@ -16,6 +17,8 @@ function MainScreen() {
   const wrapperRef = useRef(null); // ripple 위치 계산용 ref
   const [query, setQuery] = useState(" ");
   const videoRefs = useRef([]);
+
+  let navigate = useNavigate();
 
   // 클릭 시 ripple 효과 위치 계산 및 추가 합니다
 
@@ -76,6 +79,10 @@ function MainScreen() {
     e.preventDefault();
     console.log("검색어:", query);
     // TODO: 검색 실행 로직 추가
+    const trimmed = query.trim();
+    if (trimmed) {
+      navigate(`/search?q=${encodeURIComponent(trimmed)}`);
+    }
   };
   // 스플래시 타이머 시작
   useEffect(() => {
