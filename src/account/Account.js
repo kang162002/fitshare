@@ -30,7 +30,6 @@ function Account() {
 // ======================== 모달창 ================================================
     const [openModal, setOpenModal] = useState(false);
 
-    
     return (
 
         <div className='account-all'>
