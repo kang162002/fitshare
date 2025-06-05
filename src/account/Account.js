@@ -109,10 +109,6 @@ function Account() {
             </div>
 
         </div>
-        <Routes>
-            <Route path="/" element={<MainScreen/>}></Route>
-        
-        </Routes>
 
         {openModal ? <AccountRecoveryModal openModal={openModal} setOpenModal={setOpenModal} /> : null}
         </div>
