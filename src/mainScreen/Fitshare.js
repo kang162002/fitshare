@@ -9,7 +9,7 @@ import Workout_aero from "../workout/Workout_aero";
 import Workout_gym from "../workout/Workout_gym";
 import Board_all from "../board/Board_all";
 
-function Fitshare() { 
+function Fitshare() {
 
     let navigate = useNavigate();
     const hnadleLogoclick =()=>{
