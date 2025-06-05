@@ -103,8 +103,8 @@ function Fitshare() {
         <div className="footer-top">
           <div className="footer-links">
             <a href="/about">회사소개</a>
-            <a href="/terms">이용약관</a>
-            <a href="/privacy">개인정보처리방침</a>
+            <a href="/files/Term_of_use.html" target="_blank">이용약관</a>
+            <a href="/files/Privacy_policy.html" target="_blank">개인정보처리방침</a>
             <a href="/support">고객센터</a>
           </div>
           <div className="footer-social">
