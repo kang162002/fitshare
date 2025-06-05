@@ -16,6 +16,11 @@ body {
   color: var(--text-color);
   background-color: var(--main-color);
   overflow-x: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
 }
 
 /* 메인 페이지 래퍼 (flex 방향 수직) */
@@ -35,9 +40,9 @@ body {
   object-fit: cover;
   z-index: -1;
   opacity: 0;
-  transition: opacity 1.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
   pointer-events: none;
-  animation: pageFlip 2s ease-in-out;
+  animation: pageFlip 1s ease-in-out;
 }
 
 .mainScreen-background-video.active {
@@ -56,14 +61,14 @@ body {
 }
 
 .mainScreen-logo {
-display: flex;
-align-items: center;
-height: 100%;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .mainScreen-main-logo-image>img {
   object-fit: cover;
-  
+
 }
 
 
@@ -100,10 +105,10 @@ height: 100%;
   transition: 0.5s;
 }
 
-.mainScreen-top-nav>a{
+.mainScreen-top-nav>a {
   color: #ff3c53;
-   text-decoration-line: none;
-   font-size: 0.8rem;
+  text-decoration-line: none;
+  font-size: 0.8rem;
 }
 
 /* 서브 메뉴 호버 시 열림 */
@@ -126,13 +131,13 @@ height: 100%;
   display: none;
   position: absolute;
   top: 100%;
-  left: 0%;
+  left: 50%;
   transform: translateX(-50%);
   background: rgba(0, 0, 0, 0.406);
   padding: 20px;
   border-radius: 50px;
   white-space: nowrap;
-  gap: 10px;
+  /* gap: 10px; */
   z-index: 20;
 }
 
@@ -148,10 +153,11 @@ height: 100%;
 }
 
 .main-submenu-item:hover {
-  background: rgba(153, 153, 153, 0.068);
-  color: #ff3c53;
-  width: 110px;
-  font-size: 0.8rem;
+  background: rgba(0, 0, 0, 0.795);
+  color: #ff253e;
+  font-weight: bold;
+  /* width: 110px; */
+  /* font-size: 1rem; */
 
 
 }
@@ -251,7 +257,7 @@ height: 100%;
   border: none;
   border-radius: 50px;
   outline: none;
-  
+
 }
 
 
@@ -279,6 +285,7 @@ height: 100%;
   margin-bottom: 20px;
   text-shadow: 3px 3px 9px rgba(71, 71, 71, 0.829);
   color: var(--text-color);
+
 }
 
 /* 스플래시 전체 화면 */
@@ -301,15 +308,15 @@ height: 100%;
 
 /*  페이드아웃  시작*/
 .mainScreen-Splash.fade-out {
-  opacity: 0;
+  opacity: 0.2;
 }
 
 /* 페이드 아웃 끝 */
 
 /*  스플래시 텍스트  */
 .mainScreen-splash-text {
-  animation: splashTextIn 1.5s ease-in-out;
-  font-size: 2.5rem;  
+  animation: splashTextIn 1s ease-in-out;
+  font-size: 2.5rem;
   color: var(--text-color);
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
   font-weight: bold;
@@ -350,7 +357,7 @@ footer.footer {
 .footer-social a {
   color: #aaa;
   text-decoration: none;
-  transition: color 0.3s;
+  transition: color 0.2s;
 }
 
 .footer-links a:hover,
@@ -369,7 +376,10 @@ footer.footer {
 
 /* 반응형 모바일 대응 */
 @media (max-width: 768px) {
-  .footer-top {
+
+  .footer-top,
+  .mainScreen-main-menu,
+  .mainScreen-content {
     flex-direction: column;
     gap: 1rem;
   }
@@ -377,10 +387,12 @@ footer.footer {
   .footer-links,
   .footer-social {
     justify-content: center;
+    text-align: center;
   }
 
   .footer-bottom {
     text-align: center;
+
   }
 }
 
@@ -395,11 +407,11 @@ footer.footer {
   align-items: center;
   font-size: 0.8rem;
   color: #222;
-  
-  
+
+
 }
 
-.mainScreen-footer-content a{
+.mainScreen-footer-content a {
   text-decoration-line: none;
 }
 
@@ -430,11 +442,227 @@ footer.footer {
 @keyframes dotFlashing {
 
   0%,
+
   100% {
-    opacity: 0.2;
+    opacity: 0.5;
   }
 
   50% {
     opacity: 1;
   }
+}
+
+
+/* mainScreen-introduction */
+
+.mainScreen-intro-body {
+  height: 100vw;
+  background-color: rgb(0, 0, 0);
+  display: flex;
+  color: white;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+
+
+}
+
+.mainScreen-intro {
+
+  justify-items: center;
+  align-content: center;
+  margin-top: 100px;
+
+}
+
+
+
+.mainScreen-intro-text01 {
+  margin-top: 10px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+}
+
+.mainScreen-intro-text01>.mainScreen-intro-span {
+  color: var(--text-color);
+  font-size: 1.7rem;
+  font-weight: bold;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+
+}
+
+
+
+.mainScreen-intro01 {
+  /* margin-top: 50px; */
+  display: flex;
+  justify-content: center;
+  /* 수평 가운데 정렬 */
+  align-items: center;
+  /* 수직 가운데 정렬 */
+  gap: 40px;
+  /* 이미지와 텍스트 간격 */
+  flex-wrap: wrap;
+  /* 모바일 대응 */
+}
+
+.mainScreen-intron-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  /* padding: 60px 20px; */
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.mainScreen-intro-image1 img {
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.mainScreen-intro-image2>img {
+  margin-top: 20px;
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.mainScreen-intro-text02 {
+  max-width: 500px;
+  color: white;
+  font-size: 1rem;
+}
+
+.mainScreen-intro-text02 h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: var(--text-color);
+}
+
+.mainScreen-intro-text02 p {
+  line-height: 1.6;
+}
+
+.mainScreen-intro-image3 img {
+
+
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+
+}
+
+
+.mainScreen-intron-section02 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  margin-top: 100px;
+
+
+}
+
+.mainScreen-intron-section02 {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 60px;
+  padding: 60px 20px;
+  flex-wrap: wrap;
+  background-color: #000000;
+}
+
+.mainScreen-intro-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.mainScreen-intro-image3 img {
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+  /* 이미지와 텍스트 사이 여백 */
+}
+
+.mainScreen-intro-caption {
+  font-size: 1.2rem;
+  color: white;
+  font-weight: 500;
+}
+
+.mainScreen-intro-routine {
+
+  font-size: 0.9rem;
+  text-align: center;
+  align-items: center;
+}
+.mainScreen-intro-routine>h1{
+  color: var(--text-color);
+}
+.mainScreen-intro-routine-text-p{
+  width: 600px;
+}
+
+.mainScreen-intron-temporary {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 80px;
+  max-width: 1200px;
+  margin: 40px auto;
+ 
+  padding: 40px 20px;
+  flex-wrap: wrap;
+}
+
+.mainScreen-intro-image4 img {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  margin: 15px auto;
+  display: block;
+}
+
+.mainScreen-intro-text03 {
+  max-width: 500px;
+  color: white;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.mainScreen-intro-text03 h2 {
+  font-size: 2rem;
+  color: var(--text-color);
+  margin-bottom: 20px;
+}
+
+.mainScreen-intro-summary {
+  text-align: center;
+  color: #ddd;
+  font-size: 1.2rem;
+  margin: 40px auto 80px;
+  padding: 20px;
+  line-height: 1.6;
+  max-width: 800px;
+
 }

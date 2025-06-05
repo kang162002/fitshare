@@ -81,7 +81,7 @@ function MainScreen() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsSplashVisible(false);
-    }, 3000); // 3초 후 스플래시 종료
+    }, 2000); // 3초 후 스플래시 종료
     return () => clearTimeout(timer); // 컴포넌트 언마운트 시 타이머 정리
   }, []);
 
@@ -150,29 +150,107 @@ function MainScreen() {
           </div>
         </div>
       </div>
-
-      {/* 푸터 */}
-      <footer className="footer">
-        <div className="footer-top">
-          <div className="footer-links">
-            <a href="/about">회사소개</a>
-            <a href="/terms">이용약관</a>
-            <a href="/privacy">개인정보처리방침</a>
-            <a href="/support">고객센터</a>
+      <div className="mainScreen-intro-body">
+        {/* 소개 */}
+        <div className="mainScreen-intro">
+          <div className="mainScreen-intro-image1">
+            <img
+              src="/images/mainIntroductionImage/introduction01.jpg"
+              alt=""
+              width="800"
+              height="500"
+            />
           </div>
-          <div className="footer-social">
-            <a href="https://instagram.com/biomind">Instagram</a>
-            <a href="https://youtube.com/biomind">YouTube</a>
+          <div className="mainScreen-intro-text01">
+            <span className="mainScreen-intro-span">사이트 소개</span>
+            <p className="mainSCreen-intro-p">아무튼 사이트 소개 및 내용</p>
+            <ul>
+              <li>내용1</li>
+              <li>내용1</li>
+            </ul>
           </div>
         </div>
-
-        <div className="footer-bottom">
-          <p>© 2025 BIOMIND Inc. | 사업자번호: 123-45-67890 | 대표: 김바이오</p>
-          <p>
-            주소: 충남 천안시 동남구 대흥로 215 7층 | 이메일: info@biomind.kr
-          </p>
+        {/* 소개2 */}
+        <div className="mainScreen-intron-section">
+          <div className="mainScreen-intro-image2">
+            <img
+              src="/images/mainIntroductionImage/introduction02.jpg"
+              alt="운동 소개"
+            />
+          </div>
+          <div className="mainScreen-intro-text02">
+            <h2>소개및 내용2</h2>
+            <p>
+              BIOMIND는 당신의 운동 습관을 만들어드립니다.
+              <br />
+              맞춤 콘텐츠와 커뮤니티로 함께 시작해보세요.
+            </p>
+          </div>
         </div>
-      </footer>
+        {/* 소개3 */}
+        <div className="mainScreen-intron-section02">
+          <div className="mainScreen-intro-box">
+            <div className="mainScreen-intro-image3">
+              <img
+                src="/images/mainIntroductionImage/introduction03.jpg"
+                alt="운동 설명 1"
+              />
+            </div>
+            <div className="mainScreen-intro-caption">나만의 루틴 만들기</div>
+          </div>
+
+          <div className="mainScreen-intro-box">
+            <div className="mainScreen-intro-image3">
+              <img
+                src="/images/mainIntroductionImage/introduction04.jpg"
+                alt="운동 설명 2"
+              />
+            </div>
+            <div className="mainScreen-intro-caption">운동 일지 기록하기</div>
+          </div>
+          <div className="mainScreen-intro-routine">
+            <h1>내용3</h1>
+            <p className="mainScreen-intro-routine-text-p">
+              he standard chunk of Lorem Ipsum used since the 1500s is
+              reproduced below for those interested. Sections 1.10.32 and
+              1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also
+              reproduced in their exact original form, accompanied by English
+              versions from the 1914 translation by H. Rackham.
+            </p>
+          </div>
+
+          <div className="mainScreen-intron-temporary">
+            <div className="mainScreen-intro-image4">
+              <img
+                src="/images/mainIntroductionImage/introduction05.jpg"
+                alt="소개 이미지"
+              />
+                  <img
+                src="/images/mainIntroductionImage/introduction06.jpg"
+                alt="소개 이미지"
+              />
+                  <img
+                src="/images/mainIntroductionImage/introduction07.jpg"
+                alt="소개 이미지"
+              />
+            </div>
+
+            <div className="mainScreen-intro-text03">
+              <h2>BIOMIND가 함께합니다</h2>
+              <p>
+                운동은 어렵지 않습니다. 시작이 반입니다.
+                <br />
+                바로 오늘, 여기서 시작하세요.
+              </p>
+            </div>
+          </div>
+
+          <div className="mainScreen-intro-summary">
+            운동의 지속은 당신의 선택입니다. 루틴을 만들고, 기록하고,
+            변화하세요.
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
