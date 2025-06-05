@@ -38,16 +38,6 @@ function AccountRecoveryModal({ openModal, setOpenModal }) {
         }, 600); // 애니메이션 시간과 맞춰서 설정
     };
 
-    const handleSubButtonClick = () => {
-        setIsAnimating(true); // 애니메이션 시작
-        setTimeout(() => {
-            // 모달을 닫거나 다른 동작을 할 수 있습니다.
-            setOpenModal(false);
-        }, 600); // 애니메이션이 끝날 때까지 기다림
-    };
-
-
-
 
 
     return (
@@ -74,7 +64,7 @@ function AccountRecoveryModal({ openModal, setOpenModal }) {
                                         </div>
 
                                         <div className='account-re-div'>
-                                            <button className='account-re-sub-btn account-re-emailsub-btn' onClick={handleEmailSearch}>Email 찾기</button>
+                                            <button type='button' className='account-re-sub-btn account-re-emailsub-btn' onClick={handleEmailSearch}>Email 찾기</button>
                                         </div>
 
                                     </form>
@@ -107,7 +97,10 @@ function AccountRecoveryModal({ openModal, setOpenModal }) {
                                         </div>
 
                                         <div className='account-re-div'>
-                                            <button className='account-re-sub-btn' onClick={handleSubButtonClick}>Password 변경하기</button>
+                                            <button className='account-re-sub-btn' onClick={() => {
+                                                passwordChange();
+                                                setOpenModal(false);
+                                            }}>Password 변경하기</button>
                                         </div>
 
                                     </form>
