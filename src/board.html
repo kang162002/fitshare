@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form class="post-form">
+        <h2>게시글 작성</h2>
+
+        <label for="title">제목</label>
+        <input type="text" id="title" name="title" placeholder="제목을 입력하세요" required/>
+
+        <labe for="category">카테고리</labe>
+        <select id="category" name="category">
+            <option value="">카테고리 선택</option>
+            <option value="GYM">GYM</option>
+            <option value="TIP">TIP</option>
+            <option value="TEAM">TEAM</option>
+            <option value="DIET">DIET</option>
+            <option value="HT">HT</option>
+        </select>
+
+        <label for="content">내용</label>
+        <textarea id="content" name="content" placeholder="내용을 입력하세요" required></textarea>
+
+        <label for="image">이미지 업로드</label>
+        <input type="file" id="image" accept="image/*" multiple/>
+
+        <div>
+            <button type="submit">작성완료</button>
+            <button type="button" class="cancel" onclick="window.history.back();">취소</button>
+        </div>
+
+    </form>
+
+</body>
+</html>
