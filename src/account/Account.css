@@ -31,11 +31,11 @@
 .account-title {
     background-image: url('../account/image/Fitlogo2.png');
     width: 210px;
-    height: 160px;
+    height: 120px;
     background-size: cover;
     background-repeat: no-repeat;
     position: absolute;
-    top: 0px;
+    top: 10px;
     cursor:pointer;
 }
 

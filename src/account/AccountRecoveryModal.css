@@ -24,12 +24,21 @@
     height: 700px;
     background: #242424;
     position: fixed;
-    top: 160px;
+    top: 145px;
     display: flex;
     flex-direction: column;
 
     animation: slideUpFadeIn 0.6s ease-out forwards;
 }
+
+.account-re-close {
+    font-size: 34px;
+    margin: 5px;
+    position: absolute;
+    left: 860px;
+    cursor: pointer;
+}
+
 
 .account-re-bg-top {
     display: flex;

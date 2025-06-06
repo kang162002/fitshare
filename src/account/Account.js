@@ -43,39 +43,59 @@ function Account() {
     const [signUpPassword, setSignUpPassword] = useState('');
     const [signUpPasswordConfirm, setSignUpPasswordConfirm] = useState('');
 
-    const handleSignIn = (event) => {
+    const handleSignIn = () => {
 
-        const hasSpecialChar = /[!@#$%^&*?]/.test(inputValue);
-
-        if (!hasSpecialChar) {
-            Swal.fire({
-                icon: 'error',
-                title: '비밀번호 오류',
-                text: '8~12자 이내이며 특수문자(!@#$%^&*?)를 포함해야 합니다.',
-            });
-
+        const hasSpecialChar = /[!@#$%^&*?]/.test(signInPassword);
+        if (signInPassword.length >= 8 && signInPassword.length <= 12) {
+            if (!hasSpecialChar) {
+                Swal.fire({
+                    icon: 'error',
+                    title: '비밀번호 오류',
+                    text: '8~12자 이내이며 특수문자(!@#$%^&*?)를 포함해야 합니다.',
+                });
+                setSignInPassword('');
+            } else {
+                Swal.fire({
+                    icon: 'success',
+                    title: '로그인이 완료되었습니다.',
+                    text: '환영합니다.',
+                })
+            }
         }
-
     }
 
-    const signUpPassCon = (event) => {
-        const hasSpecialChar = /[!@#$%^&*?]/.test(inputValue);
 
-        if (!(signUpPassword == signUpPasswordConfirm)) {
-            Swal.fire({
-                icon: 'error',
-                title: '비밀번호 오류',
-                text: '2차 비밀번호와 일치하지 않습니다. 다시 입력해주세요.',
-            });
-        } 
-        // else if (!hasSpecialChar) {
-        //     Swal.fire({
-        //         icon: 'error',
-        //         title: '비밀번호 오류',
-        //         text: '8~12자 이내이며 특수문자(!@#$%^&*?)를 포함해야 합니다.',
-        //     });
-        // }
+    const signUpPassCon = () => {
+        const hasSpecialChar = /[!@#$%^&*?]/.test(signUpPassword);
+        if (signUpPassword.length >= 8 && signUpPassword.length <= 12) {
+
+            if (!hasSpecialChar) {
+                Swal.fire({
+                    icon: 'error',
+                    title: '비밀번호 오류',
+                    text: '8~12자 이내이며 특수문자(!@#$%^&*?)를 포함해야 합니다.',
+                });
+                setSignUpPassword('');
+                setSignUpPasswordConfirm('');
+            } else if (!(signUpPassword == signUpPasswordConfirm)) {
+                Swal.fire({
+                    icon: 'error',
+                    title: '비밀번호 오류',
+                    text: '2차 비밀번호와 일치하지 않습니다. 다시 입력해주세요.',
+                });
+                setSignUpPassword('');
+                setSignUpPasswordConfirm('');
+
+            } else {
+                Swal.fire({
+                    icon: 'success',
+                    title: '회원가입이 완료되었습니다다.',
+                    text: '어서오세요.',
+                })
+            }
+        }
     }
+
 
 
 

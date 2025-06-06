@@ -41,39 +41,40 @@ function AccountRecoveryModal({ openModal, setOpenModal }) {
     // ===================================== input 입력 제한 걸기 =======================================
     const [newPassword, setNewPassword] = useState('');
     const [newPasswordCon, setNewPasswordCon] = useState('');
-    const [inputValue, setInputValue] = useState('');
 
+    const signUpPassCon = () => {
+        const hasSpecialChar = /[!@#$%^&*?]/.test(newPassword);
+        if (newPassword.length >= 8 && newPassword.length <= 12) {
 
-    const signUpPassCon = (event) => {
-        const hasSpecialChar = /[!@#$%^&*?]/.test(inputValue);
-
-        if (!(newPassword == newPasswordCon)) {
-            Swal.fire({
-                icon: 'error',
-                title: '비밀번호 오류',
-                text: '2차 비밀번호와 일치하지 않습니다. 다시 입력해주세요.',
-            });
-        } else if (!hasSpecialChar) {
-            Swal.fire({
-                icon: 'error',
-                title: '비밀번호 오류',
-                text: '8~12자 이내이며 특수문자(!@#$%^&*?)를 포함해야 합니다.',
-            });
-        }
-
-        Swal.fire({
-            icon: 'success',
-            title: 'Password가 변경되었습니다.',
-            text: '확인 버튼을 누르시면 로그인 창으로 돌아갑니다.',
-        }).then((result) => {
-            if (result.isConfirmed) {
-                setUserPass(false); // 예: 컴포넌트 숨기기
-                setOpenModal(false);
+            if (!hasSpecialChar) {
+                Swal.fire({
+                    icon: 'error',
+                    title: '비밀번호 오류',
+                    text: '8~12자 이내이며 특수문자(!@#$%^&*?)를 포함해야 합니다.',
+                });
+                setNewPassword('');
+                setNewPasswordCon('');
+            } else if (!(newPassword == newPasswordCon)) {
+                Swal.fire({
+                    icon: 'error',
+                    title: '비밀번호 오류',
+                    text: '2차 비밀번호와 일치하지 않습니다. 다시 입력해주세요.',
+                });
+                setNewPassword('');
+                setNewPasswordCon('');
+            } else {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Password가 변경되었습니다.',
+                    text: '확인 버튼을 누르시면 로그인 창으로 돌아갑니다.',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        setUserPass(false); // 예: 컴포넌트 숨기기
+                        setOpenModal(false);
+                    }
+                });
             }
-        });
-
-        setOpenModal(false);
-
+        }
     }
 
 
@@ -84,6 +85,7 @@ function AccountRecoveryModal({ openModal, setOpenModal }) {
                 <div className='account-re-wrapper account-re-div'>
                     <div className='account-re-container' onClick={(e) => { e.stopPropagation(); }}>
                         <div className='account-re-bg'>
+                            <div className='account-re-close' onClick={handleClose}>X</div>
                             {/*================== Email 찾기================= */}
                             <div className='account-re-bg-top'>
                                 <div className='account-re-email-container account-re-div'>
