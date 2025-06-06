@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 
 import AccountRecoveryModal from './AccountRecoveryModal';
 import { Routes, Route, useNavigate } from 'react-router';
+import accountDatas from './data/accountDatas';
 
 
 
@@ -26,6 +27,7 @@ function Account() {
     let navigate = useNavigate();
 
 
+
     // ======================== 모달창 ================================================
     const [openModal, setOpenModal] = useState(false);
 
@@ -38,10 +40,16 @@ function Account() {
         });
     };
 
-    const [inputValue, setInputValue] = useState('');
     const [signInPassword, setSignInPassword] = useState('');
+
+    const [signUpName, setSignUpName] = useState('');
+    const [signUpEmail, setSignUpEmail] = useState('');
     const [signUpPassword, setSignUpPassword] = useState('');
-    const [signUpPasswordConfirm, setSignUpPasswordConfirm] = useState('');
+    const [signUpPhone, setSignUpPhone] = useState('');
+    const [signUpAuthCode, setSignUpAuthcode] = useState('');
+
+    const [accountData, setAccountData] = useState(accountDatas);
+
 
     const handleSignIn = () => {
 
@@ -64,10 +72,19 @@ function Account() {
         }
     }
 
-
     const signUpPassCon = () => {
         const hasSpecialChar = /[!@#$%^&*?]/.test(signUpPassword);
-        if (signUpPassword.length >= 8 && signUpPassword.length <= 12) {
+
+        if ( signUpName == '' || signUpEmail == '' || signUpPassword == '' || signUpPhone == '' || signUpAuthCode == '') {
+            Swal.fire({
+                icon: 'error',
+                title: '공백 오류',
+                text: '빈칸을 모두 채워주세요.',
+            });
+        }
+
+
+        if (signUpPassword.length >= 8 && signUpPassword.length <= 12 && signUpEmail.includes("@")) {
 
             if (!hasSpecialChar) {
                 Swal.fire({
@@ -76,25 +93,29 @@ function Account() {
                     text: '8~12자 이내이며 특수문자(!@#$%^&*?)를 포함해야 합니다.',
                 });
                 setSignUpPassword('');
-                setSignUpPasswordConfirm('');
-            } else if (!(signUpPassword == signUpPasswordConfirm)) {
+
+            } else if (signUpAuthCode != '1234') {
                 Swal.fire({
                     icon: 'error',
-                    title: '비밀번호 오류',
-                    text: '2차 비밀번호와 일치하지 않습니다. 다시 입력해주세요.',
+                    title: '인증번호 오류',
+                    text: '인증번호를 다시 확인해주세요',
                 });
-                setSignUpPassword('');
-                setSignUpPasswordConfirm('');
 
             } else {
                 Swal.fire({
                     icon: 'success',
-                    title: '회원가입이 완료되었습니다다.',
+                    title: '회원가입이 완료되었습니다.',
                     text: '어서오세요.',
                 })
             }
         }
+
+        setAccountData([...accountData, {name:signUpName, email:signUpEmail, password:signUpPassword, phone:signUpPhone}]);
+        console.log(accountData);
     }
+
+
+
 
 
 
@@ -112,8 +133,20 @@ function Account() {
                         <div className="account-sign-up-container account-div">
                             <form className='account-form'>
                                 <h1 className='account-h1'>Sign Up</h1>
-                                <input type="text" placeholder="Name" className='account-input'></input>
-                                <input type="email" placeholder="Email" className='account-input'></input>
+                                <input
+                                    type="text"
+                                    placeholder="Name"
+                                    className='account-input'
+                                    value={signUpName}
+                                    onChange={(e) => setSignUpName(e.target.value)}
+                                ></input>
+                                <input
+                                    type="email"
+                                    placeholder="Email"
+                                    className='account-input'
+                                    value={signUpEmail}
+                                    onChange={(e) => setSignUpEmail(e.target.value)}
+                                ></input>
                                 <input
                                     type="password"
                                     placeholder="Password"
@@ -124,15 +157,22 @@ function Account() {
                                     maxLength={12}
                                 ></input>
                                 <input
-                                    type="password"
-                                    placeholder="2차 비밀번호 입력"
+                                    type="text"
+                                    placeholder="phone-number"
                                     className='account-input'
-                                    value={signUpPasswordConfirm}
-                                    onChange={(e) => setSignUpPasswordConfirm(e.target.value)}
-                                    minLength={8}
-                                    maxLength={12}
+                                    value={signUpPhone}
+                                    onChange={(e) => setSignUpPhone(e.target.value)}
+
                                 ></input>
-                                <button className="account-form-btn account-button" onClick={signUpPassCon}>Sign Up</button>
+                                <input
+                                    type='text'
+                                    placeholder="Authentication number"
+                                    className='account-input'
+                                    value={signUpAuthCode}
+                                    onChange={(e) => setSignUpAuthcode(e.target.value)}
+                                ></input>
+
+                                <button type='button' className="account-form-btn account-button" onClick={signUpPassCon}>Sign Up</button>
                                 <div className="account-social-links account-div">
                                     <div className='account-div'>
                                         <a href="#"><i className="fab fa-facebook account-a" aria-hidden="true"></i></a>
