@@ -5,8 +5,11 @@ function MainSplash({ onFinish = () => {} }) {
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    const timer1 = setTimeout(() => setFadeOut(true), 2300);
-    const timer2 = setTimeout(onFinish, 2500);
+    const fadeDuration = 850; // 페이드아웃 애니메이션 시간
+    const visibleDuration = 1450; // 스플래시 노출 시간
+
+    const timer1 = setTimeout(() => setFadeOut(true), visibleDuration); // 1초 뒤 페이드아웃
+    const timer2 = setTimeout(onFinish, visibleDuration + fadeDuration); // 1.8초 뒤 종료
 
     return () => {
       clearTimeout(timer1);
@@ -15,8 +18,10 @@ function MainSplash({ onFinish = () => {} }) {
   }, [onFinish]);
 
   return (
-    <div className={`mainScreen_Splash${fadeOut ? " fade-out" : ""}`}>
-      <h1 className="mainScreen_splash_text">페이지로 이동중입니다<span className="main_dots">...</span></h1>
+    <div className={`mainScreen-Splash${fadeOut ? " fade-out" : ""}`}>
+      <h1 className="mainScreen-splash-text">
+        Loading<span className="main-dots">...</span>
+      </h1>
     </div>
   );
 }

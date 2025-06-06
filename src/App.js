@@ -1,30 +1,24 @@
-import './App.css';
-import ErrorPage from './errorPage/ErrorPage';
+import "./App.css";
+import ErrorPage from "./errorPage/ErrorPage";
+import Fitshare from "./mainScreen/Fitshare";
 
-
-import MainScreen from './mainScreen/MainScreen';
-import MainSplash from './mainSplash/MainSplash';
-import { useState } from 'react';
-
-
-
+import MainScreen from "./mainScreen/MainScreen";
+import MainSplash from "./mainSplash/MainSplash";
+import { useState } from "react";
+import { BrowserRouter } from "react-router";
 
 function App() {
   const [isSplashVisible, setIsSplashVisible] = useState(true);
 
-  // return(
-  //   <>
-  //     {isSplashVisible ? (
-  //       <MainSplash onFinish={() => setIsSplashVisible(false)} />
-  //     ) : (
-  //       <MainScreen />
-  //     )}
+  return(
+  
+    <Fitshare/>
+    
 
- 
-  //   </>
-  // )
-  return<ErrorPage/>
+  )
 
+  // return <MainScreen/>;
+  // return<ErrorPage/>
 
   // return (
   //   <div className="App">

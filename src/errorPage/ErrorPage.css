@@ -1,7 +1,15 @@
 .error-page {
-   text-align: center; 
-   padding: 100px;
-   color: rgb(255, 48, 48);
+    text-align: center;
+   
+    color: rgb(255, 48, 48);
+    position: absolute;
+    top:0;
+    background-color: black;
+    z-index: 999;
+    width: 100vw;
+    height: 100vh;
+   
+
 
 }
 
@@ -10,11 +18,11 @@
     margin-bottom: 20px;
 }
 
-.error-page p{
+.error-page p {
     font-size: 1rem;
 }
 
-.error-page a{
+.error-page .error-btn {
     margin-top: 30px;
     display: inline-block;
     padding: 10px 20px;
@@ -22,9 +30,140 @@
     color: white;
     border-radius: 20px;
     text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
 
 }
 
-.error-page a:hover{
+.error-page a:hover {
     background-color: rgb(218, 80, 80);
+}
+
+.error-glitch {
+    position: relative;
+    font-size: 120px;
+    font-weight: bold;
+    color: white;
+}
+
+.error-glitch::before,
+.error-glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+.error-glitch::after {
+    top: -2px;
+    color: rgba(255, 39, 39, 0.726);
+    z-index: -1;
+    animation: glitchTop 1s linear alternate-reverse;
+}
+
+
+.error-glitch::before {
+    top: -2px;
+    color: rgba(255, 72, 72, 0.822);
+    z-index: -2;
+    animation: glitchBottom 1.2s infinite linear alternate-reverse;
+}
+
+.error-subtitle {
+    position: relative;
+    left: 0;
+    width: 100%;
+    font-size: 20px;
+    margin-top: 10px;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+/* .error-subtitle::after,
+.error-subtitle::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+} */
+
+/* .error-subtitle::after {
+    top: -2px;
+    color: rgb(255, 24, 24);
+    z-index: -1;
+    animation: glitchTop 1s linear alternate-reverse;
+}
+
+.error-subtitle::before {
+    top: -2px;
+    color: rgb(255, 16, 16);
+    z-index: -2;
+    animation: glitchBottom 1.2s infinite linear alternate-reverse;
+} */
+
+
+@keyframes glitchTop {
+    0% {
+        clip-path: inset(0 0 85% 0);
+        transform: translate(-3px, -2px);
+    }
+
+    20% {
+        clip-path: inset(10% 0 70% 0);
+        transform: translate(3px, 2px);
+    }
+
+    40% {
+        clip-path: inset(30% 0 40% 0);
+        transform: translate(-2px, 1px);
+    }
+
+    60% {
+        clip-path: inset(60% 0 20% 0);
+        transform: translate(2px, -1px);
+    }
+
+    80% {
+        clip-path: inset(80% 0 0 0);
+        transform: translate(-1px, 3px);
+    }
+
+    100% {
+        clip-path: inset(0 0 85% 0);
+        transform: translate(0);
+    }
+}
+
+@keyframes glitchBottom {
+    0% {
+        clip-path: inset(80% 0 0 0);
+        transform: translate(3px, 2px);
+    }
+
+    20% {
+        clip-path: inset(60% 0 20% 0);
+        transform: translate(-3px, -2px);
+    }
+
+    40% {
+        clip-path: inset(40% 0 40% 0);
+        transform: translate(2px, 1px);
+    }
+
+    60% {
+        clip-path: inset(20% 0 60% 0);
+        transform: translate(-2px, -1px);
+    }
+
+    80% {
+        clip-path: inset(10% 0 70% 0);
+        transform: translate(1px, -3px);
+    }
+
+    100% {
+        clip-path: inset(80% 0 0 0);
+        transform: translate(0);
+    }
 }
