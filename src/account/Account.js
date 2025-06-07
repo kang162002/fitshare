@@ -238,7 +238,7 @@ function Account() {
 
             </div>
 
-            {openModal ? <AccountRecoveryModal openModal={openModal} setOpenModal={setOpenModal} /> : null}
+            {openModal ? <AccountRecoveryModal openModal={openModal} setOpenModal={setOpenModal} accountData={accountData} setAccountData={setAccountData}/> : null}
         </div>
     );
 }
