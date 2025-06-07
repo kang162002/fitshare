@@ -1,46 +1,4 @@
-// import { useState } from "react";
-
-// function MainSearch() {
-
-//     const [query, setQuery] = useState("");
-
-//     const handleSearchSubmit = (e) => {
-//     e.preventDefault();
-//     console.log("검색어:", query);
-//     // TODO: 검색 실행 로직 추가
-//     };
-
-//     return (
-//         <>
-//             <form
-//                 onSubmit={handleSearchSubmit}
-//                 className="mainScreen-search-wrapper"
-//             >
-//                 <div className="mainScreen-search-container">
-//                     <input
-//                         type="text"
-//                         placeholder="검색하세요.."
-//                         spellCheck="false"
-//                         value={query}
-//                         onChange={(e) => setQuery(e.target.value)}
-//                         className="mainScreen-search"
-//                     />
-//                     <button type="submit" className="mainScreen-search-button">
-//                         검색
-//                     </button>
-//                 </div>
-//             </form>
-
-//             <hr/>
-
-//             <div>
-//                 <h1>운동</h1>
-//                 <br/>
-
-//             </div>
-//         </>
-//     );
-// }
+import './MainSearch.css';
 
 import { useEffect, useState } from "react";
 import workoutData from "../workout/data/workoutData";
@@ -112,94 +70,91 @@ function MainSearch() {
       // 검색어를 URL로 이동
       navigate(`/search?q=${encodeURIComponent(trimmed)}`);
     }
+    setQuery('');
   };
 
   return (
-    <div>
-      <h1>운동 검색</h1>
-      <form onSubmit={handleSearchSubmit}>
-        <input
-          type="text"
-          placeholder="운동명, 도구, 부위 등 입력"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-        />
-        <button type="submit">검색</button>
-      </form>
-      <hr/>
+  <div className="mainSearch-wrapper">
+    <h1 className="mainSearch-title">운동 검색</h1>
 
+    <form onSubmit={handleSearchSubmit} className="mainSearch-form">
+      <input
+        type="text"
+        placeholder="운동명, 도구, 부위 등 입력"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        className="mainSearch-input"
+      />
+      <button type="submit" className="mainSearch-button">
+        검색
+      </button>
+    </form>
 
-      <div>
-        {isSearched &&<h1> 운동 검색 결과 </h1>}
-        {isSearched &&<h2> 근력 운동 </h2>}
-        {results1.length > 0 ? (
-            <>
-                <ul>
-                    {results1.map((item) => (
-                    <li key={`${item.id}-${item.title}`}>
-                        <strong>{item.title}</strong> ({item.tool} / {item.area})
-                    </li>
-                    ))}
-                </ul>
-            </>
-          
-        ) : (
-          isSearched && <p>검색 결과가 없습니다.</p>
-        )}
+    <hr className="mainSearch-divider" />
 
-        {isSearched &&<h2> 유산소 운동 </h2>}
-        {results2.length > 0 ? (
-            <>
-                <ul>
-                    {results1.map((item) => (
-                    <li key={`${item.id}-${item.title}`}>
-                        <strong>{item.title}</strong> ({item.tool} / {item.area})
-                    </li>
-                    ))}
-                </ul>
-            </>
-          
-        ) : (
-          isSearched && <p>검색 결과가 없습니다.</p>
-        )}
+    <div className="mainSearch-results">
+      {isSearched && <h1 className="mainSearch-section-title">운동 검색 결과</h1>}
 
-        {isSearched &&<h2> 스트레칭 </h2>}
-        {results3.length > 0 ? (
-            <>
-                <ul>
-                    {results3.map((item) => (
-                    <li key={`${item.id}-${item.title}`}>
-                        <strong>{item.title}</strong> ({item.tool} / {item.area.join(', ')})
-                    </li>
-                    ))}
-                </ul>
-            </>
-          
-        ) : (
-          isSearched && <p>검색 결과가 없습니다.</p>
-        )}
+      {/* 근력 운동 */}
+      {isSearched && <h2 className="mainSearch-subtitle">근력 운동</h2>}
+      {results1.length > 0 ? (
+        <ul className="mainSearch-list">
+          {results1.map((item) => (
+            <li key={`${item.id}-${item.title}`} className="mainSearch-item">
+              <strong>{item.title}</strong> ({item.tool} / {item.area})
+            </li>
+          ))}
+        </ul>
+      ) : (
+        isSearched && <p className="mainSearch-empty">검색 결과가 없습니다.</p>
+      )}
 
-        {isSearched &&<h1> 게시판 검색 결과 </h1>}
-        {isSearched &&<h2> 모든 게시판 </h2>}
-        {results4.length > 0 ? (
-            <>
-                <ul>
-                    {results4.map((item) => (
-                    <li key={`${item.id}-${item.title}`}>
-                        <strong>{item.title}</strong> ({item.writer} / {item.date})
-                    </li>
-                    ))}
-                </ul>
-            </>
-          
-        ) : (
-          isSearched && <p>검색 결과가 없습니다.</p>
-        )}
+      {/* 유산소 운동 */}
+      {isSearched && <h2 className="mainSearch-subtitle">유산소 운동</h2>}
+      {results2.length > 0 ? (
+        <ul className="mainSearch-list">
+          {results2.map((item) => (
+            <li key={`${item.id}-${item.title}`} className="mainSearch-item">
+              <strong>{item.title}</strong> ({item.tool} / {item.area})
+            </li>
+          ))}
+        </ul>
+      ) : (
+        isSearched && <p className="mainSearch-empty">검색 결과가 없습니다.</p>
+      )}
 
+      {/* 스트레칭 */}
+      {isSearched && <h2 className="mainSearch-subtitle">스트레칭</h2>}
+      {results3.length > 0 ? (
+        <ul className="mainSearch-list">
+          {results3.map((item) => (
+            <li key={`${item.id}-${item.title}`} className="mainSearch-item">
+              <strong>{item.title}</strong> ({item.tool} / {item.area.join(', ')})
+            </li>
+          ))}
+        </ul>
+      ) : (
+        isSearched && <p className="mainSearch-empty">검색 결과가 없습니다.</p>
+      )}
 
-      </div>
+      {/* 게시판 */}
+      {isSearched && <h1 className="mainSearch-section-title">게시판 검색 결과</h1>}
+      {isSearched && <h2 className="mainSearch-subtitle">모든 게시판</h2>}
+      {results4.length > 0 ? (
+        <ul className="mainSearch-list">
+          {results4.map((item) => (
+            <li key={`${item.id}-${item.title}`} className="mainSearch-item">
+              <strong>{item.title}</strong> ({item.writer} / {item.date})
+            </li>
+          ))}
+        </ul>
+      ) : (
+        isSearched && <p className="mainSearch-empty">검색 결과가 없습니다.</p>
+      )}
     </div>
-  );
+  </div>
+);
+
 }
 
 export default MainSearch;
