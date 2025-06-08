@@ -59,6 +59,11 @@
 
 .mainSearch-item {
   margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.mainSearch-item:hover {
+  color:#ff6161
 }
 
 .mainSearch-empty {
