@@ -1,6 +1,6 @@
 import './Account.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import account_overlay_left from './image/account_overlay_left.jpg';
 import account_overlay_right from './image/account_overlay_right.jpg';
 import Swal from 'sweetalert2';
@@ -32,14 +32,9 @@ function Account() {
     const [openModal, setOpenModal] = useState(false);
 
     // ======================== 입력 제한 로직 ================================================
-    const signInPass = () => {
-        Swal.fire({
-            icon: 'error',
-            title: 'Password가 올바르지 않습니다.',
-            text: '8-12자 이내로 입력 후 다시 시도해주세요.',
-        });
-    };
 
+
+    const [signInEmail, setSignInEmail] = useState('');
     const [signInPassword, setSignInPassword] = useState('');
 
     const [signUpName, setSignUpName] = useState('');
@@ -49,9 +44,33 @@ function Account() {
     const [signUpAuthCode, setSignUpAuthcode] = useState('');
 
     const [accountData, setAccountData] = useState(accountDatas);
+    const [user, setUser] = useState({});
 
 
     const handleSignIn = () => {
+
+        if (signInEmail == '' || signInPassword == '') {
+            Swal.fire({
+                icon: 'error',
+                title: '공백 오류',
+                text: '빈칸을 모두 채워주세요.',
+            });
+            return;
+        }
+
+        const foundUser = accountData.find(user =>
+            user.email === signInEmail && user.password === signInPassword);
+        setUser(foundUser);
+
+        if (!foundUser) {
+            Swal.fire({
+                icon: 'error',
+                title: '로그인 실패',
+                text: '이메일 또는 비밀번호가 잘못되었습니다.',
+            });
+            setSignInPassword('');
+            return;
+        }
 
         const hasSpecialChar = /[!@#$%^&*?]/.test(signInPassword);
         if (signInPassword.length >= 8 && signInPassword.length <= 12) {
@@ -62,12 +81,16 @@ function Account() {
                     text: '8~12자 이내이며 특수문자(!@#$%^&*?)를 포함해야 합니다.',
                 });
                 setSignInPassword('');
+                return;
             } else {
                 Swal.fire({
                     icon: 'success',
                     title: '로그인이 완료되었습니다.',
                     text: '환영합니다.',
                 })
+                setUser(foundUser);
+                setSignInEmail('');
+                setSignInPassword('');
             }
         }
     }
@@ -75,12 +98,13 @@ function Account() {
     const signUpPassCon = () => {
         const hasSpecialChar = /[!@#$%^&*?]/.test(signUpPassword);
 
-        if ( signUpName == '' || signUpEmail == '' || signUpPassword == '' || signUpPhone == '' || signUpAuthCode == '') {
+        if (signUpName == '' || signUpEmail == '' || signUpPassword == '' || signUpPhone == '' || signUpAuthCode == '') {
             Swal.fire({
                 icon: 'error',
                 title: '공백 오류',
                 text: '빈칸을 모두 채워주세요.',
             });
+            return;
         }
 
 
@@ -107,18 +131,75 @@ function Account() {
                     title: '회원가입이 완료되었습니다.',
                     text: '어서오세요.',
                 })
+                setShowTimer(false);
+                setSignUpName('');
+                setSignUpEmail('');
+                setSignUpPassword('');
+                setSignUpPhone('');
+                setSignUpAuthcode('');
             }
         }
 
-        setAccountData([...accountData, {name:signUpName, email:signUpEmail, password:signUpPassword, phone:signUpPhone}]);
+        setAccountData([...accountData, { name: signUpName, email: signUpEmail, password: signUpPassword, phone: signUpPhone }]);
         console.log(accountData);
     }
 
+    //================================인증번호 ========================================
+    const [showTimer, setShowTimer] = useState(false);
+    const [showTimerPass, setShowTimerPass] = useState(false);
+    const [timerKey, setTimerKey] = useState(0);
 
+    const handleGetCode = () => {
 
+        if (signUpPhone == '' || signUpName == '' || signUpEmail == '' || signUpPassword == '') {
+            Swal.fire({
+                icon: 'error',
+                title: '공백 오류',
+                text: '이름, 이메일, 비밀번호를 모두 입력 후 인증 절차를 진행해주세요.',
+            });
+            return;
+        }
 
+        setTimerKey(prev => prev + 1);
+        setShowTimer(true); // 타이머 표시
+    };
 
+    //============= 타이머 function ==============
+    function Timer({ duration }) {
+        const [timeLeft, setTimeLeft] = useState(duration);
 
+        useEffect(() => {
+            if (timeLeft <= 0) {
+                return;
+            }
+
+            const interval = setInterval(() => {
+                setTimeLeft(prev => {
+                    if (prev <= 1) { //1 이하일 때 --
+                        clearInterval(interval); //타이머 멈추기?
+                        return 0;
+                    }
+                    return prev - 1;
+                });
+            }, 1000);
+
+            return () => clearInterval(interval);
+        }, []);
+
+        //============= 전체 초를 전달받아 '분:초'의 형태로 반환 ==============
+        const formatTime = (seconds) => {
+            const m = String(Math.floor(seconds / 60)).padStart(2, '0');
+            const s = String(seconds % 60).padStart(2, '0');
+            return `${m}:${s}`;
+        };
+
+        //=============  ==============
+        if (timeLeft <= 0) {
+            alert('⏰ 인증 시간이 만료되었습니다.');
+            return null;
+        }
+        return <span style={{ marginLeft: '10px', color: 'red', fontSize: '14px' }}>{formatTime(timeLeft)}</span>;
+    }
 
 
     return (
@@ -156,14 +237,19 @@ function Account() {
                                     minLength={8}
                                     maxLength={12}
                                 ></input>
-                                <input
-                                    type="text"
-                                    placeholder="phone-number"
-                                    className='account-input'
-                                    value={signUpPhone}
-                                    onChange={(e) => setSignUpPhone(e.target.value)}
+                                <div>
+                                    <input
+                                        type="text"
+                                        placeholder="phone-number"
+                                        className='account-input account-input-phone'
+                                        value={signUpPhone}
+                                        onChange={(e) => setSignUpPhone(e.target.value)}
+                                        maxLength={11}
+                                    ></input>
 
-                                ></input>
+                                    <button className='account-form-btn account-btn-phone' onClick={handleGetCode}>인증번호 받기</button>
+                                    {showTimer && <Timer duration={180} />}
+                                </div>
                                 <input
                                     type='text'
                                     placeholder="Authentication number"
@@ -191,7 +277,13 @@ function Account() {
                         <div className="account-sign-in-container account-div">
                             <form className='account-form'>
                                 <h1 className='account-h1'>Sign In</h1>
-                                <input type="email" placeholder="Email" className='account-input'></input>
+                                <input
+                                    type="email"
+                                    placeholder="Email"
+                                    className='account-input'
+                                    value={signInEmail}
+                                    onChange={(e) => setSignInEmail(e.target.value)}
+                                ></input>
                                 <input
                                     type="password"
                                     placeholder="Password"
@@ -203,7 +295,7 @@ function Account() {
 
                                 ></input>
 
-                                <button className="account-form-btn account-button" onClick={handleSignIn} >Sign In</button>
+                                <button type='button' className="account-form-btn account-button" onClick={handleSignIn} >Sign In</button>
                                 <a href="#" className='account-a' onClick={() => {
                                     setOpenModal(true);
                                 }}>Forgot your password?</a>
@@ -238,7 +330,7 @@ function Account() {
 
             </div>
 
-            {openModal ? <AccountRecoveryModal openModal={openModal} setOpenModal={setOpenModal} accountData={accountData} setAccountData={setAccountData}/> : null}
+            {openModal ? <AccountRecoveryModal openModal={openModal} setOpenModal={setOpenModal} accountData={accountData} setAccountData={setAccountData} /> : null}
         </div>
     );
 }

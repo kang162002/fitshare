@@ -3,7 +3,7 @@ let accountDatas = [
         name: '진다솔',
         email: 'code@pigonheayo',
         password: 'ya!!000000',
-        phone: '01044444444'
+        phone: '01012345678'
     },
 ]
 

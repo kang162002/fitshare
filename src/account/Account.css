@@ -39,8 +39,6 @@
     cursor:pointer;
 }
 
-
-
 .account-container {
     border-radius: 10px;
     position: absolute;
@@ -63,7 +61,6 @@
     background: #eee;
     padding: 16px;
     margin: 8px 0;
-    width: 85%;
     border: 0;
     outline: none;
     border-radius: 20px;
@@ -71,6 +68,7 @@
 }
 
 .account-input {
+    width: 250px;
     height: 10px;
 }
 
@@ -99,6 +97,18 @@
 .account-overlay-btn {
     opacity: 0.8;
     box-shadow: -5px -5px 10px, 5px 5px 8px;
+}
+
+.account-btn-phone {
+    box-shadow: -5px -5px 10px #fff, 4px 2px 1px #999999;
+    background-color: #e0dfdf;
+    border: none;
+    width: 100px;
+    height: 40px;
+    border-radius: 30px;
+    text-transform: uppercase;
+
+    cursor: pointer;
 }
 
 .account-sign-in-container {
@@ -219,3 +229,8 @@
 .account-social-links .account-div:active {
     box-shadow: inset 1px 1px 2px #babebc, inset -1px -1px 2px #fff;
 }
+
+.account-input-phone {
+    width: 150px;
+}
+

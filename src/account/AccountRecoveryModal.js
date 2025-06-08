@@ -5,18 +5,23 @@ import 'sweetalert2/dist/sweetalert2.min.css';
 
 function AccountRecoveryModal({ openModal, setOpenModal, accountData, setAccountData }) {
 
-    // const [userEmail, setUserEmail] = useState(false);
-
     const [isAnimating, setIsAnimating] = useState(false); // 애니메이션 상태
 
+    //Email Pannel
     const [userName, setUserName] = useState('');
     const [userPhoneCheck, setUserPhoneCheck] = useState('');
+
+
+    //Password Pannel
+    const [userEmailPass, setUserEmailPass] = useState('');
     const [userPhoneCheckPass, setUserPhoneCheckPass] = useState('');
 
+    //인증번호 Pannel
     const [user, setUser] = useState({});
     const [userAuthCheck, setUserAuthCheck] = useState('');
 
     const handleEmailSearch = () => {
+
 
         const findUser = (key, value) => {
             return accountData.find(user => user[key] === value);
@@ -31,7 +36,7 @@ function AccountRecoveryModal({ openModal, setOpenModal, accountData, setAccount
                 title: '사용자를 찾을 수 없습니다.',
                 text: '입력한 이름을 다시 확인해주세요.',
             });
-        } else if (userAuthCheck!=='1234') {
+        } else if (userAuthCheck !== '1234') {
             Swal.fire({
                 icon: 'error',
                 title: '인증 번호가 일치하지 않습니다.',
@@ -44,21 +49,11 @@ function AccountRecoveryModal({ openModal, setOpenModal, accountData, setAccount
                 text: foundUser.email,
             });
             setShowTimer(false);
+            setUserName('');
+            setUserPhoneCheck('');
+            setUserAuthCheck('');
         }
     };
-
-    // const passwordChange = () => {
-    //     Swal.fire({
-    //         icon: 'success',
-    //         title: 'Password가 변경되었습니다.',
-    //         text: '확인 버튼을 누르시면 로그인 창으로 돌아갑니다.',
-    //     }).then((result) => {
-    //         if (result.isConfirmed) {
-    //             setUserPass(false); // 예: 컴포넌트 숨기기
-    //             setOpenModal(false);
-    //         }
-    //     });
-    // };
 
     const handleClose = () => {
         setIsAnimating(true); // 애니메이션 시작
@@ -72,6 +67,24 @@ function AccountRecoveryModal({ openModal, setOpenModal, accountData, setAccount
     const [newPasswordCon, setNewPasswordCon] = useState('');
 
     const signUpPassCon = () => {
+
+        if (newPasswordCon == '' || newPasswordCon == '') {
+            Swal.fire({
+                icon: 'error',
+                title: '공백 오류',
+                text: '빈칸을 모두 채워주세요.',
+            });
+            return;
+        } else if(authCheck == false) {
+            Swal.fire({
+                icon: 'error',
+                title: '인증 오류',
+                text: '휴대폰 번호 인증을 진행주세요.',
+            });
+            return;
+        }
+
+
         const hasSpecialChar = /[!@#$%^&*?]/.test(newPassword);
         if (newPassword.length >= 8 && newPassword.length <= 12) {
 
@@ -91,7 +104,27 @@ function AccountRecoveryModal({ openModal, setOpenModal, accountData, setAccount
                 });
                 setNewPassword('');
                 setNewPasswordCon('');
+            } else if (authCheck == false) {
+                Swal.fire({
+                    icon: 'error',
+                    title: '인증번호 오류',
+                    text: '인증절차 후 반드시 확인 버튼을 눌러주세요.',
+                });
             } else {
+
+                //기존 데이터를 새로운 데이터로 교체
+                const updatedData = accountData.map(user => {
+                    if (user.email === userEmailPass) {
+                        return {
+                            ...user,
+                            password: newPassword,
+                        };
+                    }
+                    return user;
+                });
+
+                setAccountData(updatedData);
+
                 Swal.fire({
                     icon: 'success',
                     title: 'Password가 변경되었습니다.',
@@ -108,11 +141,13 @@ function AccountRecoveryModal({ openModal, setOpenModal, accountData, setAccount
     // ===================================== 인증 번호 타이머 =======================================
 
     const [showTimer, setShowTimer] = useState(false);
+    const [showTimerPass, setShowTimerPass] = useState(false);
     const [timerKey, setTimerKey] = useState(0);
+
+    //============= 타이머 function ==============
     function Timer({ duration }) {
         const [timeLeft, setTimeLeft] = useState(duration);
 
-        
         useEffect(() => {
             if (timeLeft <= 0) {
                 return;
@@ -120,8 +155,8 @@ function AccountRecoveryModal({ openModal, setOpenModal, accountData, setAccount
 
             const interval = setInterval(() => {
                 setTimeLeft(prev => {
-                    if (prev <= 1) {
-                        clearInterval(interval);
+                    if (prev <= 1) { //1 이하일 때 --
+                        clearInterval(interval); //타이머 멈추기?
                         return 0;
                     }
                     return prev - 1;
@@ -131,12 +166,14 @@ function AccountRecoveryModal({ openModal, setOpenModal, accountData, setAccount
             return () => clearInterval(interval);
         }, []);
 
+        //============= 전체 초를 전달받아 '분:초'의 형태로 반환 ==============
         const formatTime = (seconds) => {
             const m = String(Math.floor(seconds / 60)).padStart(2, '0');
             const s = String(seconds % 60).padStart(2, '0');
             return `${m}:${s}`;
         };
 
+        //=============  ==============
         if (timeLeft <= 0) {
             alert('⏰ 인증 시간이 만료되었습니다.');
             return null;
@@ -145,6 +182,7 @@ function AccountRecoveryModal({ openModal, setOpenModal, accountData, setAccount
     }
 
 
+    //===============Email 찾기 인증번호 로직 ====================
     const handleGetCode = () => {
         const findUser = (key, value) => {
             return accountData.find(user => user[key] === value);
@@ -152,65 +190,112 @@ function AccountRecoveryModal({ openModal, setOpenModal, accountData, setAccount
 
         const foundUser = findUser('name', userName);
 
-            if (!userPhoneCheck) {
-                Swal.fire({
-                    icon: 'error',
-                    title: '전화번호 미입력',
-                    text: '전화번호를 입력해주세요.',
-                });
-                return;
-            } else if (foundUser.phone !== userPhoneCheck) {
-                Swal.fire({
-                    icon: 'error',
-                    title: '전화번호 불일치',
-                    text: '전화번호가 일치하지 않습니다.',
-                });
-                return;
-            } else {
-                Swal.fire({
-                    icon: 'success',
-                    title: '인증번호가 전송되었습니다.',
-                    text: '제한 시간 내에 인증번호를 입력해주세요',
-                })
-            }
+        if (!userPhoneCheck) {
+            Swal.fire({
+                icon: 'error',
+                title: '전화번호 미입력',
+                text: '전화번호를 입력해주세요.',
+            });
+            return;
+        } else if (foundUser.phone !== userPhoneCheck) {
+            Swal.fire({
+                icon: 'error',
+                title: '전화번호 불일치',
+                text: '전화번호가 일치하지 않습니다.',
+            });
+            return;
+        } else {
+            Swal.fire({
+                icon: 'success',
+                title: '인증번호가 전송되었습니다.',
+                text: '제한 시간 내에 인증번호를 입력해주세요',
+            })
+        }
 
-            setTimerKey(prev => prev + 1);
-            setShowTimer(true); // 타이머 표시
-        };
+        setTimerKey(prev => prev + 1);
+        setShowTimer(true); // 타이머 표시
+    };
 
 
-            const handleGetCodePass = () => {
-        const findUser = (key, value) => {
-            return accountData.find(user => user[key] === value);
-        };
+    //===============Password 변경 인증번호 로직 ====================
 
-        const foundUser = findUser('name', userName);
+    const userEmailCheck = () => {
+        const foundUserEmail = accountData.find(user =>
+            user.email === userEmailPass);
 
-            if (!userPhoneCheckPass) {
-                Swal.fire({
-                    icon: 'error',
-                    title: '전화번호 미입력',
-                    text: '전화번호를 입력해주세요.',
-                });
-                return;
-            } else if (foundUser.phone !== userPhoneCheckPass) {
-                Swal.fire({
-                    icon: 'error',
-                    title: '전화번호 불일치',
-                    text: '전화번호가 일치하지 않습니다.',
-                });
-                return;
-            } else {
-                Swal.fire({
-                    icon: 'success',
-                    title: '인증번호가 전송되었습니다.',
-                    text: '제한 시간 내에 인증번호를 입력해주세요',
-                })
-            }
+        if (foundUserEmail) {
+            Swal.fire({
+                icon: 'success',
+                title: '존재하는 이메일 정보입니다.',
+                text: '전화번호 인증절차를 진행해주세요.',
+            })
+            return;
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: '존재하지 않는 이메일 정보입니다.',
+                text: '회원가입을 먼저 진행해주세요.',
+            })
+            setOpenModal(false);
+            return;
+        }
+    }
 
-            setTimerKey(prev => prev + 1);
-            setShowTimer(true); // 타이머 표시
-        };
+
+    const handleGetCodePass = () => {
+
+        const foundUserPhone = accountData.find(user =>
+            user.email === userEmailPass && user.phone === userPhoneCheckPass);
+
+
+        if (userPhoneCheckPass == '') {
+            Swal.fire({
+                icon: 'error',
+                title: '전화번호 미입력',
+                text: '전화번호를 입력해주세요.',
+            });
+            return;
+        } else if (!foundUserPhone) {
+            Swal.fire({
+                icon: 'error',
+                title: '전화번호 불일치',
+                text: '전화번호가 일치하지 않습니다.',
+            });
+            return;
+        } else {
+            Swal.fire({
+                icon: 'success',
+                title: '인증번호가 전송되었습니다.',
+                text: '제한 시간 내에 인증번호를 입력해주세요',
+            })
+        }
+
+        setTimerKey(prev => prev + 1);
+        setShowTimerPass(true); // 타이머 표시
+    };
+
+    const [authCheckPass, setAuthCheckPass] = useState('');
+    const [authCheck, setAuthCheck] = useState(false);
+
+    const authCheckTF = () => {
+        if (authCheckPass == '1234') {
+            setShowTimerPass(false);
+            setAuthCheck(true);
+            Swal.fire({
+                icon: 'success',
+                title: '인증이 완료되었습니다.',
+                text: '새로운 비밀번호를 입력해주세요.',
+            })
+            return;
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: '인증번호가 일치하지 않습니다..',
+                text: '다시 한 번 확인해주세요.',
+            })
+        }
+    }
+
 
     return (
         <div className='account-all'>
@@ -234,28 +319,29 @@ function AccountRecoveryModal({ openModal, setOpenModal, accountData, setAccount
                                         ></input>
 
                                         <div className='account-re-div'>
-                                            
 
-                                                <input
-                                                    type='text'
-                                                    placeholder='전화번호'
-                                                    className='account-re-input'
-                                                    value={userPhoneCheck}
-                                                    onChange={(e) => setUserPhoneCheck(e.target.value)}
 
-                                                ></input>{showTimer && <Timer duration={180}/>}
-                                            
+                                            <input
+                                                type='text'
+                                                placeholder='전화번호'
+                                                className='account-re-input'
+                                                value={userPhoneCheck}
+                                                onChange={(e) => setUserPhoneCheck(e.target.value)}
+                                                maxLength={11}
+
+                                            ></input>{showTimer && <Timer duration={180} />}
+
                                             <button className='account-re-btn' onClick={handleGetCode}>인증번호 받기</button>
                                         </div>
 
                                         <div className='account-re-div'>
-                                            <input 
-                                                type='text' 
-                                                placeholder='인증번호' 
+                                            <input
+                                                type='text'
+                                                placeholder='인증번호'
                                                 className='account-re-input'
                                                 value={userAuthCheck}
                                                 onChange={(e) => setUserAuthCheck(e.target.value)}
-                                                ></input>
+                                            ></input>
                                         </div>
 
                                         <div className='account-re-div'>
@@ -270,25 +356,38 @@ function AccountRecoveryModal({ openModal, setOpenModal, accountData, setAccount
                                     <form className='account-re-form account-re-div'>
                                         <h1 className='account-re-h1'>Password 변경</h1>
                                         <div className='account-re-div'>
-                                            <input type='email' placeholder='email' className='account-re-input'></input>
-                                            <button className='account-re-btn'>정보 확인</button>
+                                            <input
+                                                type='email'
+                                                placeholder='email'
+                                                className='account-re-input'
+                                                value={userEmailPass}
+                                                onChange={(e) => setUserEmailPass(e.target.value)}
+                                            ></input>
+                                            <button className='account-re-btn' onClick={userEmailCheck}>정보 확인</button>
                                         </div>
 
                                         <div className='account-re-div'>
                                             <input
-                                                    type='text'
-                                                    placeholder='전화번호'
-                                                    className='account-re-input'
-                                                    value={userPhoneCheckPass}
-                                                    onChange={(e) => setUserPhoneCheckPass(e.target.value)}
+                                                type='text'
+                                                placeholder='전화번호'
+                                                className='account-re-input'
+                                                value={userPhoneCheckPass}
+                                                onChange={(e) => setUserPhoneCheckPass(e.target.value)}
+                                                maxLength={11}
+                                            ></input>{showTimerPass && <Timer duration={180} />}
 
-                                                ></input>{showTimer && <Timer duration={180}/>}
-                                            
                                             <button className='account-re-btn' onClick={handleGetCodePass}>인증번호 받기</button>
                                         </div>
 
                                         <div className='account-re-div'>
-                                            <input type='text' placeholder='인증번호' className='account-re-input'></input>
+                                            <input
+                                                type='text'
+                                                placeholder='인증번호'
+                                                className='account-re-input'
+                                                value={authCheckPass}
+                                                onChange={(e) => setAuthCheckPass(e.target.value)}
+                                            ></input>
+                                            <button className='account-re-btn' onClick={authCheckTF}>확인</button>
                                         </div>
 
                                         <div className='account-re-div'>
