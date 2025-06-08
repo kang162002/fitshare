@@ -169,23 +169,7 @@ body {
   padding-top: 45px;
   justify-content: center;
   margin-bottom: 25px;
-  background-size: cover;
-  color: transparent;
-  font-size: 1rem;
-  transition: all 0.25s ease-in 0.25s;
-  padding: 10px;
-  border: none;
-  border-radius: 50px;
-  outline: none;
-  justify-content: space-between;
-
-}
-
-.mainScreen_search_wrapper img{
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  
+  align-content: center;
 }
 
 /*  검색창 돋보기  */
@@ -222,7 +206,7 @@ body {
   border: none;
   background-color: var(--text-color);
   color: white;
-  border-radius: 0 50px 50px 0;
+  border-radius: 50px;
   cursor: pointer;
   font-size: 1rem;
   transition: background 0.3s ease;
@@ -242,17 +226,6 @@ body {
 
 
 
-
-.mainScreen-search-button {
-  padding: 10px 15px;
-  border: none;
-  background-color: var(--text-color);
-  color: white;
-  border-radius: 50px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background 0.3s ease;
-}
 
 .mainScreen-search-button:hover {
   background-color: #ff4e5e;
@@ -275,6 +248,8 @@ body {
   outline: none;
 
 }
+
+
 
 /* 검색창 포커스 확장 */
 .mainScreen-search:focus {
@@ -429,6 +404,7 @@ footer.footer {
   text-decoration-line: none;
 }
 
+
 /* 애니메이션 정의 */
 @keyframes pageFlip {
   from {
@@ -564,29 +540,6 @@ footer.footer {
   line-height: 1.6;
 }
 
-.mainScreen-intro-image3 img {
-
-
-  max-width: 500px;
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-
-}
-
-
-.mainScreen-intron-section02 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 50px;
-  flex-wrap: wrap;
-  margin-top: 100px;
-
-
-}
-
 .mainScreen-intron-section02 {
   display: flex;
   justify-content: center;
@@ -678,4 +631,402 @@ footer.footer {
   line-height: 1.6;
   max-width: 800px;
 
+}
+
+/* 메인 페이지 래퍼 (flex 방향 수직) */
+.main_Screen_page_wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* 비디오 배경 - 화면 전체 커버 */
+.mainScreen_background_video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  pointer-events: none;
+  animation: pageFlip 2s ease-in-out;
+}
+
+.mainScreen_background_video.active {
+  opacity: 1;
+}
+
+/* 네비게이션 영역 스타일 */
+.mainScreen_main_menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  backdrop-filter: blur(5px);
+  position: relative;
+  z-index: 10;
+}
+
+.mainScreen_logo {
+display: flex;
+align-items: center;
+height: 100%;
+}
+
+.mainScreen_main_logo_image>img {
+  object-fit: cover;
+}
+
+.mainScreen_menu_links,
+.mainScreen_menu_with_submenu>a {
+  display: flex;
+  gap: 85px;
+}
+
+.mainScreen_menu_links a,
+.mainScreen_menu_with_submenu>a {
+  position: relative;
+  display: inline-block;
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 10px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.mainScreen_menu_links a.active {
+  color: var(--accent-color);
+  background: rgba(151, 151, 151, 0.568);
+  border-radius: 4px;
+}
+
+.mainScreen_menu_links a:hover,
+.mainScreen_top_nav a:hover {
+  color: var(--accent-color);
+  background: rgba(190, 190, 190, 0.21);
+  border-radius: 30px;
+  border-bottom: 2px solid #ffffff76;
+  transition: 0.5s;
+}
+
+.mainScreen_top_nav>a{
+  color: #ff3c53;
+}
+
+/* 서브 메뉴 호버 시 열림 */
+.mainScreen_menu_with_submenu {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  align-items: center;
+}
+
+
+.mainScreen_menu_with_submenu:hover .mainScreen_main_submenu_container {
+  display: flex;
+  cursor: pointer;
+}
+
+
+
+.mainScreen_main_submenu_container {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.406);
+  padding: 20px;
+  border-radius: 50px;
+  white-space: nowrap;
+  gap: 10px;
+  z-index: 20;
+}
+
+.main_submenu_item {
+  /* all: unset; */
+  display: block;
+  color: white;
+  padding: 10px 15px;
+  font-size: 0.5rem;
+  line-height: 1.6;
+  cursor: pointer;
+
+}
+
+.main_submenu_item:hover {
+  background: rgba(153, 153, 153, 0.068);
+  color: #ff3c53;
+  width: 110px;
+  font-size: 0.8rem;
+
+
+}
+
+/* 검색창 래퍼 */
+.mainScreen_search_wrapper {
+  display: flex;
+  width: 100%;
+  max-width: 600px;
+  padding: 0 20px;
+  justify-content: center;
+  margin-bottom: 25px;
+  background-size: cover;
+  color: transparent;
+  font-size: 1rem;
+  transition: all 0.25s ease-in 0.25s;
+  padding: 10px;
+  border: none;
+  border-radius: 50px;
+  outline: none;
+  justify-content: space-between;
+
+}
+
+.mainScreen_search_wrapper img{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  
+}
+
+/*  검색창 돋보기  */
+
+.mainScreen_search_container {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  max-width: 90%;
+}
+
+
+.mainScreen_search_container>input {
+  text-align: center;
+}
+
+.mainScreen_search {
+  flex: 1;
+  /* padding: 10px 40px 10px 35px; */
+  /* 왼쪽 여백 이미지 공간 확보 */
+  border: none;
+  border-radius: 50px 0 0 50px;
+  font-size: 0.8rem;
+  background: rgba(255, 255, 255, 0.596);
+  color: white;
+  outline: none;
+
+}
+
+.mainScreen_search_button {
+  padding: 10px 16px;
+  border: none;
+  background-color: var(--text-color);
+  color: white;
+  border-radius: 0 50px 50px 0;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+
+  /* ✅ 핵심 추가 스타일 */
+  white-space: nowrap;
+  /* 텍스트 줄바꿈 방지 */
+  display: flex;
+  /* 수평 정렬 */
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  /* 텍스트 위아래 정렬 */
+}
+
+
+
+
+
+
+.mainScreen_search_button {
+  padding: 10px 15px;
+  border: none;
+  background-color: var(--text-color);
+  color: white;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.mainScreen_search_button:hover {
+  background-color: #ff4e5e;
+}
+
+/* 돋보기 이미지 끝 */
+
+/* 검색 input 기본 스타일 */
+.mainScreen_search {
+  /* width: 100%; */
+  width: 150px;
+  height: 25px;
+  background-size: cover;
+
+  font-size: 1rem;
+  transition: all 0.25s ease-in 0.25s;
+  padding: 10px;
+  border: none;
+  border-radius: 50px;
+  outline: none;
+  
+}
+
+/* 검색창 포커스 확장 */
+.mainScreen_search:focus {
+  width: 400px;
+  color: white;
+  background: rgba(160, 160, 160, 0.5);
+}
+
+/* 히어로 영역 - 메인 텍스트 */
+.mainScreen_hero {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 5;
+}
+
+.mainScreen_hero h1 {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-shadow: 3px 3px 9px rgba(71, 71, 71, 0.829);
+  color: var(--text-color);
+}
+
+/* 스플래시 전체 화면 */
+.mainScreen_Splash {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 2rem;
+  background-color: white;
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+  z-index: 100;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.mainScreen_Splash.fade-out {
+  opacity: 0;
+}
+
+.mainScreen_splash_text {
+  animation: splashTextIn 1.5s ease-in-out;
+  font-size: 2.5rem;
+  color: var(--text-color);
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+}
+
+
+
+
+
+/* 푸터 영역 */
+.mainScreen_footer {
+  width: 100%;
+  height: 40px;
+  padding: 10px 20px;
+  background-color: rgb(165, 165, 165);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mainScreen_footer_content {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: #222;
+}
+
+/* 애니메이션 정의 */
+@keyframes pageFlip {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes splashTextIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes dotFlashing {
+
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+
+.mainScreen-intro-body,
+.mainScreen-intro,
+.mainScreen-intron-section,
+.mainScreen-intron-section02,
+.mainScreen-intron-temporary {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 20px;
+  
+}
+
+.image-item img{
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.mainScreen-intro-text03,
+.mainScreen-intro-routine {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
 }

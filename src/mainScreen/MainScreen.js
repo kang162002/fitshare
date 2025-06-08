@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "./MainScreen.css";
 import MainEffect from "../mainRipple/MainEffect";
 import MainSplash from "../mainSplash/MainSplash";
+import Customer from "./Customer";
 
 // 비디오 소스 배열 정의
 const videoSources = [
@@ -122,29 +123,12 @@ function MainScreen() {
         ))}
 
         {/* 메인 콘텐츠 영역 */}
-<<<<<<< HEAD
-        <main className="mainScreen_content">
-          <div className="mainScreen_hero">
-            <div className="mainScreen_content">
-<<<<<<< HEAD
-              {/* 검색 입력창 */}
-              <div className="mainScreen_search_wrapper">
-                <input
-                  type="text"
-                  placeholder=" "
-                  spellCheck="false"
-                  className="mainScreen_search mainScreen_custom_search"
-                ></input>
-                <img  src={process.env.PUBLIC_URL + '/images/mainImage/reading.png'}></img>
-              </div>
-=======
-=======
+
         <div className="mainScreen-content">
           <div className="mainScreen-hero">
             <div className="mainScreen-content">
               {/* 메인 문구 */}
               <h1>처음 운동하는 마음 BIOMIND</h1>
->>>>>>> ab3565e9b82bead7f4e50653849d3022e7d89853
               {/* 검색 입력창 (엔터+버튼 가능) */}
               <form
                 onSubmit={handleSearchSubmit}
@@ -164,33 +148,8 @@ function MainScreen() {
                   </button>
                 </div>
               </form>
-<<<<<<< HEAD
-
->>>>>>> d55596a1bfaeb546e1ba3bdde1e42f7586665b6f
-              {/* 메인 문구 */}
-              <h1>처음 운동하는 마음 BIOMIND</h1>
-            </div>
-          </div> 
-        </main>
-      </div>
-
-      {/* 푸터 */}
-      <footer className="mainScreen_footer">
-        <div className="mainScreen_footer_content">
-          <span>
-            회사 주소 : 충남 천안시 동남구 대흥로 215 7층, 8층 상담 번호:
-            1566-9564
-          </span>
-          <a href="#">
-            <span>고객센터</span>
-          </a>
-          <a href="#">
-            <span>이용약관</span>
-          </a>
-=======
             </div>
           </div>
->>>>>>> ab3565e9b82bead7f4e50653849d3022e7d89853
         </div>
       </div>
       <div className="mainScreen-intro-body">
@@ -263,19 +222,25 @@ function MainScreen() {
           </div>
 
           <div className="mainScreen-intron-temporary">
-            <div className="mainScreen-intro-image4">
-              <img
-                src="/images/mainIntroductionImage/introduction05.jpg"
-                alt="소개 이미지"
-              />
-                  <img
-                src="/images/mainIntroductionImage/introduction06.jpg"
-                alt="소개 이미지"
-              />
-                  <img
-                src="/images/mainIntroductionImage/introduction07.jpg"
-                alt="소개 이미지"
-              />
+            <div className="mainScreen-image-group">
+              <div className="image-item">
+                <img
+                  src="/images/mainIntroductionImage/introduction05.jpg"
+                  alt="소개1"
+                />
+              </div>
+              <div className="image-item">
+                <img
+                  src="/images/mainIntroductionImage/introduction06.jpg"
+                  alt="소개2"
+                />
+              </div>
+              <div className="image-item">
+                <img
+                  src="/images/mainIntroductionImage/introduction07.jpg"
+                  alt="소개3"
+                />
+              </div>
             </div>
 
             <div className="mainScreen-intro-text03">
@@ -287,13 +252,9 @@ function MainScreen() {
               </p>
             </div>
           </div>
-
-          <div className="mainScreen-intro-summary">
-            운동의 지속은 당신의 선택입니다. 루틴을 만들고, 기록하고,
-            변화하세요.
-          </div>
         </div>
       </div>
+    
     </div>
   );
 }
