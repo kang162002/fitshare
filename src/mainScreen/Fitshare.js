@@ -87,6 +87,7 @@ function Fitshare() {
         <Route path="/Workout_stretch" element={<Workout_stretch />}></Route>
         <Route path="/Workout_gym" element={<Workout_gym />}></Route>
         <Route path="/Board_all" element={<Board_all />}></Route>
+        <Route path="/search" element={<MainSearch />} />
 
         <Route
           path="*"
