@@ -5,6 +5,11 @@
     box-sizing: border-box;
 }
 
+.account-re-form {
+    justify-content: center;
+    align-items: center;
+}
+
 .account-re-h1 {
     color: black;
 }
@@ -21,15 +26,24 @@
 
 .account-re-bg {
     width: 900px;
-    height: 700px;
+    height: 650px;
     background: #242424;
     position: fixed;
-    top: 160px;
+    top: 145px;
     display: flex;
     flex-direction: column;
 
     animation: slideUpFadeIn 0.6s ease-out forwards;
 }
+
+.account-re-close {
+    font-size: 34px;
+    margin: 5px;
+    position: absolute;
+    left: 860px;
+    cursor: pointer;
+}
+
 
 .account-re-bg-top {
     display: flex;
@@ -88,17 +102,14 @@
 
 
 .account-re-form .account-re-input {
-    /* text-align: left; */
+    text-align: left;
+    
     /* ← 왼쪽 정렬 */
-    margin: 10px 0;
-    margin-left: 10px;
+    margin: 8px 0;
     /* 위아래 여백 추가 */
-
+    padding: 16px;
     background: #eee;
-    /* padding: 16px; */
-    /* margin: 8px 0; */
-    width: 95%;
-    height: 40px;
+    width: 90%;
     border: 0;
     outline: none;
     border-radius: 20px;
