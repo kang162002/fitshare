@@ -7,6 +7,7 @@ import MainSplash from "./mainSplash/MainSplash";
 import { useState } from "react";
 import { BrowserRouter } from "react-router";
 import MainSearch from "./mainScreen/MainSearch";
+import MyProfile from "./account/MyProfile";
 
 function App() {
   const [isSplashVisible, setIsSplashVisible] = useState(true);
@@ -14,7 +15,7 @@ function App() {
   return(
   
     <Fitshare/>
-    // <MainSearch/>
+    // <MyProfile/>
 
   )
 

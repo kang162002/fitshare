@@ -10,6 +10,7 @@ import Workout_gym from "../workout/Workout_gym";
 import Board_all from "../board/Board_all";
 import { Link } from "react-router";
 import MainSearch from "./MainSearch";
+import MyProfile from "../account/MyProfile";
 
 function Fitshare() {
   let navigate = useNavigate();
@@ -39,7 +40,7 @@ function Fitshare() {
         </div>
 
         <nav className="mainScreen-menu-links">
-          <Link to="/">소개</Link>
+          <Link to="/myprofile">소개</Link>
 
           {/* 운동 서브메뉴 */}
           <div className="mainScreen-menu-with-submenu">
@@ -88,6 +89,7 @@ function Fitshare() {
         <Route path="/Workout_gym" element={<Workout_gym />}></Route>
         <Route path="/Board_all" element={<Board_all />}></Route>
         <Route path="/search" element={<MainSearch />} />
+        <Route path="/myprofile" element={<MyProfile />} />
 
         <Route
           path="*"
