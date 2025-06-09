@@ -14,6 +14,8 @@ import accountDatas from './data/accountDatas';
 
 function Account() {
 
+
+
     const [isRightPanelActive, setIsRightPanelActive] = useState(false);
 
     const handleSignInClick = () => {
@@ -42,6 +44,7 @@ function Account() {
     const [signUpPassword, setSignUpPassword] = useState('');
     const [signUpPhone, setSignUpPhone] = useState('');
     const [signUpAuthCode, setSignUpAuthcode] = useState('');
+    const [signAuthTF, setSignAuthTF] = useState(false);
 
     const [accountData, setAccountData] = useState(accountDatas);
     const [user, setUser] = useState({});
@@ -88,14 +91,21 @@ function Account() {
                     title: '로그인이 완료되었습니다.',
                     text: '환영합니다.',
                 })
+
+                // const loginState = accountData.find(user =>
+                //     user.loginState);
+
                 setUser(foundUser);
                 setSignInEmail('');
                 setSignInPassword('');
+
+                navigate("/");
             }
         }
     }
 
     const signUpPassCon = () => {
+
         const hasSpecialChar = /[!@#$%^&*?]/.test(signUpPassword);
 
         if (signUpName == '' || signUpEmail == '' || signUpPassword == '' || signUpPhone == '' || signUpAuthCode == '') {
@@ -105,6 +115,26 @@ function Account() {
                 text: '빈칸을 모두 채워주세요.',
             });
             return;
+        }
+
+        if (emailCheck == false || signAuthTF == false) {
+            if (emailCheck == false) {
+                Swal.fire({
+                    icon: 'error',
+                    title: '중복확인 오류',
+                    text: '이메일 중복확인 절차를 완료해주세요.',
+                });
+                return;
+            }
+
+            if (signAuthTF == false) {
+                Swal.fire({
+                    icon: 'error',
+                    title: '인증 오류',
+                    text: '인증 절차를 완료해주세요.',
+                });
+                return;
+            }
         }
 
 
@@ -131,6 +161,7 @@ function Account() {
                     title: '회원가입이 완료되었습니다.',
                     text: '어서오세요.',
                 })
+                setSignAuthTF(false);
                 setShowTimer(false);
                 setSignUpName('');
                 setSignUpEmail('');
@@ -138,6 +169,18 @@ function Account() {
                 setSignUpPhone('');
                 setSignUpAuthcode('');
             }
+        } else if (!(signUpEmail.includes("@"))) {
+            Swal.fire({
+                icon: 'error',
+                title: '이메일 오류',
+                text: '이메일 입력함에 @를 포함한 이메일을 올바르게 입력해주세요.',
+            });
+        } else if (signUpPassword.length < 8) {
+            Swal.fire({
+                icon: 'error',
+                title: '비밀번호 오류',
+                text: '8~12자 이내이며 특수문자(!@#$%^&*?)를 포함해야 합니다.',
+            });
         }
 
         setAccountData([...accountData, { name: signUpName, email: signUpEmail, password: signUpPassword, phone: signUpPhone }]);
@@ -150,6 +193,8 @@ function Account() {
     const [timerKey, setTimerKey] = useState(0);
 
     const handleGetCode = () => {
+
+        setSignAuthTF(true);
 
         if (signUpPhone == '' || signUpName == '' || signUpEmail == '' || signUpPassword == '') {
             Swal.fire({
@@ -201,6 +246,41 @@ function Account() {
         return <span style={{ marginLeft: '10px', color: 'red', fontSize: '14px' }}>{formatTime(timeLeft)}</span>;
     }
 
+    //email 정보 확인 절차 ===========================================
+    const [emailCheck, setEmailCheck] = useState(false);
+
+    function emailDoubleCheck() {
+        const foundUser = accountData.find(user =>
+            user.email === signUpEmail);
+
+        if (signUpEmail.includes("@")) {
+            setEmailCheck(true);
+            if (foundUser) {
+                //기존에 있는 이메일
+                Swal.fire({
+                    icon: 'info',
+                    title: '중복 계정',
+                    text: '이미 존재하는 회원입니다. 로그인 절차를 진행해주세요.',
+                });
+                setSignUpEmail('');
+                setIsRightPanelActive(false);
+            } else {
+                Swal.fire({
+                    icon: 'success',
+                    title: '새로운 계정',
+                    text: '없는 회원입니다. 회원가입 절차를 진행해주세요.',
+                });
+            }
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: '이메일 확인 필요',
+                text: '이메일이 올바르게 잘 입력되었는지 확인해주세요.',
+            });
+        }
+
+    }
+
 
     return (
 
@@ -221,13 +301,16 @@ function Account() {
                                     value={signUpName}
                                     onChange={(e) => setSignUpName(e.target.value)}
                                 ></input>
-                                <input
-                                    type="email"
-                                    placeholder="Email"
-                                    className='account-input'
-                                    value={signUpEmail}
-                                    onChange={(e) => setSignUpEmail(e.target.value)}
-                                ></input>
+                                <div>
+                                    <input
+                                        type="email"
+                                        placeholder="Email"
+                                        className='account-input account-input-phone'
+                                        value={signUpEmail}
+                                        onChange={(e) => setSignUpEmail(e.target.value)}
+                                    ></input>
+                                    <button type='button' className='account-form-btn account-btn-phone' onClick={emailDoubleCheck}>중복확인</button>
+                                </div>
                                 <input
                                     type="password"
                                     placeholder="Password"
@@ -247,7 +330,7 @@ function Account() {
                                         maxLength={11}
                                     ></input>
 
-                                    <button className='account-form-btn account-btn-phone' onClick={handleGetCode}>인증번호 받기</button>
+                                    <button type='button' className='account-form-btn account-btn-phone' onClick={handleGetCode}>인증번호 받기</button>
                                     {showTimer && <Timer duration={180} />}
                                 </div>
                                 <input
@@ -317,11 +400,11 @@ function Account() {
                         <div className="account-overlay-container account-div">
 
                             <div className="account-overlay-left account-div" style={{ backgroundImage: 'url(' + account_overlay_left + ')' }}>
-                                <button className="account-overlay-btn account-button" onClick={handleSignInClick}>Sign In</button>
+                                <button type='button' className="account-overlay-btn account-button" onClick={handleSignInClick}>Sign In</button>
                             </div>
 
                             <div className="account-overlay-right account-div" style={{ backgroundImage: 'url(' + account_overlay_right + ')' }}>
-                                <button className="account-overlay-btn account-button" onClick={handleSignUpClick}>Sign Up</button>
+                                <button type='button' className="account-overlay-btn account-button" onClick={handleSignUpClick}>Sign Up</button>
                             </div>
                         </div>
                     </div>

@@ -75,11 +75,18 @@ function AccountRecoveryModal({ openModal, setOpenModal, accountData, setAccount
                 text: '빈칸을 모두 채워주세요.',
             });
             return;
-        } else if(authCheck == false) {
+        } else if (emailCheckPass == false) {
+            Swal.fire({
+                icon: 'error',
+                title: '이메일 확인 필요',
+                text: '이메일이 올바르게 잘 입력되었는지 확인해주세요.',
+            });
+            return;
+        } else if (authCheck == false) {
             Swal.fire({
                 icon: 'error',
                 title: '인증 오류',
-                text: '휴대폰 번호 인증을 진행주세요.',
+                text: '휴대폰 번호 인증 절차를 진행주세요.',
             });
             return;
         }
@@ -134,6 +141,9 @@ function AccountRecoveryModal({ openModal, setOpenModal, accountData, setAccount
                         setOpenModal(false);
                     }
                 });
+                setEmailCheckPass(false);
+                setAuthCheck(false);
+
             }
         }
     }
@@ -197,6 +207,13 @@ function AccountRecoveryModal({ openModal, setOpenModal, accountData, setAccount
                 text: '전화번호를 입력해주세요.',
             });
             return;
+        } else if (!foundUser) {
+            Swal.fire({
+                icon: 'error',
+                title: '회원 정보 불일치',
+                text: '회원정보가 일치하지 않습니다. 다시 한 번 확인해주세요.',
+            });
+            return;
         } else if (foundUser.phone !== userPhoneCheck) {
             Swal.fire({
                 icon: 'error',
@@ -218,6 +235,7 @@ function AccountRecoveryModal({ openModal, setOpenModal, accountData, setAccount
 
 
     //===============Password 변경 인증번호 로직 ====================
+    const [emailCheckPass, setEmailCheckPass] = useState(false);
 
     const userEmailCheck = () => {
         const foundUserEmail = accountData.find(user =>
@@ -229,6 +247,7 @@ function AccountRecoveryModal({ openModal, setOpenModal, accountData, setAccount
                 title: '존재하는 이메일 정보입니다.',
                 text: '전화번호 인증절차를 진행해주세요.',
             })
+            setEmailCheckPass(true);
             return;
         } else {
             Swal.fire({
@@ -236,7 +255,6 @@ function AccountRecoveryModal({ openModal, setOpenModal, accountData, setAccount
                 title: '존재하지 않는 이메일 정보입니다.',
                 text: '회원가입을 먼저 진행해주세요.',
             })
-            setOpenModal(false);
             return;
         }
     }
@@ -274,6 +292,7 @@ function AccountRecoveryModal({ openModal, setOpenModal, accountData, setAccount
         setShowTimerPass(true); // 타이머 표시
     };
 
+    //Password 변경 인증 절차=====================================================
     const [authCheckPass, setAuthCheckPass] = useState('');
     const [authCheck, setAuthCheck] = useState(false);
 
@@ -290,7 +309,7 @@ function AccountRecoveryModal({ openModal, setOpenModal, accountData, setAccount
         } else {
             Swal.fire({
                 icon: 'error',
-                title: '인증번호가 일치하지 않습니다..',
+                title: '인증번호가 일치하지 않습니다.',
                 text: '다시 한 번 확인해주세요.',
             })
         }
@@ -331,7 +350,7 @@ function AccountRecoveryModal({ openModal, setOpenModal, accountData, setAccount
 
                                             ></input>{showTimer && <Timer duration={180} />}
 
-                                            <button className='account-re-btn' onClick={handleGetCode}>인증번호 받기</button>
+                                            <button type='button' className='account-re-btn' onClick={handleGetCode}>인증번호 받기</button>
                                         </div>
 
                                         <div className='account-re-div'>
@@ -363,7 +382,7 @@ function AccountRecoveryModal({ openModal, setOpenModal, accountData, setAccount
                                                 value={userEmailPass}
                                                 onChange={(e) => setUserEmailPass(e.target.value)}
                                             ></input>
-                                            <button className='account-re-btn' onClick={userEmailCheck}>정보 확인</button>
+                                            <button type='button' className='account-re-btn' onClick={userEmailCheck}>정보 확인</button>
                                         </div>
 
                                         <div className='account-re-div'>
@@ -376,7 +395,7 @@ function AccountRecoveryModal({ openModal, setOpenModal, accountData, setAccount
                                                 maxLength={11}
                                             ></input>{showTimerPass && <Timer duration={180} />}
 
-                                            <button className='account-re-btn' onClick={handleGetCodePass}>인증번호 받기</button>
+                                            <button type='button' className='account-re-btn' onClick={handleGetCodePass}>인증번호 받기</button>
                                         </div>
 
                                         <div className='account-re-div'>
@@ -387,7 +406,7 @@ function AccountRecoveryModal({ openModal, setOpenModal, accountData, setAccount
                                                 value={authCheckPass}
                                                 onChange={(e) => setAuthCheckPass(e.target.value)}
                                             ></input>
-                                            <button className='account-re-btn' onClick={authCheckTF}>확인</button>
+                                            <button type='button' className='account-re-btn' onClick={authCheckTF}>확인</button>
                                         </div>
 
                                         <div className='account-re-div'>
@@ -415,19 +434,12 @@ function AccountRecoveryModal({ openModal, setOpenModal, accountData, setAccount
                                         </div>
 
                                         <div className='account-re-div'>
-                                            <button className='account-re-sub-btn' onClick={signUpPassCon} >Password 변경하기</button>
+                                            <button type='button' className='account-re-sub-btn' onClick={signUpPassCon} >Password 변경하기</button>
                                         </div>
 
                                     </form>
                                 </div>
                             </div>
-
-
-                            <div className='account-re-bg-bottom'>
-                                <button className='account-re-modal-close-btn' onClick={handleClose}>로그인 창으로</button>
-                                {!openModal ? setOpenModal(true) : null}
-                            </div>
-
                         </div>
                     </div>
 
