@@ -3,7 +3,6 @@ import React, { useEffect, useRef, useState } from "react";
 import "./MainScreen.css";
 import MainEffect from "../mainRipple/MainEffect";
 import MainSplash from "../mainSplash/MainSplash";
-import { useNavigate } from "react-router";
 
 // 비디오 소스 배열 정의
 const videoSources = [
@@ -88,7 +87,7 @@ function MainScreen() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsSplashVisible(false);
-    }, 1000); // 3초 후 스플래시 종료
+    }, 3000); // 3초 후 스플래시 종료
     return () => clearTimeout(timer); // 컴포넌트 언마운트 시 타이머 정리
   }, []);
 
@@ -129,6 +128,7 @@ function MainScreen() {
         ))}
 
         {/* 메인 콘텐츠 영역 */}
+
         <div className="mainScreen-content">
           <div className="mainScreen-hero">
             <div className="mainScreen-content">
@@ -157,8 +157,109 @@ function MainScreen() {
           </div>
         </div>
       </div>
+      <div className="mainScreen-intro-body">
+        {/* 소개 */}
+        <div className="mainScreen-intro">
+          <div className="mainScreen-intro-image1">
+            <img
+              src="/images/mainIntroductionImage/introduction01.jpg"
+              alt=""
+              width="800"
+              height="500"
+            />
+          </div>
+          <div className="mainScreen-intro-text01">
+            <span className="mainScreen-intro-span">사이트 소개</span>
+            <p className="mainSCreen-intro-p">아무튼 사이트 소개 및 내용</p>
+            <ul>
+              <li>내용1</li>
+              <li>내용1</li>
+            </ul>
+          </div>
+        </div>
+        {/* 소개2 */}
+        <div className="mainScreen-intron-section">
+          <div className="mainScreen-intro-image2">
+            <img
+              src="/images/mainIntroductionImage/introduction02.jpg"
+              alt="운동 소개"
+            />
+          </div>
+          <div className="mainScreen-intro-text02">
+            <h2>소개및 내용2</h2>
+            <p>
+              BIOMIND는 당신의 운동 습관을 만들어드립니다.
+              <br />
+              맞춤 콘텐츠와 커뮤니티로 함께 시작해보세요.
+            </p>
+          </div>
+        </div>
+        {/* 소개3 */}
+        <div className="mainScreen-intron-section02">
+          <div className="mainScreen-intro-box">
+            <div className="mainScreen-intro-image3">
+              <img
+                src="/images/mainIntroductionImage/introduction03.jpg"
+                alt="운동 설명 1"
+              />
+            </div>
+            <div className="mainScreen-intro-caption">나만의 루틴 만들기</div>
+          </div>
 
-      
+          <div className="mainScreen-intro-box">
+            <div className="mainScreen-intro-image3">
+              <img
+                src="/images/mainIntroductionImage/introduction04.jpg"
+                alt="운동 설명 2"
+              />
+            </div>
+            <div className="mainScreen-intro-caption">운동 일지 기록하기</div>
+          </div>
+          <div className="mainScreen-intro-routine">
+            <h1>내용3</h1>
+            <p className="mainScreen-intro-routine-text-p">
+              he standard chunk of Lorem Ipsum used since the 1500s is
+              reproduced below for those interested. Sections 1.10.32 and
+              1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also
+              reproduced in their exact original form, accompanied by English
+              versions from the 1914 translation by H. Rackham.
+            </p>
+          </div>
+
+          <div className="mainScreen-intron-temporary">
+            <div className="mainScreen-image-group">
+              <div className="image-item">
+                <img
+                  src="/images/mainIntroductionImage/introduction05.jpg"
+                  alt="소개1"
+                />
+              </div>
+              <div className="image-item">
+                <img
+                  src="/images/mainIntroductionImage/introduction06.jpg"
+                  alt="소개2"
+                />
+              </div>
+              <div className="image-item">
+                <img
+                  src="/images/mainIntroductionImage/introduction07.jpg"
+                  alt="소개3"
+                />
+              </div>
+            </div>
+
+            <div className="mainScreen-intro-text03">
+              <h2>BIOMIND가 함께합니다</h2>
+              <p>
+                운동은 어렵지 않습니다. 시작이 반입니다.
+                <br />
+                바로 오늘, 여기서 시작하세요.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    
     </div>
   );
 }

@@ -16,7 +16,9 @@ function MainSplash({ onFinish = () => {} }) {
 
   return (
     <div className={`mainScreen-Splash${fadeOut ? " fade-out" : ""}`}>
-      <h1 className="mainScreen-splash-text">페이지로 이동중입니다<span className="main-dots">...</span></h1>
+      <h1 className="mainScreen-splash-text">
+        Loading<span className="main-dots">...</span>
+      </h1>
     </div>
   );
 }
