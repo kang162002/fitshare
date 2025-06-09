@@ -10,12 +10,17 @@ import Workout_gym from "../workout/Workout_gym";
 import Board_all from "../board/Board_all";
 import { Link } from "react-router";
 import MainSearch from "./MainSearch";
+import { useState } from "react";
 
 function Fitshare() {
   let navigate = useNavigate();
   const hnadleLogoclick = () => {
     navigate("/");
   };
+
+  const [loginMypage, setLoginMypage] = useState ('로그인/회원가입');
+  
+
 
   return (
     <div className="fitshare-nav">
