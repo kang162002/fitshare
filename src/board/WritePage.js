@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {useNavigate} from "react-router-dom";
+import { useNavigate }  from "react-router";
 
 export default function WritePage() {
     const navigate = useNavigate();
@@ -7,6 +7,21 @@ export default function WritePage() {
     const [writer, setWriter] = useState("");
     const [content, setContent] = useState("");
     const [type, setType] = useState("GYM");
+
+    const [comments, setComments] = useState([]);
+    const [commentInput, setCommentInput] = useState("");
+
+    const handleAddComment = () => {
+        if(commentInput.trim() === "") return;
+
+        setComments([
+            ...comments,{
+                id:Date.now(),
+                text:commentInput,
+            },
+        ]);
+        setCommentInput("");
+    };
 
     const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,6 +34,7 @@ export default function WritePage() {
         type,
         date: new Date().toISOString().slice(0, 10),
         views: 0,
+        comments,
     });
 
     // 작성 완료 후 게시판으로 이동
@@ -69,6 +85,9 @@ export default function WritePage() {
             style={{ width: "100%" }}
             />
         </div>
+
+        
+
         <button type="submit" style={{ padding: "8px 16px" }}>등록</button>
         </form>
     </div>

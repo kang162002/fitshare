@@ -1,0 +1,657 @@
+.gym-modal-fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* 반투명 검은 배경 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    overflow-y: auto;
+}
+
+/* 모달 박스 */
+.gym-modal-box {
+    background-color: #ffffff;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90%;
+    overflow-y: auto;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+    padding: 24px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* 모달 상단 영역 */
+.gym-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* 모달 제목 */
+.gym-modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #222;
+    flex: 1;
+}
+
+/* 닫기 버튼 */
+.gym-modal-close-button {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: #888;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.gym-modal-close-button:hover {
+    color: #000;
+}
+
+/* 본문 콘텐츠 스타일 */
+.gym-modal-body {
+    color: #333;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* 댓글 입력창 & 리스트 */
+.gym-modal-body input[type="text"] {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.gym-modal-body input[type="text"]:focus {
+    border-color: #888;
+}
+
+.gym-modal-body button {
+    background-color: #2d6cdf;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.gym-modal-body button:hover {
+    background-color: #1e4fb8;
+}
+
+.gym-modal-body ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+.gym-modal-body ul li {
+    margin-bottom: 8px;
+    padding-left: 10px;
+    position: relative;
+}
+
+.gym-modal-body ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #2d6cdf;
+}
+
+/* Fade-in 애니메이션 */
+@keyframes fadeIn {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+input[type="text"] {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+    /* 팁 게시글 css */
+
+.tip-modal-fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* 반투명 검은 배경 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    overflow-y: auto;
+}
+
+/* 모달 박스 */
+.tip-modal-box {
+    background-color: #ffffff;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90%;
+    overflow-y: auto;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+    padding: 24px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* 모달 상단 영역 */
+.tip-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* 모달 제목 */
+.tip-modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #222;
+    flex: 1;
+}
+
+/* 닫기 버튼 */
+.tip-modal-close-button {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: #888;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.tip-modal-close-button:hover {
+    color: #000;
+}
+
+/* 본문 콘텐츠 스타일 */
+.tip-modal-body {
+    color: #333;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* 댓글 입력창 & 리스트 */
+.tip-modal-body input[type="text"] {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.tip-modal-body input[type="text"]:focus {
+    border-color: #888;
+}
+
+.tip-modal-body button {
+    background-color: #2d6cdf;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.tip-modal-body button:hover {
+    background-color: #1e4fb8;
+}
+
+.tip-modal-body ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+.tip-modal-body ul li {
+    margin-bottom: 8px;
+    padding-left: 10px;
+    position: relative;
+}
+
+.tip-modal-body ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #2d6cdf;
+}
+
+/* Fade-in 애니메이션 */
+@keyframes fadeIn {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+input[type="text"] {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+    /* 팁 게시글 css */
+
+.team-modal-fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* 반투명 검은 배경 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    overflow-y: auto;
+}
+
+/* 모달 박스 */
+.team-modal-box {
+    background-color: #ffffff;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90%;
+    overflow-y: auto;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+    padding: 24px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* 모달 상단 영역 */
+.team-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* 모달 제목 */
+.team-modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #222;
+    flex: 1;
+}
+
+/* 닫기 버튼 */
+.team-modal-close-button {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: #888;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.team-modal-close-button:hover {
+    color: #000;
+}
+
+/* 본문 콘텐츠 스타일 */
+.team-modal-body {
+    color: #333;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* 댓글 입력창 & 리스트 */
+.team-modal-body input[type="text"] {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.team-modal-body input[type="text"]:focus {
+    border-color: #888;
+}
+
+.team-modal-body button {
+    background-color: #2d6cdf;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.team-modal-body button:hover {
+    background-color: #1e4fb8;
+}
+
+.team-modal-body ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+.team-modal-body ul li {
+    margin-bottom: 8px;
+    padding-left: 10px;
+    position: relative;
+}
+
+.team-modal-body ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #2d6cdf;
+}
+
+/* Fade-in 애니메이션 */
+@keyframes fadeIn {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+input[type="text"] {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+    /* 다이어트 게시글 css */
+
+.diet-modal-fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* 반투명 검은 배경 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    overflow-y: auto;
+}
+
+/* 모달 박스 */
+.diet-modal-box {
+    background-color: #ffffff;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90%;
+    overflow-y: auto;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+    padding: 24px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* 모달 상단 영역 */
+.diet-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* 모달 제목 */
+.diet-modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #222;
+    flex: 1;
+}
+
+/* 닫기 버튼 */
+.diet-modal-close-button {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: #888;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.diet-modal-close-button:hover {
+    color: #000;
+}
+
+/* 본문 콘텐츠 스타일 */
+.diet-modal-body {
+    color: #333;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* 댓글 입력창 & 리스트 */
+.diet-modal-body input[type="text"] {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.diet-modal-body input[type="text"]:focus {
+    border-color: #888;
+}
+
+.diet-modal-body button {
+    background-color: #2d6cdf;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.diet-modal-body button:hover {
+    background-color: #1e4fb8;
+}
+
+.diet-modal-body ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+.diet-modal-body ul li {
+    margin-bottom: 8px;
+    padding-left: 10px;
+    position: relative;
+}
+
+.diet-modal-body ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #2d6cdf;
+}
+
+/* Fade-in 애니메이션 */
+@keyframes fadeIn {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+input[type="text"] {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+/* 홈트 게시글 css */
+
+.ht-modal-fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* 반투명 검은 배경 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    overflow-y: auto;
+}
+
+/* 모달 박스 */
+.ht-modal-box {
+    background-color: #ffffff;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90%;
+    overflow-y: auto;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+    padding: 24px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* 모달 상단 영역 */
+.ht-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* 모달 제목 */
+.ht-modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #222;
+    flex: 1;
+}
+
+/* 닫기 버튼 */
+.ht-modal-close-button {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: #888;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.ht-modal-close-button:hover {
+    color: #000;
+}
+
+/* 본문 콘텐츠 스타일 */
+.ht-modal-body {
+    color: #333;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* 댓글 입력창 & 리스트 */
+.ht-modal-body input[type="text"] {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.ht-modal-body input[type="text"]:focus {
+    border-color: #888;
+}
+
+.ht-modal-body button {
+    background-color: #2d6cdf;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.ht-modal-body button:hover {
+    background-color: #1e4fb8;
+}
+
+.ht-modal-body ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+.ht-modal-body ul li {
+    margin-bottom: 8px;
+    padding-left: 10px;
+    position: relative;
+}
+
+.ht-modal-body ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #2d6cdf;
+}
+
+/* Fade-in 애니메이션 */
+@keyframes fadeIn {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

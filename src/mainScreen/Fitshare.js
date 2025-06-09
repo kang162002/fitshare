@@ -8,6 +8,7 @@ import Workout_stretch from "../workout/Workout_stretch";
 import Workout_aero from "../workout/Workout_aero";
 import Workout_gym from "../workout/Workout_gym";
 import Board_all from "../board/Board_all";
+import WritePage from "../board/WritePage";
 
 function Fitshare() {
 
@@ -88,6 +89,8 @@ function Fitshare() {
         <Route path="/Workout_stretch" element={<Workout_stretch />}></Route>
         <Route path="/Workout_gym" element={<Workout_gym />}></Route>
         <Route path="/Board_all" element={<Board_all />}></Route>
+        <Route path="/Writepage" element={<WritePage />}></Route>
+        
 
         <Route
           path="*"
