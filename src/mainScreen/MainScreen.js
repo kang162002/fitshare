@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "./MainScreen.css";
 import MainEffect from "../mainRipple/MainEffect";
 import MainSplash from "../mainSplash/MainSplash";
+import { useNavigate } from "react-router";
 
 // 비디오 소스 배열 정의
 const videoSources = [
