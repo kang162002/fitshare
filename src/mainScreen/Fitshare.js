@@ -19,63 +19,65 @@ function Fitshare() {
 
   return (
     <div className="fitshare-nav">
-      {/* 네비게이션 바 */}
-      <div className="mainScreen-main-menu">
-        <div className="mainScreen-logo">
-          <div
-            onClick={() => {
-              navigate("/MainScreen");
-            }}
-            style={{ cursor: "pointer" }}
-            className="mainScreen-main-logo-image"
-          >
-            <img
-              src="/images/mainImage/Fitlogo2.png"
-              width="90"
-              height="50"
-              alt="Logo"
-            />
-          </div>
-        </div>
-
-        <nav className="mainScreen-menu-links">
-          <Link to="/">소개</Link>
-
-          {/* 운동 서브메뉴 */}
-          <div className="mainScreen-menu-with-submenu">
-            <Link to="/">운동</Link>
-            <div className="mainScreen-main-submenu-container">
-              <Link to="/Workout_gym" className="main-submenu-item">
-                근력운동
-              </Link>
-
-              <Link to="/Workout_aero" className="main-submenu-item">
-                유산소운동
-              </Link>
-              <Link to="/Workout_stretch" className="main-submenu-item">
-                스트레칭
-              </Link>
+      <div className="mainScreen-nav-fix">
+        {/* 네비게이션 바 */}
+        <div className="mainScreen-main-menu">
+          <div className="mainScreen-logo">
+            <div
+              onClick={() => {
+                navigate("/MainScreen");
+              }}
+              style={{ cursor: "pointer" }}
+              className="mainScreen-main-logo-image"
+            >
+              <img
+                src="/images/mainImage/Fitlogo2.png"
+                width="90"
+                height="50"
+                alt="Logo"
+              />
             </div>
           </div>
 
-          {/* 게시판 서브메뉴 */}
-          <div className="mainScreen-menu-with-submenu">
+          <nav className="mainScreen-menu-links">
+            <Link to="/">소개</Link>
+
+            {/* 운동 서브메뉴 */}
+            <div className="mainScreen-menu-with-submenu">
+              <Link to="/">운동</Link>
+              <div className="mainScreen-main-submenu-container">
+                <Link to="/Workout_gym" className="main-submenu-item">
+                  근력운동
+                </Link>
+
+                <Link to="/Workout_aero" className="main-submenu-item">
+                  유산소운동
+                </Link>
+                <Link to="/Workout_stretch" className="main-submenu-item">
+                  스트레칭
+                </Link>
+              </div>
+            </div>
+
+            {/* 게시판 서브메뉴 */}
+            <div className="mainScreen-menu-with-submenu">
+              <Link
+                to="/Board_all"
+              >
+                게시판
+              </Link>
+            </div>
+          </nav>
+
+          {/* 로그인 링크 */}
+          <div className="mainScreen-top-nav">
             <Link
-              to="/Board_all"
+              to="/Account"
+              style={{ cursor: "pointer" }}
             >
-              게시판
+              로그인/회원가입
             </Link>
           </div>
-        </nav>
-
-        {/* 로그인 링크 */}
-        <div className="mainScreen-top-nav">
-          <Link
-            to="/Account"
-            style={{ cursor: "pointer" }}
-          >
-            로그인/회원가입
-          </Link>
         </div>
       </div>
 
@@ -92,7 +94,7 @@ function Fitshare() {
         <Route
           path="*"
           element={
-            <ErrorPage/>
+            <ErrorPage />
           }
         ></Route>
       </Routes>
