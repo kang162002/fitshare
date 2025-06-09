@@ -81,7 +81,7 @@ function Workout_aero() {
             </div>
 
             {showModal && (
-                <WorkoutModal closeModal={() => setShowModal(false)} workoutData={aeroDatas[dataIndex]} />
+                <WorkoutModal closeModal={() => setShowModal(false)} workoutData={aeroDatas[dataIndex]} workoutDatas={aeroDatas} setWorkoutDatas={setAeroDatas} dataIndex={dataIndex} />
             )}
         </>
     );

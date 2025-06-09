@@ -6,7 +6,8 @@ let workoutData = [
         imgPath: '/images/conventional_dumbbell_squat.jpg',
         tool: "덤벨",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo001',
@@ -15,7 +16,8 @@ let workoutData = [
         imgPath: '/images/dumbbell_front_squat.jpg',
         tool: "덤벨",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo002',
@@ -24,7 +26,8 @@ let workoutData = [
         imgPath: '/images/dumbbell_sumo_squat.jpg',
         tool: "덤벨",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo003',
@@ -33,7 +36,8 @@ let workoutData = [
         imgPath: '/images/dumbbell_split_squat.jpg',
         tool: "덤벨",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo004',
@@ -42,7 +46,8 @@ let workoutData = [
         imgPath: '/images/goblet_squat.jpg',
         tool: "덤벨",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo005',
@@ -51,7 +56,8 @@ let workoutData = [
         imgPath: '/images/dumbbell_bulgarian_split_squat.jpg',
         tool: "덤벨",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo006',
@@ -60,7 +66,8 @@ let workoutData = [
         imgPath: '/images/dumbbell_bulgarian_split_squat.jpg',
         tool: "덤벨",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo005',
@@ -69,7 +76,8 @@ let workoutData = [
         imgPath: '/images/dumbbell_bulgarian_split_squat.jpg',
         tool: "덤벨",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo005',
@@ -78,7 +86,8 @@ let workoutData = [
         imgPath: '/images/dumbbell_bulgarian_split_squat.jpg',
         tool: "덤벨",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo005',
@@ -87,7 +96,8 @@ let workoutData = [
         imgPath: '/images/dumbbell_bulgarian_split_squat.jpg',
         tool: "덤벨",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo005',
@@ -96,7 +106,8 @@ let workoutData = [
         imgPath: '/images/dumbbell_bulgarian_split_squat.jpg',
         tool: "덤벨",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo005',
@@ -105,7 +116,8 @@ let workoutData = [
         imgPath: '/images/dumbbell_bulgarian_split_squat.jpg',
         tool: "덤벨",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo006',
@@ -114,7 +126,8 @@ let workoutData = [
         imgPath: '/images/barbell_bench_press.jpg',
         tool: "바벨",
         area: "가슴",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo007',
@@ -123,7 +136,8 @@ let workoutData = [
         imgPath: '/images/barbell_lunge.jpg',
         tool: "바벨",
         area: "엉덩이, 허벅지",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo008',
@@ -132,7 +146,8 @@ let workoutData = [
         imgPath: '/images/barbell_shrug.jpg',
         tool: "바벨",
         area: "등, 승모",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo009',
@@ -141,7 +156,8 @@ let workoutData = [
         imgPath: '/images/barbell_deadlift.jpg',
         tool: "바벨",
         area: "엉덩이, 등",
-        level: 3
+        level: 3,
+        fav: false
     },
     {
         id: 'wo009',
@@ -150,7 +166,8 @@ let workoutData = [
         imgPath: '/images/barbell_olympic_squat.jpg',
         tool: "바벨",
         area: "허벅지",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo009',
@@ -159,7 +176,8 @@ let workoutData = [
         imgPath: '/images/barbell_overhead_carry.jpg',
         tool: "바벨",
         area: "허벅지",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo009',
@@ -168,7 +186,8 @@ let workoutData = [
         imgPath: '/images/barbell_curl.jpg',
         tool: "바벨",
         area: "이두",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo009',
@@ -177,7 +196,8 @@ let workoutData = [
         imgPath: '/images/barbell_wrist_curl.jpg',
         tool: "바벨",
         area: "전완, 손목",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo009',
@@ -186,7 +206,8 @@ let workoutData = [
         imgPath: '/images/barbell_stepup.jpg',
         tool: "바벨",
         area: "엉덩이",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo009',
@@ -195,7 +216,8 @@ let workoutData = [
         imgPath: '/images/barbell_deadlift.jpg',
         tool: "바벨",
         area: "엉덩이, 등",
-        level: 3
+        level: 3,
+        fav: false
     },
     {
         id: 'wo009',
@@ -204,7 +226,8 @@ let workoutData = [
         imgPath: '/images/barbell_deadlift.jpg',
         tool: "바벨",
         area: "엉덩이, 등",
-        level: 3
+        level: 3,
+        fav: false
     },
     {
         id: 'wo009',
@@ -213,7 +236,8 @@ let workoutData = [
         imgPath: '/images/barbell_deadlift.jpg',
         tool: "바벨",
         area: "엉덩이, 등",
-        level: 3
+        level: 3,
+        fav: false
     },
     {
         id: 'wo005',
@@ -222,7 +246,8 @@ let workoutData = [
         imgPath: '/images/smith_bench_press.jpg',
         tool: "스미스머신",
         area: "가슴",
-        level: 1
+        level: 1,
+        fav: false
     },
     {
         id: 'wo005',
@@ -231,7 +256,8 @@ let workoutData = [
         imgPath: '/images/smith_bentover_row.jpg',
         tool: "스미스머신",
         area: "등",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo005',
@@ -240,7 +266,8 @@ let workoutData = [
         imgPath: '/images/dumbbell_bulgarian_split_squat.jpg',
         tool: "스미스머신",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo005',
@@ -249,7 +276,8 @@ let workoutData = [
         imgPath: '/images/dumbbell_bulgarian_split_squat.jpg',
         tool: "스미스머신",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo005',
@@ -258,7 +286,8 @@ let workoutData = [
         imgPath: '/images/dumbbell_bulgarian_split_squat.jpg',
         tool: "스미스머신",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo005',
@@ -267,7 +296,8 @@ let workoutData = [
         imgPath: '/images/dumbbell_bulgarian_split_squat.jpg',
         tool: "스미스머신",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo005',
@@ -276,7 +306,8 @@ let workoutData = [
         imgPath: '/images/dumbbell_bulgarian_split_squat.jpg',
         tool: "스미스머신",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo005',
@@ -285,7 +316,8 @@ let workoutData = [
         imgPath: '/images/dumbbell_bulgarian_split_squat.jpg',
         tool: "스미스머신",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo005',
@@ -294,7 +326,8 @@ let workoutData = [
         imgPath: '/images/dumbbell_bulgarian_split_squat.jpg',
         tool: "스미스머신",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo005',
@@ -303,7 +336,8 @@ let workoutData = [
         imgPath: '/images/dumbbell_bulgarian_split_squat.jpg',
         tool: "스미스머신",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo005',
@@ -312,7 +346,8 @@ let workoutData = [
         imgPath: '/images/dumbbell_bulgarian_split_squat.jpg',
         tool: "스미스머신",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo005',
@@ -321,7 +356,8 @@ let workoutData = [
         imgPath: '/images/dumbbell_bulgarian_split_squat.jpg',
         tool: "스미스머신",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo005',
@@ -330,7 +366,8 @@ let workoutData = [
         imgPath: '/images/cable_crossover.jpg',
         tool: "케이블",
         area: "가슴",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo005',
@@ -339,7 +376,8 @@ let workoutData = [
         imgPath: '/images/cable_decline_fly.jpg',
         tool: "케이블",
         area: "가슴",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo005',
@@ -348,7 +386,8 @@ let workoutData = [
         imgPath: '/images/dumbbell_bulgarian_split_squat.jpg',
         tool: "케이블",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo005',
@@ -357,7 +396,8 @@ let workoutData = [
         imgPath: '/images/dumbbell_bulgarian_split_squat.jpg',
         tool: "케이블",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo005',
@@ -366,7 +406,8 @@ let workoutData = [
         imgPath: '/images/dumbbell_bulgarian_split_squat.jpg',
         tool: "케이블",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo005',
@@ -375,7 +416,8 @@ let workoutData = [
         imgPath: '/images/dumbbell_bulgarian_split_squat.jpg',
         tool: "케이블",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo005',
@@ -384,7 +426,8 @@ let workoutData = [
         imgPath: '/images/dumbbell_bulgarian_split_squat.jpg',
         tool: "케이블",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo005',
@@ -393,7 +436,8 @@ let workoutData = [
         imgPath: '/images/dumbbell_bulgarian_split_squat.jpg',
         tool: "케이블",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo005',
@@ -402,7 +446,8 @@ let workoutData = [
         imgPath: '/images/dumbbell_bulgarian_split_squat.jpg',
         tool: "케이블",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo005',
@@ -411,7 +456,8 @@ let workoutData = [
         imgPath: '/images/dumbbell_bulgarian_split_squat.jpg',
         tool: "케이블",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo005',
@@ -420,7 +466,8 @@ let workoutData = [
         imgPath: '/images/dumbbell_bulgarian_split_squat.jpg',
         tool: "케이블",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo005',
@@ -429,7 +476,8 @@ let workoutData = [
         imgPath: '/images/dumbbell_bulgarian_split_squat.jpg',
         tool: "케이블",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo005',
@@ -438,7 +486,8 @@ let workoutData = [
         imgPath: '/images/pike_pushup.jpg',
         tool: "맨몸",
         area: "어깨",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo005',
@@ -447,7 +496,8 @@ let workoutData = [
         imgPath: '/images/plank_jack.jpg',
         tool: "맨몸",
         area: "허리",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo005',
@@ -456,7 +506,8 @@ let workoutData = [
         imgPath: '/images/dumbbell_bulgarian_split_squat.jpg',
         tool: "맨몸",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo005',
@@ -465,7 +516,8 @@ let workoutData = [
         imgPath: '/images/dumbbell_bulgarian_split_squat.jpg',
         tool: "맨몸",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo005',
@@ -474,7 +526,8 @@ let workoutData = [
         imgPath: '/images/dumbbell_bulgarian_split_squat.jpg',
         tool: "맨몸",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo005',
@@ -483,7 +536,8 @@ let workoutData = [
         imgPath: '/images/dumbbell_bulgarian_split_squat.jpg',
         tool: "맨몸",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo005',
@@ -492,7 +546,8 @@ let workoutData = [
         imgPath: '/images/dumbbell_bulgarian_split_squat.jpg',
         tool: "맨몸",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo005',
@@ -501,7 +556,8 @@ let workoutData = [
         imgPath: '/images/dumbbell_bulgarian_split_squat.jpg',
         tool: "맨몸",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo005',
@@ -510,7 +566,8 @@ let workoutData = [
         imgPath: '/images/dumbbell_bulgarian_split_squat.jpg',
         tool: "맨몸",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo005',
@@ -519,7 +576,8 @@ let workoutData = [
         imgPath: '/images/dumbbell_bulgarian_split_squat.jpg',
         tool: "맨몸",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo005',
@@ -528,7 +586,8 @@ let workoutData = [
         imgPath: '/images/dumbbell_bulgarian_split_squat.jpg',
         tool: "맨몸",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'wo005',
@@ -537,7 +596,8 @@ let workoutData = [
         imgPath: '/images/dumbbell_bulgarian_split_squat.jpg',
         tool: "맨몸",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     }
 ];
 

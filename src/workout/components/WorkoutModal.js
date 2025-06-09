@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import './WorkoutModal.css';
+import favorite from './icons/filledStar.png';
+import nonFavorite from './icons/unfilledStar.png'
 
-function WorkoutModal({ closeModal, workoutData }) {
+
+function WorkoutModal({ closeModal, workoutData, workoutDatas, setWorkoutDatas, dataIndex }) {
     const [currentTab, setCurrentTab] = useState(0);
     //사용할 탭 ( 운동방법, 난이도 )
     // const tabNameArr = ['instruction', 'level'];
@@ -9,12 +12,22 @@ function WorkoutModal({ closeModal, workoutData }) {
     let info_tab = document.getElementById('workout-modal-information-tab');
     let level_tab = document.getElementById('workout-modal-level-tab');
 
+    const [isFavorite, setIsFavorite] = useState(false);
 
+  const toggleFavorite = () => {
+    let change = [...workoutDatas];
+    change[dataIndex].fav=!change[dataIndex].fav;
+    setWorkoutDatas(change);
+  };
     return (
         <div className="workout-modal-fullscreen"  onClick={closeModal}>
             <div className="workout-modal-box" onClick={(e)=>{ e.stopPropagation(); }}>
                 <div className="workout-modal-header">
-                    <h1 className="workout-exercise-title">{workoutData.title}</h1>
+                    <h1 className="workout-exercise-title">{workoutData.title}
+                    <div onClick={toggleFavorite} style={{ fontSize: '2rem', background: 'none', border: 'none', cursor: 'pointer', marginLeft: '15px'}}>
+      {workoutData.fav ? <img src={favorite} alt='picture1' height='30px' width='30px'></img> : <img src={nonFavorite} alt='picture2' height='30px' width='30px'></img>}
+    </div>
+    </h1>
                     <button className="workout-modal-close-button" onClick={closeModal}>✕</button>
                 </div>
 
