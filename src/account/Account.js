@@ -82,18 +82,21 @@ function Account({ setCurAcct, setOpenSurvey, accountData, setAccountData }) {
                     icon: 'success',
                     title: '로그인이 완료되었습니다.',
                     text: '환영합니다.',
-                })
+                }).then(function(){
+                    navigate("/");
+                    
+                });
 
                 // const loginState = accountData.find(user =>
                 //     user.loginState);
 
+                setOpenSurvey(true);
                 setCurAcct(foundUser);
                 setSignInEmail('');
                 setSignInPassword('');
                 if(!foundUser.surveyComplete) {
                     setOpenSurvey(true);
                 }
-                navigate("/");
             }
         }
     }

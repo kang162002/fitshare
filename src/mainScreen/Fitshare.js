@@ -30,20 +30,21 @@ function Fitshare() {
 
   const [delayedShow, setDelayedShow] = useState(false);
 
+
   useEffect(() => {
     let timer;
 
     if (openSurvey) {
-      // 1초 뒤에 show 상태 반영
+
       timer = setTimeout(() => {
         setDelayedShow(true);
       }, 3000);
     } else {
-      // show가 false 되면 즉시 모달 숨김
+
       setDelayedShow(false);
     }
 
-    return () => clearTimeout(timer); // 정리
+    return () => clearTimeout(timer); 
   }, [openSurvey])
 
 
@@ -122,6 +123,7 @@ function Fitshare() {
                   className="header-btn-logout mainScreen-menu-with-submenu"
                   onClick={() => {
                     setCurAcct(null);
+                    navigate("/");
                   }}
                 >Logout</button>
               </div>
@@ -134,14 +136,14 @@ function Fitshare() {
       <Routes>
         <Route path="/" element={<MainScreen />}></Route>
         <Route path="/MainScreen" element={<MainScreen />}></Route>
-        <Route path="/Account" element={<Account setCurAcct={setCurAcct} setOpenSurvey={setOpenSurvey} accountData={accountData} setAccountData={setAccountData} />}></Route>
+        <Route path="/Account" element={<Account setCurAcct={setCurAcct} setOpenSurvey={setOpenSurvey} accountData={accountData} setAccountData={setAccountData}/>}></Route>
         <Route path="/Workout_aero" element={<Workout_aero />}></Route>
         <Route path="/Workout_stretch" element={<Workout_stretch />}></Route>
         <Route path="/Workout_gym" element={<Workout_gym />}></Route>
         <Route path="/Board_all" element={<Board_all />}></Route>
         <Route path="/search" element={<MainSearch />} />
         <Route path="/Customer" element={<Customer />} />
-        <Route path="/MyProfile" element={<MyProfile />} />
+        <Route path="/MyProfile" element={<MyProfile curAcct={curAcct} setCurAcct={setCurAcct} />} />
         <Route path="*" element={<ErrorPage />}></Route>
 
       </Routes>
@@ -183,7 +185,7 @@ function Fitshare() {
         </footer>
       )}
 
-      {delayedShow ? <Survey curAcct={curAcct} setOpenSurvey={setOpenSurvey} accountData={accountData} setAccountData={setAccountData} /> : null}
+      {delayedShow ? <Survey curAcct={curAcct} setCurAcct={setCurAcct} setOpenSurvey={setOpenSurvey} accountData={accountData} setAccountData={setAccountData} /> : null}
 
     </div>
   );
