@@ -37,6 +37,11 @@ function HtPostModal({ closeModal }) {
 
     useEffect(() => {
         setViews((prev) => prev + 1);
+
+        const savedComments = localStorage.getItem("ht-post-comments");
+        if(savedComments) {
+            setComments(JSON.parse(savedComments));
+        }
     }, []);
 
     const handleLike = () => {
@@ -46,13 +51,15 @@ function HtPostModal({ closeModal }) {
 
     const addComment = () => {
         if (commentInput.trim() === "") return;
-        setComments([...comments, { id: Date.now(), text: commentInput }]);
+        const newComments = [...comments, {id:Date.now(), text: commentInput}];
+        setComments(newComments);
         setCommentInput("");
+        localStorage.setItem("ht-post-comments", JSON.stringify(newComments));
     };
 
     return (
-        <div className="ht-modal-fullscreen">
-        <div className="ht-modal-box">
+        <div className="ht-modal-fullscreen" onClick={closeModal}>
+        <div className="ht-modal-box" onClick={(e) => e.stopPropagation()}>
             <div className="ht-modal-header">
             <h1 className="ht-modal-title">🏠 홈트레이닝 장비 추천 집에서도 제대로 운동하자!</h1>
             <button className="ht-modal-close-button" onClick={closeModal}>
@@ -133,6 +140,11 @@ function HtPostModal({ closeModal }) {
                 placeholder="댓글을 입력하세요"
                 value={commentInput}
                 onChange={(e) => setCommentInput(e.target.value)}
+                onKeyDown={(e)=>{
+                                if(e.key === "Enter") {
+                                    addComment();
+                                }
+                            }}
                 style={{ width: "80%", marginRight: "10px", padding: "8px" }}
                 />
                 <button onClick={addComment}>댓글 추가</button>

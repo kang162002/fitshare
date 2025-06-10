@@ -33,6 +33,11 @@ const teamConditions = [
 
     useEffect(() => {
         setViews((prev) => prev + 1);
+
+        const savedComments = localStorage.getItem("team-post-comments");
+        if(savedComments) {
+            setComments(JSON.parse(savedComments));
+        }
     }, []);
 
     const handleLike = () => {
@@ -42,13 +47,15 @@ const teamConditions = [
 
     const addComment = () => {
         if (commentInput.trim() === "") return;
-        setComments([...comments, { id: Date.now(), text: commentInput }]);
+        const newComments = [...comments, {id:Date.now(), text:commentInput}];
+        setComments(newComments);
         setCommentInput("");
+        localStorage.setItem("team-post-comments", JSON.stringify(newComments));
     };
 
     return (
-        <div className="team-modal-fullscreen">
-        <div className="team-modal-box">
+        <div className="team-modal-fullscreen" onClick={closeModal}>
+        <div className="team-modal-box" onClick={(e) => e.stopPropagation()}>
             <div className="team-modal-header">
             <h1 className="team-modal-title">BOAT FC 팀원 모집 합니다!</h1>
             <button className="team-modal-close-button" onClick={closeModal}>
@@ -129,6 +136,11 @@ const teamConditions = [
                 placeholder="댓글을 입력하세요"
                 value={commentInput}
                 onChange={(e) => setCommentInput(e.target.value)}
+                onKeyDown={(e)=>{
+                                if(e.key === "Enter") {
+                                    addComment();
+                                }
+                            }}
                 style={{ width: "80%", marginRight: "10px", padding: "8px" }}
                 />
                 <button onClick={addComment}>댓글 추가</button>

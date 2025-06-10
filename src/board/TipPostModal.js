@@ -29,7 +29,7 @@ const etiquetteTips = [
     },
     ];
 
-    function TipPostModal({ closeModal }) {
+    function TipPostModal({ closeModal, posts }) {
     const [views, setViews] = useState(0);
     const [likes, setLikes] = useState(0);
     const [liked, setLiked] = useState(false);
@@ -38,6 +38,11 @@ const etiquetteTips = [
 
     useEffect(() => {
         setViews((prev) => prev + 1);
+
+        const savedComments = localStorage.getItem("tip-post-comments");
+        if(savedComments) {
+            setComments(JSON.parse(savedComments));
+        }
     }, []);
 
     const handleLike = () => {
@@ -47,13 +52,15 @@ const etiquetteTips = [
 
     const addComment = () => {
         if (commentInput.trim() === "") return;
-        setComments([...comments, { id: Date.now(), text: commentInput }]);
+        const newComments = [...comments, {id:Date.now(), text: commentInput}]
+        setComments(newComments);
         setCommentInput("");
+        localStorage.setItem("tip-post-comments", JSON.stringify(newComments));
     };
 
     return (
-        <div className="tip-modal-fullscreen">
-        <div className="tip-modal-box">
+        <div className="tip-modal-fullscreen" onClick={closeModal}>
+        <div className="tip-modal-box" onClick={(e) => e.stopPropagation()}>
             <div className="tip-modal-header">
             <h1 className="tip-modal-title">헬스장 예절 총정리 - 다같이 쓰는 공간, 함께 지켜요!</h1>
             <button className="tip-modal-close-button" onClick={closeModal}>
@@ -106,6 +113,11 @@ const etiquetteTips = [
                 placeholder="댓글을 입력하세요"
                 value={commentInput}
                 onChange={(e) => setCommentInput(e.target.value)}
+                onKeyDown={(e)=>{
+                                if(e.key === "Enter") {
+                                    addComment();
+                                }
+                            }}
                 style={{ width: "80%", marginRight: "10px", padding: "8px" }}
                 />
                 <button onClick={addComment}>댓글 추가</button>

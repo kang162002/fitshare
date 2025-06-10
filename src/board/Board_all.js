@@ -1,13 +1,14 @@
 import './Board_all.css';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { POSTS_PER_PAGE } from './constants';
-import { Navigate, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import allPosts from './Posts';
 import GymPostModal from './GymPostModal';
 import TipPostModal from './TipPostModal';
 import TeamPostModal from './TeamPostModal';
 import DietPostModal from './DietPostModal';
 import HtPostModal from './HtPostModal';
+import { useLocation } from 'react-router';
 
 
 
@@ -15,7 +16,7 @@ import HtPostModal from './HtPostModal';
 
 
 
-export default function Board_all() {
+export default function Board_all({posts, setPosts}) {
     const navigate = useNavigate();
     const [ selectedBoard, setSelectedBoard ] = useState("all");
     const [ sortType, setSortType ] = useState("id"); // 'id', 'views', 'date'
@@ -28,20 +29,33 @@ export default function Board_all() {
     const [ showTeamModal, setShowTeamModal ] = useState(false);
     const [ showDietModal, setShowDietModal ] = useState(false);
     const [ showHtModal, setShowHtModal ] = useState(false);
+    const location = useLocation();
+    // const [posts, setPosts] = useState(allPosts.all);
+
+        useEffect(() => {
+            if (location.state?.newPost) {
+                setPosts(prev => [location.state.newPost, ...prev]);
+                
+                window.history.replaceState({}, document.title)
+                }
+        }, [location.state]);
 
 
 
 
     const filteredPosts = selectedBoard === "all"
-        ? allPosts.all
-        : allPosts.all.filter(post => {
+        ? posts
+        : posts.filter(post => {
             if (selectedBoard === "gym") return post.type === "GYM";
             if (selectedBoard === "tips") return post.type === "TIP";
             if (selectedBoard === "sports") return post.type === "TEAM";
             if (selectedBoard === "diet") return post.type === "DIET";
             if (selectedBoard === "ht") return post.type === "HT";
-            return false;
-        });
+            return true; 
+            });
+            
+            
+        
 
 
 
@@ -190,6 +204,7 @@ export default function Board_all() {
                         {paginatedPosts.map((post) => (
                             <tr key={post.id} onClick={() => {
                                 if (post.id === 66) {
+                                    post.views+=1;
                                     setSelectedPost(post);
                                     setModalOpen(true);
                                 } else if (post.id === 78) {
@@ -201,6 +216,8 @@ export default function Board_all() {
                                 } else if (post.id === 5) {
                                     setShowHtModal(true);
                                 }
+
+                                
 
 
                             }}
@@ -225,11 +242,12 @@ export default function Board_all() {
                                 setModalOpen(false);
                                 setSelectedPost(null);
                             }}
+                            posts={posts}
                         />
                     )}
 
                     {showTipModal && (
-                        <TipPostModal closeModal={() => setShowTipModal(false)} />
+                        <TipPostModal closeModal={() => setShowTipModal(false)} posts={posts}/>
                     )}
 
                     {showTeamModal && (
@@ -251,7 +269,7 @@ export default function Board_all() {
                 <div className="board-page">
 
                     <button onClick={() => handlePageChange(1)} disabled={currentPage === 1}>처음</button>
-                    <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>이전</button>
+                    <button onClick={() => handlePageChange(Math.max(1, currentPage - 5))} disabled={currentPage <= 5}>이전</button>
 
                     {getPageNumbers().map((pageNum) => (
                         <button
@@ -263,7 +281,7 @@ export default function Board_all() {
                         </button>
                     ))}
 
-                    <button onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages}>다음</button>
+                    <button onClick={() => handlePageChange(Math.min(totalPages, currentPage + 5))} disabled={currentPage === totalPages}>다음</button>
                     <button onClick={() => handlePageChange(totalPages)} disabled={currentPage === totalPages}>마지막</button>
 
                 </div>

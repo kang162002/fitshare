@@ -1,5 +1,5 @@
 import "./MainScreen.css";
-import { Routes, Route, useRoutes, useNavigate }  from "react-router";
+import { Routes, Route, useRoutes, useNavigate}  from "react-router";
 //import { useNavigate} from "react-router-dom";
 import MainScreen from "./MainScreen";
 import ErrorPage from "../errorPage/ErrorPage";
@@ -9,6 +9,8 @@ import Workout_aero from "../workout/Workout_aero";
 import Workout_gym from "../workout/Workout_gym";
 import Board_all from "../board/Board_all";
 import WritePage from "../board/WritePage";
+import allPosts from "../board/Posts";
+import { useState } from "react";
 
 function Fitshare() {
 
@@ -16,6 +18,8 @@ function Fitshare() {
     const hnadleLogoclick =()=>{
         navigate("/")
     }
+
+    const [posts, setPosts] = useState(allPosts.all);
 
   return (
     <div className="fitshare-nav">
@@ -88,8 +92,8 @@ function Fitshare() {
         <Route path="/Workout_aero" element={<Workout_aero />}></Route>
         <Route path="/Workout_stretch" element={<Workout_stretch />}></Route>
         <Route path="/Workout_gym" element={<Workout_gym />}></Route>
-        <Route path="/Board_all" element={<Board_all />}></Route>
-        <Route path="/Writepage" element={<WritePage />}></Route>
+        <Route path="/Board_all" element={<Board_all posts={posts} setPosts={setPosts} />}></Route>
+        <Route path="/Writepage" element={<WritePage posts={posts} setPosts={setPosts}/>}></Route>
         
 
         <Route

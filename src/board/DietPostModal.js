@@ -44,6 +44,11 @@ const dietPlans = [
 
     useEffect(() => {
         setViews((prev) => prev + 1);
+
+        const savedComments = localStorage.getItem("diet-post-comments");
+        if(savedComments) {
+            setComments(JSON.parse(savedComments));
+        }
     }, []);
 
     const handleLike = () => {
@@ -53,13 +58,15 @@ const dietPlans = [
 
     const addComment = () => {
         if (commentInput.trim() === "") return;
-        setComments([...comments, { id: Date.now(), text: commentInput }]);
+        const newComments = [...comments, {id:Date.now(), text: commentInput }];
+        setComments(newComments);
         setCommentInput("");
+        localStorage.setItem("diet-post-comments", JSON.stringify(newComments));
     };
 
     return (
-        <div className="diet-modal-fullscreen">
-        <div className="diet-modal-box">
+        <div className="diet-modal-fullscreen" onClick={closeModal}>
+        <div className="diet-modal-box" onClick={(e) => e.stopPropagation()}>
             <div className="diet-modal-header">
             <h1 className="diet-modal-title">다이어트 4주 감량 플랜 – 현실적으로 3~5kg 감량 도전!</h1>
             <button className="diet-modal-close-button" onClick={closeModal}>
@@ -139,6 +146,11 @@ const dietPlans = [
                 placeholder="댓글을 입력하세요"
                 value={commentInput}
                 onChange={(e) => setCommentInput(e.target.value)}
+                onKeyDown={(e)=>{
+                                if(e.key === "Enter") {
+                                    addComment();
+                                }
+                            }}
                 style={{ width: "80%", marginRight: "10px", padding: "8px" }}
                 />
                 <button onClick={addComment}>댓글 추가</button>

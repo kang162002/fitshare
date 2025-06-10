@@ -32,16 +32,21 @@ const tips = [
     },
 ]
 
-function GymPostModal({ post, closeModal}) {
-
-    const [views, setViews] = useState(0);
-    const [likes, setLikes] = useState(0);
+function GymPostModal({ post, closeModal, posts}) {
+    const dataPost = posts[65];
+    const [views, setViews] = useState(dataPost.views-1);
+    const [likes, setLikes] = useState(dataPost.likes);
     const [liked, setLiked] = useState(false);
     const [comments, setComments] = useState([]);
     const [commentInput, setCommentInput] = useState("");
 
     useEffect(() => {
         setViews((prev) => prev +1);
+
+        const savedComments = localStorage.getItem("gym-post-comments");
+        if(savedComments) {
+            setComments(JSON.parse(savedComments));
+        }
     }, []);
     
     const handleLike = () => {
@@ -51,13 +56,15 @@ function GymPostModal({ post, closeModal}) {
 
     const addComment = () => {
         if (commentInput.trim() === "") return;
-        setComments([...comments, { id: Date.now(), text:commentInput}]);
+        const newComments = [...comments, {id:Date.now(), text: commentInput}];
+        setComments(newComments);
         setCommentInput("");
+        localStorage.setItem("gym-post-comments", JSON.stringify(newComments));
     };
 
     return (
-        <div className="gym-modal-fullscreen">
-            <div className="gym-modal-box">
+        <div className="gym-modal-fullscreen" onClick={closeModal}>
+            <div className="gym-modal-box" onClick={(e) => e.stopPropagation()}>
                 <div className="gym-modal-header">
                     <h1 className="gym-modal-title">{post.title}</h1>
                     <button className="gym-modal-close-button" onClick={closeModal}>X</button>
@@ -97,6 +104,11 @@ function GymPostModal({ post, closeModal}) {
                             placeholder="댓글을 입력하세요"
                             value={commentInput}
                             onChange={(e) => setCommentInput(e.target.value)}
+                            onKeyDown={(e)=>{
+                                if(e.key === "Enter") {
+                                    addComment();
+                                }
+                            }}
                             style={{ width: "80%", marginRight: "10px", padding: "8px" }}
                             />
                             <button onClick={addComment}>댓글 추가</button>
