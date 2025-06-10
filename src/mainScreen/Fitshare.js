@@ -17,6 +17,7 @@ import Board_all from "../board/Board_all";
 import { Link } from "react-router";
 import MainSearch from "./MainSearch";
 import Customer from "./Customer";
+import AboutCompany from "../fitshareAbout/AboutCompany";
 
 function Fitshare() {
   let navigate = useNavigate();
@@ -100,13 +101,14 @@ function Fitshare() {
         <Route path="/Board_all" element={<Board_all />}></Route>
         <Route path="/search" element={<MainSearch />} />
         <Route path="/Customer" element={<Customer />} />
+        <Route path="/Aboutcompany" element={<AboutCompany/>}/>
         <Route path="*" element={<ErrorPage />}></Route>
       </Routes>
       {isLayoutVisible && (
         <footer className="footer">
           <div className="footer-top">
             <div className="footer-links">
-              <a href="/about">회사소개</a>
+              <Link to="/AboutCompany">회사소개</Link>
               <a href="/files/Term_of_use.html" target="_blank">
                 이용약관
               </a>

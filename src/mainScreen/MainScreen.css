@@ -414,41 +414,7 @@ footer.footer {
 }
 
 
-/* 애니메이션 정의 */
-@keyframes pageFlip {
-  from {
-    opacity: 0;
-  }
 
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes splashTextIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes dotFlashing {
-
-  0%,
-
-  100% {
-    opacity: 0.5;
-  }
-
-  50% {
-    opacity: 1;
-  }
-}
 
 
 /* mainScreen-introduction */
@@ -644,45 +610,8 @@ footer.footer {
 
 
 
-/* 애니메이션 정의 */
-@keyframes pageFlip {
-  0% {
-    opacity: 0;
-  }
 
-  3% {
-    opacity: 0;
-  }
 
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes splashTextIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes dotFlashing {
-
-  0%,
-
-  100% {
-    opacity: 0.5;
-  }
-
-  50% {
-    opacity: 1;
-  }
-}
 
 
 /* mainScreen-introduction */
@@ -883,47 +812,6 @@ footer.footer {
   bottom: 0;
 }
 
-/* 애니메이션 정의 */
-@keyframes pageFlip {
-  0% {
-    opacity: 0;
-  }
-
-  3% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes splashTextIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-}
-
-@keyframes dotFlashing {
-
-  0%,
-  100% {
-    opacity: 0.2;
-  }
-
-  50% {
-    opacity: 1;
-  }
-}
-
-
 .mainScreen-intro-body,
 .mainScreen-intro,
 .mainScreen-intron-section,
@@ -951,3 +839,20 @@ footer.footer {
   margin: 0 auto;
   text-align: center;
 }
+
+
+/* 애니메이션  */
+@keyframes pageFlip {
+  0%, 3% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes splashTextIn {
+  0% { opacity: 0; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* @keyframes dotFlashing {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+} */
