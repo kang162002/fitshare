@@ -66,6 +66,53 @@
 }
 
 /* 게시글 리스트 테이블 */
+.board-body {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgb(78, 78, 78);
+}
+
+.board-header h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.board-nav {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 0px;
+}
+
+.board-nav button {
+    padding: 8px 16px;
+    background-color: rgba(192, 192, 192, 0.253);
+    border: 1px solid #ddd;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 90px;
+    color: rgba(206, 15, 15, 0.973);
+}
+
+.board-nav button:hover {
+    background-color: #e2e8f0;
+    border-color: #a0aec0;
+}
+
+.board-search {
+    display: flex;
+    justify-content: space-between;
+}
+
+.board-outer h2 {
+    margin-bottom: 10px;
+    border-bottom: 2px solid #444;
+    padding-bottom: 6px;
+    font-size: 20px;
+}
+
 .board-list-table {
     width: 100%;
     border-collapse: collapse;
@@ -143,4 +190,132 @@ tr>td:hover{
     background-color: rgb(255, 186, 186);
     color: white;
 }
+/* 
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    padding: 10px;
+} */
 
+.board-list-table th {
+    background-color: #f9f9f9;
+    font-weight: bold;
+}
+
+.board-page {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    
+}
+
+.board-button {
+    padding: '8px 12px';
+        background-color: '#007bff';
+        color: 'white';
+        border: 'none';
+        border-radius: '8px';
+        cursor: 'pointer'
+}
+
+
+.gym-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #fff;
+    font-family: sans-serif;
+}
+
+.gym-title {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.gym-intro {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #444;
+}
+
+.gym-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.gym-row {
+    border-bottom: 1px solid #ddd;
+    padding: 1rem 0;
+}
+
+.gym-text {
+    width: 65%;
+    vertical-align: top;
+    padding: 1rem;
+}
+
+.gym-subtitle {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.gym-description {
+    color: #555;
+    line-height: 1.5;
+    white-space: pre-line;
+}
+
+.gym-image {
+    width: 35%;
+    padding: 1rem;
+}
+
+.gym-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.gym-conclusion {
+    margin-top: 3rem;
+    padding: 1rem;
+    background-color: #f0f8ff;
+    border-left: 5px solid #0077cc;
+    color: #003366;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.gym-conclusion-title {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.sort-button {
+    background-color: rgb(78, 78, 78);
+    border: 1px solid #922244;
+    color: rgb(219, 114, 114);
+    padding: 8px 14px;
+    font-size: 14px;
+    border-radius: 6px;
+    margin-left: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.sort-button:first-child {
+    margin-left: 0;
+}
+
+.sort-button:hover {
+    background-color: #e2e8f0;
+    border-color: #a0aec0;
+}
+
+.sort-button:active {
+    background-color: #d1d9e6;
+    border-color: #718096;
+}

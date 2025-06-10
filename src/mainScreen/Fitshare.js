@@ -1,5 +1,5 @@
 import "./Fitshare.css";
-import { Routes, Route, useRoutes, useNavigate, useLocation } from "react-router";
+import { Routes, Route, useRoutes, useNavigate, useLocation}  from "react-router";
 //import { useNavigate} from "react-router-dom";
 import MainScreen from "./MainScreen";
 import ErrorPage from "../errorPage/ErrorPage";
@@ -15,6 +15,8 @@ import { useEffect, useState } from "react";
 import Survey from "../account/Survey";
 import accountDatas from "../account/data/accountDatas";
 import MyProfile from "../account/MyProfile";
+import WritePage from "../board/WritePage";
+import allPosts from "../board/Posts";
 
 function Fitshare() {
   let navigate = useNavigate();
@@ -52,6 +54,7 @@ function Fitshare() {
 
   const noLayoutPaths = ["/Customer"];
   const isLayoutVisible = !noLayoutPaths.includes(location.pathname);
+    const [posts, setPosts] = useState(allPosts.all);
 
   return (
     <div className="fitshare-nav">
@@ -80,7 +83,7 @@ function Fitshare() {
 
             {/* 운동 서브메뉴 */}
             <div className="mainScreen-menu-with-submenu">
-              <Link to="/">운동</Link>
+              <Link to="#" >운동</Link>
               <div className="mainScreen-main-submenu-container">
                 <Link to="/Workout_gym" className="main-submenu-item">
                   근력운동
@@ -138,11 +141,13 @@ function Fitshare() {
         <Route path="/Workout_aero" element={<Workout_aero />}></Route>
         <Route path="/Workout_stretch" element={<Workout_stretch />}></Route>
         <Route path="/Workout_gym" element={<Workout_gym />}></Route>
-        <Route path="/Board_all" element={<Board_all />}></Route>
         <Route path="/search" element={<MainSearch />} />
         <Route path="/Customer" element={<Customer />} />
         <Route path="/MyProfile" element={<MyProfile />} />
         <Route path="*" element={<ErrorPage />}></Route>
+        <Route path="/Board_all" element={<Board_all posts={posts} setPosts={setPosts} />}></Route>
+        <Route path="/Writepage" element={<WritePage posts={posts} setPosts={setPosts}/>}></Route>
+        
 
       </Routes>
       {isLayoutVisible && (
