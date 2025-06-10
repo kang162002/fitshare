@@ -1,5 +1,11 @@
 import "./MainScreen.css";
-import { Routes, Route, useRoutes, useNavigate } from "react-router";
+import {
+  Routes,
+  Route,
+  useRoutes,
+  useNavigate,
+  useLocation,
+} from "react-router";
 //import { useNavigate} from "react-router-dom";
 import MainScreen from "./MainScreen";
 import ErrorPage from "../errorPage/ErrorPage";
@@ -10,6 +16,7 @@ import Workout_gym from "../workout/Workout_gym";
 import Board_all from "../board/Board_all";
 import { Link } from "react-router";
 import MainSearch from "./MainSearch";
+import Customer from "./Customer";
 
 function Fitshare() {
   let navigate = useNavigate();
@@ -17,10 +24,15 @@ function Fitshare() {
     navigate("/");
   };
 
+  const location = useLocation();
+
+  const noLayoutPaths = ["/Customer"];
+  const isLayoutVisible = !noLayoutPaths.includes(location.pathname);
+
   return (
     <div className="fitshare-nav">
-      <div className="mainScreen-nav-fix">
-        {/* 네비게이션 바 */}
+      {/* 네비게이션 바 */}
+      {isLayoutVisible && (
         <div className="mainScreen-main-menu">
           <div className="mainScreen-logo">
             <div
@@ -39,8 +51,8 @@ function Fitshare() {
             </div>
           </div>
 
-          <nav className="mainScreen-menu-links">
-            <Link to="/">소개</Link>
+            <nav className="mainScreen-menu-links">
+              <Link to="/">소개</Link>
 
             {/* 운동 서브메뉴 */}
             <div className="mainScreen-menu-with-submenu">
@@ -71,15 +83,12 @@ function Fitshare() {
 
           {/* 로그인 링크 */}
           <div className="mainScreen-top-nav">
-            <Link
-              to="/Account"
-              style={{ cursor: "pointer" }}
-            >
+            <Link to="/Account" style={{ cursor: "pointer" }}>
               로그인/회원가입
             </Link>
           </div>
         </div>
-      </div>
+      )}
 
       <Routes>
         <Route path="/" element={<MainScreen />}></Route>
@@ -90,36 +99,48 @@ function Fitshare() {
         <Route path="/Workout_gym" element={<Workout_gym />}></Route>
         <Route path="/Board_all" element={<Board_all />}></Route>
         <Route path="/search" element={<MainSearch />} />
-
-        <Route
-          path="*"
-          element={
-            <ErrorPage />
-          }
-        ></Route>
+        <Route path="/Customer" element={<Customer />} />
+        <Route path="*" element={<ErrorPage />}></Route>
       </Routes>
-
-      <footer className="footer">
-        <div className="footer-top">
-          <div className="footer-links">
-            <a href="/about">회사소개</a>
-            <a href="/files/Term_of_use.html" target="_blank">이용약관</a>
-            <a href="/files/Privacy_policy.html" target="_blank">개인정보처리방침</a>
-            <a href="/support">고객센터</a>
+      {isLayoutVisible && (
+        <footer className="footer">
+          <div className="footer-top">
+            <div className="footer-links">
+              <a href="/about">회사소개</a>
+              <a href="/files/Term_of_use.html" target="_blank">
+                이용약관
+              </a>
+              <a href="/files/Privacy_policy.html" target="_blank">
+                개인정보처리방침
+              </a>
+              <Link
+                onClick={() => {
+                  window.open(
+                    "/Customer",
+                    "CustomerPopup",
+                    "width=800,height=600"
+                  );
+                }}
+              >
+                고객센터
+              </Link>
+            </div>
+            <div className="footer-social">
+              <a href="https://instagram.com/biomind">Instagram</a>
+              <a href="https://youtube.com/biomind">YouTube</a>
+            </div>
           </div>
-          <div className="footer-social">
-            <a href="https://instagram.com/biomind">Instagram</a>
-            <a href="https://youtube.com/biomind">YouTube</a>
-          </div>
-        </div>
 
-        <div className="footer-bottom">
-          <p>© 2025 BIOMIND Inc. | 사업자번호: 123-45-67890 | 대표: 김바이오</p>
-          <p>
-            주소: 충남 천안시 동남구 대흥로 215 7층 | 이메일: info@biomind.kr
-          </p>
-        </div>
-      </footer>
+          <div className="footer-bottom">
+            <p>
+              © 2025 BIOMIND Inc. | 사업자번호: 123-45-67890 | 대표: 김바이오
+            </p>
+            <p>
+              주소: 충남 천안시 동남구 대흥로 215 7층 | 이메일: info@biomind.kr
+            </p>
+          </div>
+        </footer>
+      )}
     </div>
   );
 }

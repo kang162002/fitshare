@@ -1,0 +1,146 @@
+/* board-body 전체 영역 */
+.board-body {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #fdfdfd;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* 상단 제목 */
+.board-header h3 {
+    font-size: 28px;
+    color: #333;
+    border-bottom: 2px solid #555;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* 게시판 필터 네비게이션 */
+.board-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.board-nav button {
+    padding: 8px 14px;
+    border: 1px solid #ccc;
+    background-color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.board-nav>button:hover {
+    background-color: #3f3f3f;
+    border-color: #ffffff;
+    color: white;
+}
+
+.board-nav>button:focus {
+    background-color: rgb(255, 100, 100);
+}
+
+/* 게시글 정렬 버튼 */
+.board-outer button {
+    padding: 6px 12px;
+    margin-right: 6px;
+    background-color: #eee;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.board-outer button:hover {
+    background-color: #ff8686;
+    color: white;
+}
+.board-outer button:focus{
+    
+    background-color: rgb(252, 89, 89);
+}
+
+/* 게시글 리스트 테이블 */
+.board-list-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background-color: white;
+}
+
+.board-list-table th,
+.board-list-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.board-list-table th {
+    background-color: #f5f5f5;
+    font-weight: 600;
+}
+
+.board-list-table tbody tr:hover {
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+/* 페이지네이션 *
+.board-pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.board-pagination button {
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 6px;
+    background-color: #e0e0e0;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.board-pagination button.active {
+    background-color: #444;
+    color: #fff;
+}
+
+.board-pagination button:disabled {
+    background-color: #eee;
+    color: #999;
+    cursor: default;
+}
+
+/* 글쓰기 버튼 */
+.board-outer>button {
+    display: block;
+    margin: 30px auto 0;
+    padding: 12px 20px;
+    background-color: #1a1a1a;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: background-color 0.2s ease;
+}
+
+.board-outer>button:hover {
+    background-color: #000000;
+}
+
+tr>td:hover{
+    background-color: rgb(255, 186, 186);
+    color: white;
+}
+

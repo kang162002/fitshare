@@ -5,12 +5,16 @@ import MainEffect from "../mainRipple/MainEffect";
 import MainSplash from "../mainSplash/MainSplash";
 import { useNavigate } from "react-router";
 
+
+
 // 비디오 소스 배열 정의
 const videoSources = [
   "/media/main-media/main_Screen_media01.mp4",
   "/media/main-media/main_Screen_media02.mp4",
   "/media/main-media/main_Screen_media03.mp4",
 ];
+
+
 
 function MainScreen() {
   const [ripples, setRipples] = useState([]); // 클릭 효과 저장
@@ -96,6 +100,7 @@ function MainScreen() {
   if (isSplashVisible) {
     return <MainSplash />;
   }
+ 
 
   return (
     <div className="main-Screen-page-wrapper">
@@ -121,7 +126,7 @@ function MainScreen() {
               idx === 0 ? "active" : ""
             }`}
             muted
-            playsInline="auto"
+            playsInline={true}
             autoPlay
           >
             <source src={src} type="video/mp4" />
@@ -260,7 +265,6 @@ function MainScreen() {
           </div>
         </div>
       </div>
-    
     </div>
   );
 }
