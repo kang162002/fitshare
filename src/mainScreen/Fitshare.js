@@ -1,11 +1,5 @@
-import "./MainScreen.css";
-import {
-  Routes,
-  Route,
-  useRoutes,
-  useNavigate,
-  useLocation,
-} from "react-router";
+import "./Fitshare.css";
+import { Routes, Route, useRoutes, useNavigate, useLocation } from "react-router";
 //import { useNavigate} from "react-router-dom";
 import MainScreen from "./MainScreen";
 import ErrorPage from "../errorPage/ErrorPage";
@@ -17,12 +11,41 @@ import Board_all from "../board/Board_all";
 import { Link } from "react-router";
 import MainSearch from "./MainSearch";
 import Customer from "./Customer";
+import { useEffect, useState } from "react";
+import Survey from "../account/Survey";
+import accountDatas from "../account/data/accountDatas";
 
 function Fitshare() {
   let navigate = useNavigate();
-  const hnadleLogoclick = () => {
-    navigate("/");
-  };
+
+  // ======= ✨✨😃✨✨ 모든 계정 정보 관리 ✨✨😃✨✨ ========
+  const [accountData, setAccountData] = useState(accountDatas);
+
+  // ======================== 설문조사 유저 받기(로그인 > 로그아웃 전환) ========================
+  const [curAcct, setCurAcct] = useState(null);
+
+  // ======================== 설문조사 모달창 ================================================
+  const [openSurvey, setOpenSurvey] = useState(false);
+
+  const [delayedShow, setDelayedShow] = useState(false);
+
+  useEffect(() => {
+    let timer;
+
+    if (openSurvey) {
+      // 1초 뒤에 show 상태 반영
+      timer = setTimeout(() => {
+        setDelayedShow(true);
+      }, 3000);
+    } else {
+      // show가 false 되면 즉시 모달 숨김
+      setDelayedShow(false);
+    }
+
+    return () => clearTimeout(timer); // 정리
+  }, [openSurvey])
+
+
 
   const location = useLocation();
 
@@ -51,8 +74,8 @@ function Fitshare() {
             </div>
           </div>
 
-            <nav className="mainScreen-menu-links">
-              <Link to="/">소개</Link>
+          <nav className="mainScreen-menu-links">
+            <Link to="/">소개</Link>
 
             {/* 운동 서브메뉴 */}
             <div className="mainScreen-menu-with-submenu">
@@ -83,9 +106,26 @@ function Fitshare() {
 
           {/* 로그인 링크 */}
           <div className="mainScreen-top-nav">
-            <Link to="/Account" style={{ cursor: "pointer" }}>
-              로그인/회원가입
-            </Link>
+            {
+              !curAcct && <Link
+                to="/Account"
+                style={{ cursor: "pointer" }}
+              >
+                로그인/회원가입
+              </Link>
+            }
+            {
+              curAcct && <div className="header-user">
+                <span className="header-user-account">{curAcct.name} 님</span>
+                <button
+                  className="header-btn-logout mainScreen-menu-with-submenu"
+                  onClick={() => {
+                    setCurAcct(null);
+                  }}
+                >Logout</button>
+              </div>
+            }
+
           </div>
         </div>
       )}
@@ -93,7 +133,7 @@ function Fitshare() {
       <Routes>
         <Route path="/" element={<MainScreen />}></Route>
         <Route path="/MainScreen" element={<MainScreen />}></Route>
-        <Route path="/Account" element={<Account />}></Route>
+        <Route path="/Account" element={<Account setCurAcct={setCurAcct} setOpenSurvey={setOpenSurvey} accountData={accountData} setAccountData={setAccountData} />}></Route>
         <Route path="/Workout_aero" element={<Workout_aero />}></Route>
         <Route path="/Workout_stretch" element={<Workout_stretch />}></Route>
         <Route path="/Workout_gym" element={<Workout_gym />}></Route>
@@ -132,15 +172,16 @@ function Fitshare() {
           </div>
 
           <div className="footer-bottom">
-            <p>
-              © 2025 BIOMIND Inc. | 사업자번호: 123-45-67890 | 대표: 김바이오
-            </p>
+            <p>© 2025 BIOMIND Inc. | 사업자번호: 123-45-67890 | 대표: 김바이오</p>
             <p>
               주소: 충남 천안시 동남구 대흥로 215 7층 | 이메일: info@biomind.kr
             </p>
           </div>
         </footer>
       )}
+
+      {delayedShow ? <Survey curAcct={curAcct} setOpenSurvey={setOpenSurvey} accountData={accountData} setAccountData={setAccountData} /> : null}
+
     </div>
   );
 }

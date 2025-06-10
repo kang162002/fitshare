@@ -3,7 +3,7 @@ import './AccountRecoveryModal.css';
 import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 
-function AccountRecoveryModal({ openModal, setOpenModal, accountData, setAccountData }) {
+function AccountRecoveryModal({ setOpenModal, accountData, setAccountData }) {
 
     const [isAnimating, setIsAnimating] = useState(false); // 애니메이션 상태
 

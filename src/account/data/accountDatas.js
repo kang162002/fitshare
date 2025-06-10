@@ -4,8 +4,7 @@ let accountDatas = [
         email: 'code@pigonheayo',
         password: '@00000000000',
         phone: '01000000000',
-        initial: 'true', //최초 가입
-        loginState: 'false' //로그인 상태
+        surveyComplete: false //최초 가입
     },
 
     {
@@ -13,8 +12,7 @@ let accountDatas = [
         email: 'code@heyheyhey',
         password: '@00000000000',
         phone: '01011111111',
-        initial: 'true',
-        loginState: 'false'
+        surveyComplete: false
     },
 
     {
@@ -22,8 +20,7 @@ let accountDatas = [
         email: 'code@hahaha',
         password: '@00000000000',
         phone: '01022222222',
-        initial: 'true',
-        loginState: 'false'
+        surveyComplete: false
     },
 
     {
@@ -31,8 +28,7 @@ let accountDatas = [
         email: 'code@hohoho',
         password: '@00000000000',
         phone: '01033333333',
-        initial: 'true',
-        loginState: 'false'
+        surveyComplete: false
     },
 ]
 
