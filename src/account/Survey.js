@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 
-function Survey({ curAcct, setOpenSurvey, accountData, setAccountData }) {
+function Survey({ curAcct, setCurAcct, setOpenSurvey, accountData, setAccountData }) {
 
 
     const [age, setAge] = useState('');
@@ -33,7 +33,7 @@ function Survey({ curAcct, setOpenSurvey, accountData, setAccountData }) {
         }
 
         if (!selectedGender || !selectedPurpose || !selectedWorkoutExp
-            || !selectedPTExp || age.trim()=='' || height.trim()=='' || weight.trim()=='') {
+            || !selectedPTExp || age.trim() == '' || height.trim() == '' || weight.trim() == '') {
             Swal.fire({
                 icon: 'error',
                 title: '설문조사를 완료 후 제출하기 버튼을 눌러주세요.',
@@ -45,6 +45,18 @@ function Survey({ curAcct, setOpenSurvey, accountData, setAccountData }) {
         //기존 데이터를 새로운 데이터로 교체
         const updatedData = accountData.map(user => {
             if (user.email && user.email === curAcct.email) {
+                let newData = {
+                    ...user,
+                    age: age,
+                    height: height,
+                    weight: weight,
+                    gender: selectedGender.value,
+                    purpose: selectedPurpose.value,
+                    workoutExp: selectedWorkoutExp.value,
+                    PTExp: selectedPTExp.value,
+                    surveyComplete: true,
+                };
+                setCurAcct(newData);
                 return {
                     ...user,
                     age: age,
@@ -56,11 +68,11 @@ function Survey({ curAcct, setOpenSurvey, accountData, setAccountData }) {
                     PTExp: selectedPTExp.value,
                     surveyComplete: true,
                 };
+
             } else {
                 return user;
             }
         });
-
 
         console.log(accountData);
         setAccountData(updatedData);
@@ -70,8 +82,10 @@ function Survey({ curAcct, setOpenSurvey, accountData, setAccountData }) {
             text: '개인페이지에서 확인 및 수정이 가능합니다.',
         });
         setOpenSurvey(false);
-        console.log(accountData[1].height);
+        console.log(curAcct.age);
+
     }
+
 
 
     return (
@@ -79,7 +93,8 @@ function Survey({ curAcct, setOpenSurvey, accountData, setAccountData }) {
             <div className="account-sur-div account-sur-body">
                 <div className="account-sur-div account-sur-container" style={{ backgroundColor: '#222222' }}>
                     <div>
-                        <h1 className='account-sur-h1'>설문조사</h1>
+                        <h1 className='account-sur-h1'>추가정보</h1>
+
                     </div>
 
                     <div className='account-sur-hr'>
@@ -116,8 +131,6 @@ function Survey({ curAcct, setOpenSurvey, accountData, setAccountData }) {
                                         className='account-sur-input account-sur-input-text'
                                         type='text'
                                         placeholder='나이 입력'
-                                        minLength={14}
-                                        maxLength={90}
                                         value={age}
                                         onChange={(e) => { setAge(e.target.value) }}
                                     ></input>
