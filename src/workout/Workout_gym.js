@@ -81,7 +81,7 @@ function Workout_gym() {
             </div>
 
             {showModal && (
-                <WorkoutModal closeModal={() => setShowModal(false)} workoutData={workoutDatas[dataIndex]} />
+                <WorkoutModal closeModal={() => setShowModal(false)} workoutData={workoutDatas[dataIndex]} workoutDatas={workoutDatas} setWorkoutDatas={setWorkoutDatas} dataIndex={dataIndex}/>
             )}
         </>
     );

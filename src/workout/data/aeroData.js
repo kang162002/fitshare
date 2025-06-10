@@ -6,7 +6,8 @@ let aeroData = [
         imgPath: '/images/jumping_jacks.png',
         tool: "맨몸",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'ae001',
@@ -15,7 +16,8 @@ let aeroData = [
         imgPath: '/images/burpees.png',
         tool: "맨몸",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'ae002',
@@ -24,7 +26,8 @@ let aeroData = [
         imgPath: '/images/conventional_dumbbell_squat.jpg',
         tool: "맨몸",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'ae003',
@@ -33,7 +36,8 @@ let aeroData = [
         imgPath: '/images/conventional_dumbbell_squat.jpg',
         tool: "맨몸",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'ae004',
@@ -42,7 +46,8 @@ let aeroData = [
         imgPath: '/images/conventional_dumbbell_squat.jpg',
         tool: "맨몸",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'ae005',
@@ -51,7 +56,8 @@ let aeroData = [
         imgPath: '/images/conventional_dumbbell_squat.jpg',
         tool: "맨몸",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'ae006',
@@ -60,7 +66,8 @@ let aeroData = [
         imgPath: '/images/conventional_dumbbell_squat.jpg',
         tool: "맨몸",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'ae007',
@@ -69,7 +76,8 @@ let aeroData = [
         imgPath: '/images/conventional_dumbbell_squat.jpg',
         tool: "맨몸",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'ae008',
@@ -78,7 +86,8 @@ let aeroData = [
         imgPath: '/images/conventional_dumbbell_squat.jpg',
         tool: "맨몸",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'ae009',
@@ -87,7 +96,8 @@ let aeroData = [
         imgPath: '/images/conventional_dumbbell_squat.jpg',
         tool: "맨몸",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'ae010',
@@ -96,7 +106,8 @@ let aeroData = [
         imgPath: '/images/conventional_dumbbell_squat.jpg',
         tool: "맨몸",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'ae011',
@@ -105,7 +116,8 @@ let aeroData = [
         imgPath: '/images/conventional_dumbbell_squat.jpg',
         tool: "맨몸",
         area: "하체",
-        level: 2
+        level: 2,
+        fav: false
     }
 ];
 

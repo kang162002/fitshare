@@ -14,6 +14,7 @@ import Customer from "./Customer";
 import { useEffect, useState } from "react";
 import Survey from "../account/Survey";
 import accountDatas from "../account/data/accountDatas";
+import MyProfile from "../account/MyProfile";
 
 function Fitshare() {
   let navigate = useNavigate();
@@ -116,7 +117,7 @@ function Fitshare() {
             }
             {
               curAcct && <div className="header-user">
-                <span className="header-user-account">{curAcct.name} 님</span>
+                <Link to="/MyProfile"><span className="header-user-account" >{curAcct.name} 님</span></Link>
                 <button
                   className="header-btn-logout mainScreen-menu-with-submenu"
                   onClick={() => {
@@ -140,7 +141,9 @@ function Fitshare() {
         <Route path="/Board_all" element={<Board_all />}></Route>
         <Route path="/search" element={<MainSearch />} />
         <Route path="/Customer" element={<Customer />} />
+        <Route path="/MyProfile" element={<MyProfile />} />
         <Route path="*" element={<ErrorPage />}></Route>
+
       </Routes>
       {isLayoutVisible && (
         <footer className="footer">
