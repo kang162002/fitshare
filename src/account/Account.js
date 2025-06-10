@@ -7,14 +7,11 @@ import Swal from 'sweetalert2';
 
 import AccountRecoveryModal from './AccountRecoveryModal';
 import { Routes, Route, useNavigate } from 'react-router';
-import accountDatas from './data/accountDatas';
 
 
 
 
-function Account() {
-
-
+function Account({ setCurAcct, setOpenSurvey, accountData, setAccountData }) {
 
     const [isRightPanelActive, setIsRightPanelActive] = useState(false);
 
@@ -46,10 +43,6 @@ function Account() {
     const [signUpAuthCode, setSignUpAuthcode] = useState('');
     const [signAuthTF, setSignAuthTF] = useState(false);
 
-    const [accountData, setAccountData] = useState(accountDatas);
-    const [user, setUser] = useState({});
-
-
     const handleSignIn = () => {
 
         if (signInEmail == '' || signInPassword == '') {
@@ -63,7 +56,6 @@ function Account() {
 
         const foundUser = accountData.find(user =>
             user.email === signInEmail && user.password === signInPassword);
-        setUser(foundUser);
 
         if (!foundUser) {
             Swal.fire({
@@ -95,10 +87,12 @@ function Account() {
                 // const loginState = accountData.find(user =>
                 //     user.loginState);
 
-                setUser(foundUser);
+                setCurAcct(foundUser);
                 setSignInEmail('');
                 setSignInPassword('');
-
+                if(!foundUser.surveyComplete) {
+                    setOpenSurvey(true);
+                }
                 navigate("/");
             }
         }
@@ -413,7 +407,7 @@ function Account() {
 
             </div>
 
-            {openModal ? <AccountRecoveryModal openModal={openModal} setOpenModal={setOpenModal} accountData={accountData} setAccountData={setAccountData} /> : null}
+            {openModal ? <AccountRecoveryModal setOpenModal={setOpenModal} accountData={accountData} setAccountData={setAccountData} /> : null}
         </div>
     );
 }

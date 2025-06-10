@@ -12,14 +12,14 @@ import Survey from "./account/Survey";
 function App() {
   const [isSplashVisible, setIsSplashVisible] = useState(true);
 
-  // return(
+  return(
   
-  //   <Fitshare/>
-  //   // <MainSearch/>
+    <Fitshare/>
+    // <MainSearch/>
 
-  // )
+  )
 
-  return <Survey/>;
+  // return <Survey/>;
 
   // return <MainScreen/>;
   // return<ErrorPage/>
