@@ -4,8 +4,7 @@ import "./MainScreen.css";
 import MainEffect from "../mainRipple/MainEffect";
 import MainSplash from "../mainSplash/MainSplash";
 import { useNavigate } from "react-router";
-import { useLocation  } from "react-router";
-
+import { useLocation } from "react-router";
 
 // 비디오 소스 배열 정의
 const videoSources = [
@@ -14,31 +13,23 @@ const videoSources = [
   "/media/main-media/main_Screen_media03.mp4",
 ];
 
-
-
 function MainScreen() {
   const [ripples, setRipples] = useState([]); // 클릭 효과 저장
   const wrapperRef = useRef(null); // ripple 위치 계산용 ref
   const [query, setQuery] = useState(" ");
   const videoRefs = useRef([]);
   let navigate = useNavigate();
-  const introRef = useRef(null) // 소개 섹션 위치 참조
+  const introRef = useRef(null); // 소개 섹션 위치 참조
   const location = useLocation();
-  
 
-  useEffect(()=>{
+  useEffect(() => {
     const params = new URLSearchParams(location.search);
     const scrollTo = params.get("scroll");
 
-    if (scrollTo === "intro" && introRef.current){
-      introRef.current.scrollIntoView({behavior:"smooth"});
+    if (scrollTo === "intro" && introRef.current) {
+      introRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [location]);
-
-
-
-
-
 
   // 클릭 시 ripple 효과 위치 계산 및 추가 합니다
   const handleClick = (e) => {
@@ -115,7 +106,6 @@ function MainScreen() {
   if (isSplashVisible) {
     return <MainSplash />;
   }
- 
 
   return (
     <div className="main-Screen-page-wrapper">
@@ -180,7 +170,7 @@ function MainScreen() {
       </div>
       <div className="mainScreen-intro-body">
         {/* 소개 */}
-        <div ref={introRef} className="mainScreen-intro"  id="abouttop">
+        <div ref={introRef} className="mainScreen-intro" id="abouttop">
           <div className="mainScreen-intro-image1">
             <img
               src="/images/mainIntroductionImage/introduction01.jpg"
@@ -191,11 +181,12 @@ function MainScreen() {
           </div>
           <div className="mainScreen-intro-text01">
             <span className="mainScreen-intro-span">사이트 소개</span>
-            <p className="mainSCreen-intro-p">아무튼 사이트 소개 및 내용</p>
-            <ul>
-              <li>내용1</li>
-              <li>내용1</li>
-            </ul>
+            <p className="mainSCreen-intro-p">
+              BIOMIND는 ‘처음 운동하는 사람’을 위한 플랫폼입니다. 누구나 한 번쯤
+              운동을 시작하지만, 꾸준히 이어가기란 쉽지 않습니다. BIOMIND는
+              기술, 루틴 설계, 커뮤니티를 통해 당신의 건강한 습관이 자라날 수
+              있도록 도와줍니다.
+            </p>
           </div>
         </div>
         {/* 소개2 */}
@@ -207,7 +198,7 @@ function MainScreen() {
             />
           </div>
           <div className="mainScreen-intro-text02">
-            <h2>소개및 내용2</h2>
+            <h2>운동의 습관</h2>
             <p>
               BIOMIND는 당신의 운동 습관을 만들어드립니다.
               <br />
@@ -237,13 +228,9 @@ function MainScreen() {
             <div className="mainScreen-intro-caption">운동 일지 기록하기</div>
           </div>
           <div className="mainScreen-intro-routine">
-            <h1>내용3</h1>
             <p className="mainScreen-intro-routine-text-p">
-              he standard chunk of Lorem Ipsum used since the 1500s is
-              reproduced below for those interested. Sections 1.10.32 and
-              1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also
-              reproduced in their exact original form, accompanied by English
-              versions from the 1914 translation by H. Rackham.
+              처음 운동하는 사람도, 지속하지 못했던 사람도 BIOMIND에서는
+              다릅니다. 우리는 운동을 습관으로 만들어드립니다.
             </p>
           </div>
 
