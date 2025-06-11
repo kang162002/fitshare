@@ -5,7 +5,7 @@ import stretchData from './data/stretchData';
 
 
 
-function Workout_stretch() {
+function Workout_stretch({curAcct, setCurAcct, accountData, setAccountData}) {
 
     const [showModal, setShowModal] = useState(false);
 
@@ -81,7 +81,7 @@ function Workout_stretch() {
             </div>
 
             {showModal && (
-                <WorkoutModal closeModal={() => setShowModal(false)} workoutData={stretchDatas[dataIndex]} workoutDatas={stretchDatas} setWorkoutDatas={setStretchDatas} dataIndex={dataIndex} />
+                <WorkoutModal closeModal={() => setShowModal(false)} workoutData={stretchDatas[dataIndex]} curAcct={curAcct} setCurAcct={setCurAcct} accountData={accountData} setAccountData={setAccountData}/>
             )}
         </>
     );

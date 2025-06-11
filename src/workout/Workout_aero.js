@@ -5,7 +5,7 @@ import aeroData from './data/aeroData';
 
 
 
-function Workout_aero() {
+function Workout_aero({curAcct, setCurAcct, accountData, setAccountData}) {
 
     const [showModal, setShowModal] = useState(false);
 
@@ -81,7 +81,7 @@ function Workout_aero() {
             </div>
 
             {showModal && (
-                <WorkoutModal closeModal={() => setShowModal(false)} workoutData={aeroDatas[dataIndex]} workoutDatas={aeroDatas} setWorkoutDatas={setAeroDatas} dataIndex={dataIndex} />
+                <WorkoutModal closeModal={() => setShowModal(false)} workoutData={aeroDatas[dataIndex]} curAcct={curAcct} setCurAcct={setCurAcct} accountData={accountData} setAccountData={setAccountData} />
             )}
         </>
     );

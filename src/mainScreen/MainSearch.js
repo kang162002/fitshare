@@ -9,7 +9,7 @@ import { useNavigate, useSearchParams } from "react-router";
 import WorkoutModal from '../workout/components/WorkoutModal';
 
 
-function MainSearch() {
+function MainSearch( {curAcct, setCurAcct, accountData, setAccountData }) {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
 
@@ -175,6 +175,7 @@ function MainSearch() {
             setSelectedWorkout(null);
           }}
           workoutData={selectedWorkout}
+          curAcct={curAcct} setCurAcct={setCurAcct} accountData={accountData} setAccountData={setAccountData}
         />
       )}
     </div>

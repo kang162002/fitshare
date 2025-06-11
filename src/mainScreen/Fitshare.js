@@ -126,8 +126,8 @@ function Fitshare() {
                 <button
                   className="header-btn-logout mainScreen-menu-with-submenu"
                   onClick={() => {
-                    setCurAcct(null);
                     navigate("/");
+                    setCurAcct(null);
                   }}
                 >Logout</button>
               </div>
@@ -141,12 +141,13 @@ function Fitshare() {
         <Route path="/" element={<MainScreen />}></Route>
         <Route path="/MainScreen" element={<MainScreen />}></Route>
         <Route path="/Account" element={<Account setCurAcct={setCurAcct} setOpenSurvey={setOpenSurvey} accountData={accountData} setAccountData={setAccountData}/>}></Route>
-        <Route path="/Workout_aero" element={<Workout_aero />}></Route>
-        <Route path="/Workout_stretch" element={<Workout_stretch />}></Route>
-        <Route path="/Workout_gym" element={<Workout_gym />}></Route>
-        <Route path="/search" element={<MainSearch />} />
+        <Route path="/Workout_aero" element={<Workout_aero curAcct={curAcct} setCurAcct={setCurAcct} accountData={accountData} setAccountData={setAccountData}/>}></Route>
+        <Route path="/Workout_stretch" element={<Workout_stretch curAcct={curAcct} setCurAcct={setCurAcct} accountData={accountData} setAccountData={setAccountData}/>}></Route>
+        <Route path="/Workout_gym" element={<Workout_gym curAcct={curAcct} setCurAcct={setCurAcct} accountData={accountData} setAccountData={setAccountData}/>}></Route>
+
+        <Route path="/search" element={<MainSearch curAcct={curAcct} setCurAcct={setCurAcct} accountData={accountData} setAccountData={setAccountData}/>} />
         <Route path="/Customer" element={<Customer />} />
-        <Route path="/MyProfile" element={<MyProfile curAcct={curAcct} setCurAcct={setCurAcct} />} />
+        <Route path="/MyProfile" element={<MyProfile curAcct={curAcct} setCurAcct={setCurAcct} setOpenSurvey={setOpenSurvey} accountData={accountData} setAccountData={setAccountData} openSurvey={openSurvey}/>} />
         <Route path="*" element={<ErrorPage />}></Route>
         <Route path="/Board_all" element={<Board_all posts={posts} setPosts={setPosts} />}></Route>
         <Route path="/Writepage" element={<WritePage posts={posts} setPosts={setPosts}/>}></Route>
