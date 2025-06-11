@@ -179,20 +179,20 @@ export default function Board_all({posts, setPosts}) {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr className='board-font-red'>
+                        <tr className='board-font-red' style={{color:"red"}}>
                             <td>※</td>
-                            <td>공지사항</td>
-                            <td>FITSHARE 운영자</td>
+                            <td className='tr-cursor'>공지사항</td>
+                            <td className='tr-cursor'>FITSHARE 운영자</td>
                             <td>-</td>
                             <td>-</td>
                             <td>98961</td>
                             <td>99999</td>
                             <td>99999</td>
                         </tr>
-                        <tr className='board-font-red'>
+                        <tr className='board-font-red' style={{color:"red"}} >
                             <td>※</td>
-                            <td>글 작성 가이드</td>
-                            <td>FITSHARE 운영자</td>
+                            <td className='tr-cursor'>글 작성 가이드</td>
+                            <td className='tr-cursor'>FITSHARE 운영자</td>
                             <td>-</td>
                             <td>-</td>
                             <td>120000</td>
@@ -227,12 +227,12 @@ export default function Board_all({posts, setPosts}) {
 
 
                             }}
-                                style={{ cursor: 'pointer' }}
+                              
 
                             >
                                 <td>{post.id}</td>
-                                <td>{post.title}</td>
-                                <td>{post.writer}</td>
+                                <td className='tr-cursor'>{post.title}</td>
+                                <td className='tr-cursor'>{post.writer}</td>
                                 <td>{post.date}</td>
                                 <td>{post.type}</td>
                                 <td>{post.views}</td>

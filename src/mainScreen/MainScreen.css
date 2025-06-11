@@ -246,7 +246,7 @@ body {
 .mainScreen-search {
   /* width: 100%; */
   width: 150px;
-  height: 20px;
+  height:15px;
   background-size: cover;
 
   font-size: 1rem;
