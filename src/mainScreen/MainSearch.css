@@ -3,6 +3,7 @@
   max-width: 800px;
   margin: 0 auto;
   font-family: Arial, sans-serif;
+  color: white;
 }
 
 .mainSearch-title {
@@ -49,7 +50,7 @@
 .mainSearch-subtitle {
   font-size: 30px;
   margin-top: 20px;
-  color: #333;
+  color: #ffffff;
 }
 
 .mainSearch-list {
