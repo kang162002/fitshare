@@ -12,6 +12,7 @@ import { Link } from "react-router";
 import MainSearch from "./MainSearch";
 import Customer from "./Customer";
 import { useEffect, useState } from "react";
+import AboutCompany from "../fitshareAbout/AboutCompany";
 import Survey from "../account/Survey";
 import accountDatas from "../account/data/accountDatas";
 import MyProfile from "../account/MyProfile";
@@ -149,9 +150,9 @@ function Fitshare() {
         <Route path="*" element={<ErrorPage />}></Route>
         <Route path="/Board_all" element={<Board_all posts={posts} setPosts={setPosts} />}></Route>
         <Route path="/Writepage" element={<WritePage posts={posts} setPosts={setPosts}/>}></Route>
-        
-
+        <Route path="/AboutCompany" element={<AboutCompany />}></Route>
       </Routes>
+
       {isLayoutVisible && (
         <footer className="footer">
           <div className="footer-top">
