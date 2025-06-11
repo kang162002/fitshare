@@ -32,6 +32,7 @@
 .workout-exercise-title {
     font-size: 2rem;
     color: #ffcccc;
+    display: flex;
 }
 
 .workout-modal-close-button {

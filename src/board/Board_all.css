@@ -1,12 +1,5 @@
 /* board-body 전체 영역 */
 .board-body {
-    /* max-width: 1000px;
-    margin: 40px auto;
-    padding: 20px;
-    font-family: 'Noto Sans KR', sans-serif;
-    background-color: #fdfdfd;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); */
     background-color: #333333;
     color: #eee;
     min-height: 100vh;

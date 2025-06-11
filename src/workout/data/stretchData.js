@@ -6,7 +6,8 @@ let stretchData = [
         imgPath: '/images/abdominal_stretch.jpg',
         tool: "맨몸",
         area: ["허리"],
-        level: 1
+        level: 1,
+        fav: false
     },
     {
         id: 'st001',
@@ -15,7 +16,8 @@ let stretchData = [
         imgPath: '/images/adductor_stretch.jpg',
         tool: "맨몸",
         area: ["엉덩이"],
-        level: 1
+        level: 1,
+        fav: false
     },
     {
         id: 'st002',
@@ -24,7 +26,8 @@ let stretchData = [
         imgPath: '/images/above_head_chest_stretch.jpg',
         tool: "맨몸",
         area: ["가슴"],
-        level: 1
+        level: 1,
+        fav: false
     },
     {
         id: 'st003',
@@ -33,7 +36,8 @@ let stretchData = [
         imgPath: '/images/ardha_yoga_pose.jpg',
         tool: "맨몸",
         area: ["허벅지"],
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'st004',
@@ -42,7 +46,8 @@ let stretchData = [
         imgPath: '/images/bent_arm_shoulder_stretch.jpg',
         tool: "맨몸",
         area: ["어깨"],
-        level: 1
+        level: 1,
+        fav: false
     },
     {
         id: 'st005',
@@ -51,7 +56,8 @@ let stretchData = [
         imgPath: '/images/bow_yoga_pose.jpg',
         tool: "맨몸",
         area: ["허벅지","엉덩이"],
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'st006',
@@ -60,7 +66,8 @@ let stretchData = [
         imgPath: '/images/back_stretch.jpg',
         tool: "맨몸",
         area: ["등"],
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'st007',
@@ -69,7 +76,8 @@ let stretchData = [
         imgPath: '/images/butterfly_yoga_pose.jpg',
         tool: "맨몸",
         area: ["허벅지"],
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'st008',
@@ -78,7 +86,8 @@ let stretchData = [
         imgPath: '/images/body_extension.jpg',
         tool: "맨몸",
         area: ["허벅지"],
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'st009',
@@ -87,7 +96,8 @@ let stretchData = [
         imgPath: '/images/chest_lift_rotation.jpg',
         tool: "맨몸",
         area: ["허리"],
-        level: 1
+        level: 1,
+        fav: false
     },
     {
         id: 'st010',
@@ -96,7 +106,8 @@ let stretchData = [
         imgPath: '/images/camel_pose.jpg',
         tool: "맨몸",
         area: ["허벅지","어깨"],
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'st011',
@@ -105,7 +116,8 @@ let stretchData = [
         imgPath: '/images/crocodile_yoga.jpg',
         tool: "맨몸",
         area: ["허벅지", "엉덩이", "등"],
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'st012',
@@ -114,7 +126,8 @@ let stretchData = [
         imgPath: '/images/catcow_stretch.jpg',
         tool: "맨몸",
         area: ["허리", "등"],
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'st013',
@@ -123,7 +136,8 @@ let stretchData = [
         imgPath: '/images/crossover_shoulder_stretch.jpg',
         tool: "맨몸",
         area: ["등"],
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'st014',
@@ -132,7 +146,8 @@ let stretchData = [
         imgPath: '/images/cobra_yoga.jpg',
         tool: "맨몸",
         area: ["허리"],
-        level: 2
+        level: 2,
+        fav: false
     },
     {
         id: 'st015',
@@ -141,7 +156,8 @@ let stretchData = [
         imgPath: '/images/cow_stretch.jpg',
         tool: "맨몸",
         area: ["허리", "엉덩이"],
-        level: 1
+        level: 1,
+        fav: false
     },
     {
         id: 'st016',
@@ -150,7 +166,8 @@ let stretchData = [
         imgPath: '/images/dynamic_back_stretch.jpg',
         tool: "맨몸",
         area: ["등"],
-        level: 1
+        level: 1,
+        fav: false
     },
     {
         id: 'st017',
@@ -159,7 +176,8 @@ let stretchData = [
         imgPath: '/images/dynamic_chest_stretch.jpg',
         tool: "맨몸",
         area: ["가슴"],
-        level: 1
+        level: 1,
+        fav: false
     },
     {
         id: 'st018',
@@ -168,7 +186,8 @@ let stretchData = [
         imgPath: '/images/elbows_back_stretch.jpg',
         tool: "맨몸",
         area: ["등"],
-        level: 1
+        level: 1,
+        fav: false
     },
     {
         id: 'st019',
@@ -177,7 +196,8 @@ let stretchData = [
         imgPath: '/images/external_shoulder_rotation_stretch.jpg',
         tool: "맨몸",
         area: ["가슴"],
-        level: 1
+        level: 1,
+        fav: false
     },
     {
         id: 'st020',
@@ -186,7 +206,8 @@ let stretchData = [
         imgPath: '/images/arm_circles.jpg',
         tool: "맨몸",
         area: ["어깨"],
-        level: 1
+        level: 1,
+        fav: false
     },
     {
         id: 'st100',
@@ -195,7 +216,8 @@ let stretchData = [
         imgPath: '/images/arm_circles.jpg',
         tool: "맨몸",
         area: ["허리","허벅지","가슴","등","어깨","엉덩이"],
-        level: 1
+        level: 1,
+        fav: false
     },
     {
         id: 'st100',
@@ -204,7 +226,8 @@ let stretchData = [
         imgPath: '/images/arm_circles.jpg',
         tool: "맨몸",
         area: ["허리","허벅지","가슴","등","어깨","엉덩이"],
-        level: 1
+        level: 1,
+        fav: false
     },
     {
         id: 'st100',
@@ -213,7 +236,8 @@ let stretchData = [
         imgPath: '/images/arm_circles.jpg',
         tool: "맨몸",
         area: ["허리","허벅지","가슴","등","어깨","엉덩이"],
-        level: 1
+        level: 1,
+        fav: false
     },
     {
         id: 'st100',
@@ -222,7 +246,8 @@ let stretchData = [
         imgPath: '/images/arm_circles.jpg',
         tool: "맨몸",
         area: ["허리","허벅지","가슴","등","어깨","엉덩이"],
-        level: 1
+        level: 1,
+        fav: false
     },
     {
         id: 'st100',
@@ -231,7 +256,8 @@ let stretchData = [
         imgPath: '/images/arm_circles.jpg',
         tool: "맨몸",
         area: ["허리","허벅지","가슴","등","어깨","엉덩이"],
-        level: 1
+        level: 1,
+        fav: false
     },
     {
         id: 'st100',
@@ -240,7 +266,8 @@ let stretchData = [
         imgPath: '/images/arm_circles.jpg',
         tool: "맨몸",
         area: ["허리","허벅지","가슴","등","어깨","엉덩이"],
-        level: 1
+        level: 1,
+        fav: false
     },
     {
         id: 'st100',
@@ -249,7 +276,8 @@ let stretchData = [
         imgPath: '/images/arm_circles.jpg',
         tool: "맨몸",
         area: ["허리","허벅지","가슴","등","어깨","엉덩이"],
-        level: 1
+        level: 1,
+        fav: false
     },
     {
         id: 'st100',
@@ -258,7 +286,8 @@ let stretchData = [
         imgPath: '/images/arm_circles.jpg',
         tool: "맨몸",
         area: ["허리","허벅지","가슴","등","어깨","엉덩이"],
-        level: 1
+        level: 1,
+        fav: false
     },
     {
         id: 'st100',
@@ -267,7 +296,8 @@ let stretchData = [
         imgPath: '/images/arm_circles.jpg',
         tool: "맨몸",
         area: ["허리","허벅지","가슴","등","어깨","엉덩이"],
-        level: 1
+        level: 1,
+        fav: false
     },
     {
         id: 'st100',
@@ -276,7 +306,8 @@ let stretchData = [
         imgPath: '/images/arm_circles.jpg',
         tool: "맨몸",
         area: ["허리","허벅지","가슴","등","어깨","엉덩이"],
-        level: 1
+        level: 1,
+        fav: false
     },
     {
         id: 'st100',
@@ -285,7 +316,8 @@ let stretchData = [
         imgPath: '/images/arm_circles.jpg',
         tool: "맨몸",
         area: ["허리","허벅지","가슴","등","어깨","엉덩이"],
-        level: 1
+        level: 1,
+        fav: false
     },
     {
         id: 'st100',
@@ -294,7 +326,8 @@ let stretchData = [
         imgPath: '/images/arm_circles.jpg',
         tool: "맨몸",
         area: ["허리","허벅지","가슴","등","어깨","엉덩이"],
-        level: 1
+        level: 1,
+        fav: false
     }
 ];
 

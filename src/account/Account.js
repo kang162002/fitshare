@@ -7,14 +7,11 @@ import Swal from 'sweetalert2';
 
 import AccountRecoveryModal from './AccountRecoveryModal';
 import { Routes, Route, useNavigate } from 'react-router';
-import accountDatas from './data/accountDatas';
 
 
 
 
-function Account() {
-
-
+function Account({ setCurAcct, setOpenSurvey, accountData, setAccountData }) {
 
     const [isRightPanelActive, setIsRightPanelActive] = useState(false);
 
@@ -46,10 +43,6 @@ function Account() {
     const [signUpAuthCode, setSignUpAuthcode] = useState('');
     const [signAuthTF, setSignAuthTF] = useState(false);
 
-    const [accountData, setAccountData] = useState(accountDatas);
-    const [user, setUser] = useState({});
-
-
     const handleSignIn = () => {
 
         if (signInEmail == '' || signInPassword == '') {
@@ -63,7 +56,6 @@ function Account() {
 
         const foundUser = accountData.find(user =>
             user.email === signInEmail && user.password === signInPassword);
-        setUser(foundUser);
 
         if (!foundUser) {
             Swal.fire({
@@ -90,16 +82,21 @@ function Account() {
                     icon: 'success',
                     title: '로그인이 완료되었습니다.',
                     text: '환영합니다.',
-                })
+                }).then(function(){
+                    navigate("/");
+                    
+                });
 
                 // const loginState = accountData.find(user =>
                 //     user.loginState);
 
-                setUser(foundUser);
+                setOpenSurvey(true);
+                setCurAcct(foundUser);
                 setSignInEmail('');
                 setSignInPassword('');
-
-                navigate("/");
+                if(!foundUser.surveyComplete) {
+                    setOpenSurvey(true);
+                }
             }
         }
     }
@@ -413,7 +410,7 @@ function Account() {
 
             </div>
 
-            {openModal ? <AccountRecoveryModal openModal={openModal} setOpenModal={setOpenModal} accountData={accountData} setAccountData={setAccountData} /> : null}
+            {openModal ? <AccountRecoveryModal setOpenModal={setOpenModal} accountData={accountData} setAccountData={setAccountData} /> : null}
         </div>
     );
 }

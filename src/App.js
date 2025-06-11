@@ -7,18 +7,19 @@ import MainSplash from "./mainSplash/MainSplash";
 import { useState } from "react";
 import { BrowserRouter } from "react-router";
 import MainSearch from "./mainScreen/MainSearch";
-import AboutCompany from "./fitshareAbout/AboutCompany";
+import Survey from "./account/Survey";
+import MyProfile from "./account/MyProfile";
 
 function App() {
-  const [isSplashVisible, setIsSplashVisible] = useState(true);
 
   return(
   
     <Fitshare/>
     // <MainSearch/>
-    
 
   )
+
+  // return <Survey/>;
 
   // return <MainScreen/>;
   // return<ErrorPage/>
