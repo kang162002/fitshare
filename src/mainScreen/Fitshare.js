@@ -85,7 +85,7 @@ function Fitshare() {
 
             {/* 운동 서브메뉴 */}
             <div className="mainScreen-menu-with-submenu">
-              <Link to="/" onClick={"mainScreen-intro"}>운동</Link>
+              <Link to="#">운동</Link>
               <div className="mainScreen-main-submenu-container">
                 <Link to="/Workout_gym" className="main-submenu-item">
                   근력운동
