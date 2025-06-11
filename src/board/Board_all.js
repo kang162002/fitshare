@@ -104,7 +104,7 @@ export default function Board_all({posts, setPosts}) {
         <div className='board-body'>
             <div className='board-tag-section'>
                 <div className='board-header' onClick={() => { setSelectedBoard("all"); setCurrentPage(1); }}>
-                    <h3 style={{ fontWeight: 'bolder', cursor: 'pointer' }}>Board</h3>
+                    <h3 style={{ fontWeight: 'bolder', cursor: 'pointer' }}>게시판</h3>
                 </div>
                 
 

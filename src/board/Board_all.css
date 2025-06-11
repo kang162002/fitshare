@@ -42,7 +42,7 @@
 }
 
 .board-nav button {
-   
+
     background-color: #ffffff;
     color: rgb(0, 0, 0);
     border: none;
@@ -118,8 +118,14 @@
 
     transform: translateY(-6px);
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    
 }
-
+.board-list-table tbody tr:hover * {
+    background-color: rgb(138, 136, 136);
+    color: rgb(0, 0, 0);
+    text-decoration: underline;
+    cursor: pointer;
+}
 
 /* 글쓰기 버튼 */
 .board-outer>button {
@@ -150,13 +156,13 @@
 }
 
 
-
+/* 
 .tr-cursor:hover {
     background-color: rgb(255, 124, 124);
     color: rgb(0, 0, 0);
     text-decoration: underline;
     cursor: pointer;
-}
+} */
 
 
 
@@ -182,3 +188,7 @@
     justify-content: space-evenly;
     
 }
+
+/* .board-dd:hover{
+    color
+} */

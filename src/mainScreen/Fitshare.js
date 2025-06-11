@@ -1,5 +1,5 @@
 import "./Fitshare.css";
-import { Routes, Route, useRoutes, useNavigate, useLocation}  from "react-router";
+import { Routes, Route, useRoutes, useNavigate, useLocation } from "react-router";
 //import { useNavigate} from "react-router-dom";
 import MainScreen from "./MainScreen";
 import ErrorPage from "../errorPage/ErrorPage";
@@ -23,15 +23,15 @@ function Fitshare() {
   let navigate = useNavigate();
 
   // ======= ✨✨😃✨✨ 모든 계정 정보 관리 ✨✨😃✨✨ ========
-  const [accountData, setAccountData] = useState(accountDatas);
+  const [ accountData, setAccountData ] = useState(accountDatas);
 
   // ======================== 설문조사 유저 받기(로그인 > 로그아웃 전환) ========================
-  const [curAcct, setCurAcct] = useState(null);
+  const [ curAcct, setCurAcct ] = useState(null);
 
   // ======================== 설문조사 모달창 ================================================
-  const [openSurvey, setOpenSurvey] = useState(false);
+  const [ openSurvey, setOpenSurvey ] = useState(false);
 
-  const [delayedShow, setDelayedShow] = useState(false);
+  const [ delayedShow, setDelayedShow ] = useState(false);
 
 
   useEffect(() => {
@@ -47,16 +47,16 @@ function Fitshare() {
       setDelayedShow(false);
     }
 
-    return () => clearTimeout(timer); 
-  }, [openSurvey])
+    return () => clearTimeout(timer);
+  }, [ openSurvey ])
 
 
 
   const location = useLocation();
 
-  const noLayoutPaths = ["/Customer"];
+  const noLayoutPaths = [ "/Customer" ];
   const isLayoutVisible = !noLayoutPaths.includes(location.pathname);
-    const [posts, setPosts] = useState(allPosts.all);
+  const [ posts, setPosts ] = useState(allPosts.all);
 
   return (
     <div className="fitshare-nav">
@@ -111,7 +111,7 @@ function Fitshare() {
           </nav>
 
           {/* 로그인 링크 */}
-          <div className="mainScreen-top-nav">
+          <div className="mainScreen-top-nav header-btn-login">
             {
               !curAcct && <Link
                 to="/Account"
@@ -122,14 +122,16 @@ function Fitshare() {
             }
             {
               curAcct && <div className="header-user">
-                <Link to="/MyProfile"><span className="header-user-account" >{curAcct.name} 님</span></Link>
-                <button
-                  className="header-btn-logout mainScreen-menu-with-submenu"
-                  onClick={() => {
-                    navigate("/");
-                    setCurAcct(null);
-                  }}
-                >Logout</button>
+                <div className="header-user-container">
+                  <Link to="/MyProfile" className="header-user-account"><span>{curAcct.name} 님</span></Link>
+                  <button
+                    className="header-btn-logout mainScreen-menu-with-submenu"
+                    onClick={() => {
+                      navigate("/");
+                      setCurAcct(null);
+                    }}
+                  >Logout</button>
+                </div>
               </div>
             }
 
@@ -140,17 +142,17 @@ function Fitshare() {
       <Routes>
         <Route path="/" element={<MainScreen />}></Route>
         <Route path="/MainScreen" element={<MainScreen />}></Route>
-        <Route path="/Account" element={<Account setCurAcct={setCurAcct} setOpenSurvey={setOpenSurvey} accountData={accountData} setAccountData={setAccountData}/>}></Route>
-        <Route path="/Workout_aero" element={<Workout_aero curAcct={curAcct} setCurAcct={setCurAcct} accountData={accountData} setAccountData={setAccountData}/>}></Route>
-        <Route path="/Workout_stretch" element={<Workout_stretch curAcct={curAcct} setCurAcct={setCurAcct} accountData={accountData} setAccountData={setAccountData}/>}></Route>
-        <Route path="/Workout_gym" element={<Workout_gym curAcct={curAcct} setCurAcct={setCurAcct} accountData={accountData} setAccountData={setAccountData}/>}></Route>
+        <Route path="/Account" element={<Account setCurAcct={setCurAcct} setOpenSurvey={setOpenSurvey} accountData={accountData} setAccountData={setAccountData} />}></Route>
+        <Route path="/Workout_aero" element={<Workout_aero curAcct={curAcct} setCurAcct={setCurAcct} accountData={accountData} setAccountData={setAccountData} />}></Route>
+        <Route path="/Workout_stretch" element={<Workout_stretch curAcct={curAcct} setCurAcct={setCurAcct} accountData={accountData} setAccountData={setAccountData} />}></Route>
+        <Route path="/Workout_gym" element={<Workout_gym curAcct={curAcct} setCurAcct={setCurAcct} accountData={accountData} setAccountData={setAccountData} />}></Route>
 
-        <Route path="/search" element={<MainSearch curAcct={curAcct} setCurAcct={setCurAcct} accountData={accountData} setAccountData={setAccountData}/>} />
+        <Route path="/search" element={<MainSearch curAcct={curAcct} setCurAcct={setCurAcct} accountData={accountData} setAccountData={setAccountData} />} />
         <Route path="/Customer" element={<Customer />} />
-        <Route path="/MyProfile" element={<MyProfile curAcct={curAcct} setCurAcct={setCurAcct} setOpenSurvey={setOpenSurvey} accountData={accountData} setAccountData={setAccountData} openSurvey={openSurvey}/>} />
+        <Route path="/MyProfile" element={<MyProfile curAcct={curAcct} setCurAcct={setCurAcct} setOpenSurvey={setOpenSurvey} accountData={accountData} setAccountData={setAccountData} openSurvey={openSurvey} />} />
         <Route path="*" element={<ErrorPage />}></Route>
         <Route path="/Board_all" element={<Board_all posts={posts} setPosts={setPosts} />}></Route>
-        <Route path="/Writepage" element={<WritePage posts={posts} setPosts={setPosts}/>}></Route>
+        <Route path="/Writepage" element={<WritePage posts={posts} setPosts={setPosts} />}></Route>
         <Route path="/AboutCompany" element={<AboutCompany />}></Route>
       </Routes>
 
