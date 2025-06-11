@@ -35,7 +35,7 @@ const tips = [
 function GymPostModal({ post, closeModal, posts}) {
     const dataPost = posts[65];
     const [views, setViews] = useState(dataPost.views-1);
-    const [likes, setLikes] = useState(dataPost.likes);
+    const [likes, setLikes] = useState(dataPost.likesCount);
     const [liked, setLiked] = useState(false);
     const [comments, setComments] = useState([]);
     const [commentInput, setCommentInput] = useState("");

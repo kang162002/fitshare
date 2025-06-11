@@ -3,7 +3,7 @@ import "./GymPostModal.css";
 
 function PostModal({ closeModal ,post }) {
         const [views, setViews] = useState(post.views-1);
-        const [likes, setLikes] = useState(post.likes);
+        const [likes, setLikes] = useState(post.likesCount);
         const [liked, setLiked] = useState(false);
         const [comments, setComments] = useState([]);
         const [commentInput, setCommentInput] = useState("");

@@ -214,15 +214,19 @@ export default function Board_all({posts, setPosts}) {
                                     setModalOpen(true);
                                 } else if (post.id === 78) {
                                     post.views+=1;
+                                    setSelectedPost(post);
                                     setShowTipModal(true);
                                 } else if (post.id === 3) {
                                     post.views+=1;
+                                    setSelectedPost(post);
                                     setShowTeamModal(true);
                                 } else if (post.id === 171) {
                                     post.views+=1;
+                                    setSelectedPost(post);
                                     setShowDietModal(true);
                                 } else if (post.id === 5) {
                                     post.views+=1;
+                                    setSelectedPost(post);
                                     setShowHtModal(true);
                                 } else {
                                     post.views+=1;
@@ -264,23 +268,23 @@ export default function Board_all({posts, setPosts}) {
                     )}
 
                     {showTipModal && (
-                        <TipPostModal closeModal={() => setShowTipModal(false)} posts={posts}/>
+                        <TipPostModal post={selectedPost} closeModal={() => {setShowTipModal(false);setSelectedPost(null);}} posts={posts}/>
                     )}
 
                     {showTeamModal && (
-                        <TeamPostModal closeModal={() => setShowTeamModal(false)} />
+                        <TeamPostModal post={selectedPost} closeModal={() => {setShowTeamModal(false);setSelectedPost(null);}} />
                     )}
 
                     {showDietModal && (
-                        <DietPostModal closeModal={() => setShowDietModal(false)} />
+                        <DietPostModal post={selectedPost} closeModal={() => {setShowDietModal(false);setSelectedPost(null);}} />
                     )}
 
                     {showHtModal && (
-                        <HtPostModal closeModal={() => setShowHtModal(false)} />
+                        <HtPostModal post={selectedPost} closeModal={() => {setShowHtModal(false);setSelectedPost(null);}} />
                     )}
 
                     {showPostModal && (
-                        <PostModal closeModal={()=> setShowPostModal(false)} post = {selectedPost}/>
+                        <PostModal closeModal={()=> {setShowPostModal(false);setSelectedPost(null);}} post = {selectedPost}/>
                     )}
                 </table>
 

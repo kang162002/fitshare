@@ -28,9 +28,9 @@ const htEquipments = [
     },
 ];
 
-function HtPostModal({ closeModal }) {
-    const [views, setViews] = useState(0);
-    const [likes, setLikes] = useState(0);
+function HtPostModal({post,  closeModal }) {
+    const [views, setViews] = useState(post.views-1);
+    const [likes, setLikes] = useState(post.likesCount);
     const [liked, setLiked] = useState(false);
     const [comments, setComments] = useState([]);
     const [commentInput, setCommentInput] = useState("");
