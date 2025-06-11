@@ -9,6 +9,7 @@ import TeamPostModal from './TeamPostModal';
 import DietPostModal from './DietPostModal';
 import HtPostModal from './HtPostModal';
 import { useLocation } from 'react-router';
+import PostModal from './PostModal';
 
 
 
@@ -29,6 +30,8 @@ export default function Board_all({posts, setPosts}) {
     const [ showTeamModal, setShowTeamModal ] = useState(false);
     const [ showDietModal, setShowDietModal ] = useState(false);
     const [ showHtModal, setShowHtModal ] = useState(false);
+    const [ showPostModal, setShowPostModal ] = useState(false);
+
     const location = useLocation();
     // const [posts, setPosts] = useState(allPosts.all);
 
@@ -104,12 +107,12 @@ export default function Board_all({posts, setPosts}) {
             </div>
 
             <div className='board-nav'>
-                <button onClick={() => setSelectedBoard("all")}>ALL</button>
-                <button onClick={() => setSelectedBoard("gym")}>GYM</button>
-                <button onClick={() => setSelectedBoard("tips")}>TIP</button>
-                <button onClick={() => setSelectedBoard("sports")}>TEAM</button>
-                <button onClick={() => setSelectedBoard("diet")}>DIET</button>
-                <button onClick={() => setSelectedBoard("ht")}>HT</button>
+                <button onClick={() => setSelectedBoard("all")}>ALL게시판</button>
+                <button onClick={() => setSelectedBoard("gym")}>GYM게시판</button>
+                <button onClick={() => setSelectedBoard("tips")}>팁공유게시판</button>
+                <button onClick={() => setSelectedBoard("sports")}>운동모임게시판</button>
+                <button onClick={() => setSelectedBoard("diet")}>다이어트게시판</button>
+                <button onClick={() => setSelectedBoard("ht")}>홈트레이닝게시판</button>
             </div>
 
             <div className='board-outer'>
@@ -176,7 +179,7 @@ export default function Board_all({posts, setPosts}) {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr className='board-font-red'>
                             <td>※</td>
                             <td>공지사항</td>
                             <td>FITSHARE 운영자</td>
@@ -186,7 +189,7 @@ export default function Board_all({posts, setPosts}) {
                             <td>99999</td>
                             <td>99999</td>
                         </tr>
-                        <tr>
+                        <tr className='board-font-red'>
                             <td>※</td>
                             <td>글 작성 가이드</td>
                             <td>FITSHARE 운영자</td>
@@ -215,6 +218,9 @@ export default function Board_all({posts, setPosts}) {
                                     setShowDietModal(true);
                                 } else if (post.id === 5) {
                                     setShowHtModal(true);
+                                } else {
+                                    setSelectedPost(post);
+                                    setShowPostModal(true);
                                 }
 
                                 
@@ -260,6 +266,10 @@ export default function Board_all({posts, setPosts}) {
 
                     {showHtModal && (
                         <HtPostModal closeModal={() => setShowHtModal(false)} />
+                    )}
+
+                    {showPostModal && (
+                        <PostModal closeModal={()=> setShowPostModal(false)} post = {selectedPost}/>
                     )}
                 </table>
 

@@ -4,9 +4,14 @@
     margin: 40px auto;
     padding: 20px;
     font-family: 'Noto Sans KR', sans-serif;
-    background-color: #fdfdfd;
+    background-color: #f8f7f7;
     border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 20px rgba(201, 198, 15, 0.05);
+    color: black;
+}
+
+.board-font-red{
+    color: red;
 }
 
 /* 상단 제목 */
@@ -26,24 +31,27 @@
     margin-bottom: 20px;
 }
 
-.board-nav button {
+.board-nav>button {
     padding: 8px 14px;
-    border: 1px solid #ccc;
-    background-color: white;
+    border: 1px solid #181818;
+    background-color: rgb(255, 255, 255);
     border-radius: 20px;
+    color: rgb(0, 0, 0);
     cursor: pointer;
     font-size: 14px;
     transition: all 0.2s ease;
 }
 
-.board-nav>button:hover {
-    background-color: #3f3f3f;
-    border-color: #ffffff;
+.board-nav>button:hover{
+    background-color: #fc6d6d;
     color: white;
+    border: none;
+    
 }
 
 .board-nav>button:focus {
-    background-color: rgb(255, 100, 100);
+    background-color: rgb(255, 61, 61);
+    color: white;
 }
 
 /* 게시글 정렬 버튼 */
@@ -57,48 +65,12 @@
 }
 
 .board-outer button:hover {
-    background-color: #ff8686;
+    background-color: #fc6d6d;
     color: white;
 }
 .board-outer button:focus{
     
-    background-color: rgb(252, 89, 89);
-}
-
-/* 게시글 리스트 테이블 */
-.board-body {
-    width: 100%;
-    max-width: 1024px;
-    margin: 0 auto;
-    padding: 20px;
-    background: rgb(78, 78, 78);
-}
-
-.board-header h3 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.board-nav {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 0px;
-}
-
-.board-nav button {
-    padding: 8px 16px;
-    background-color: rgba(192, 192, 192, 0.253);
-    border: 1px solid #ddd;
-    cursor: pointer;
-    border-radius: 4px;
-    margin-left: 90px;
-    color: rgba(206, 15, 15, 0.973);
-}
-
-.board-nav button:hover {
-    background-color: #e2e8f0;
-    border-color: #a0aec0;
+    background-color: rgb(194, 38, 38);
 }
 
 .board-search {
@@ -138,39 +110,7 @@
     cursor: pointer;
 }
 
-/* 페이지네이션 *
-.board-pagination {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 6px;
-    flex-wrap: wrap;
-}
-
-.board-pagination button {
-    width: 36px;
-    height: 36px;
-    border: none;
-    border-radius: 6px;
-    background-color: #e0e0e0;
-    color: white;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.board-pagination button.active {
-    background-color: #444;
-    color: #fff;
-}
-
-.board-pagination button:disabled {
-    background-color: #eee;
-    color: #999;
-    cursor: default;
-}
-
-/* 글쓰기 버튼 */
-.board-outer>button {
+.board-outer>button {   /*********************/
     display: block;
     margin: 30px auto 0;
     padding: 12px 20px;
@@ -182,12 +122,12 @@
     transition: background-color 0.2s ease;
 }
 
-.board-outer>button:hover {
+.board-outer>button:hover { /*********************/
     background-color: #000000;
 }
 
 tr>td:hover{
-    background-color: rgb(255, 186, 186);
+    background-color: #fc6d6d;
     color: white;
 }
 /* 
