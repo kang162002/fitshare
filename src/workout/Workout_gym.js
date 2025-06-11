@@ -5,7 +5,7 @@ import workoutData from './data/workoutData';
 
 
 
-function Workout_gym() {
+function Workout_gym({curAcct, setCurAcct, accountData, setAccountData}) {
 
     const [showModal, setShowModal] = useState(false);
 
@@ -81,7 +81,7 @@ function Workout_gym() {
             </div>
 
             {showModal && (
-                <WorkoutModal closeModal={() => setShowModal(false)} workoutData={workoutDatas[dataIndex]} workoutDatas={workoutDatas} setWorkoutDatas={setWorkoutDatas} dataIndex={dataIndex}/>
+                <WorkoutModal closeModal={() => setShowModal(false)} workoutData={workoutDatas[dataIndex]} curAcct={curAcct} setCurAcct={setCurAcct} accountData={accountData} setAccountData={setAccountData}/>
             )}
         </>
     );
