@@ -7,6 +7,7 @@ function PostModal({ closeModal ,post }) {
         const [liked, setLiked] = useState(false);
         const [comments, setComments] = useState([]);
         const [commentInput, setCommentInput] = useState("");
+        const [commentCnt, setCommentCnt] = useState(post.commentsCount);
     
         useEffect(() => {
             setViews((prev) => prev +1);
@@ -27,6 +28,7 @@ function PostModal({ closeModal ,post }) {
             const newComments = [...comments, {id:Date.now(), text: commentInput}];
             setComments(newComments);
             setCommentInput("");
+            setCommentCnt(commentCnt+1);
             localStorage.setItem(post.id +"PostComment", JSON.stringify(newComments));
         };
     

@@ -7,8 +7,23 @@
     font-family: "Pretendard", sans-serif;
     max-width: 1300px;
     margin: 0 auto;
-    
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
 }
+
+.board-tag-section {
+    width: 95%;
+    height: 160px;
+    background-color: #1e1e1e;
+    border-radius: 20px;
+    border: 1px solid rgb(92, 0, 0);
+}
+
+
 
 /* 상단 제목 */
 .board-header h3 {
@@ -48,6 +63,10 @@
     color: white;
 }
 
+.board-outer {
+    width: 95%;
+}
+
 /* 게시글 정렬 버튼 */
 .board-outer button {
     padding: 6px 12px;
@@ -85,7 +104,8 @@
     max-width: 600px;
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
     transition: transform 0.2s ease, box-shadow 0.3s ease;
-
+    
+    ;
 }
 
 
