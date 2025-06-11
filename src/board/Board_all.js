@@ -85,9 +85,8 @@ export default function Board_all() {
               setCurrentPage(1);
             }}
             style={{ marginRight: "8px" }}
-            
           >
-        <span>조회수 많은순</span>
+            <span>조회수 많은순</span>
           </button>
           <button
             className="board-recent"
@@ -114,7 +113,7 @@ export default function Board_all() {
           <tbody>
             <tr>
               <td>※</td>
-              <td>공지사항</td>
+              <td className="tr-cursor">공지사항</td>
               <td>FITSHARE 운영자</td>
               <td>-</td>
               <td>-</td>
@@ -122,7 +121,7 @@ export default function Board_all() {
             </tr>
             <tr>
               <td>※</td>
-              <td>글 작성 가이드</td>
+              <td className="tr-cursor">글 작성 가이드</td>
               <td>FITSHARE 운영자</td>
               <td>-</td>
               <td>-</td>
@@ -138,8 +137,8 @@ export default function Board_all() {
             {paginatedPosts.map((post) => (
               <tr key={post.id}>
                 <td>{post.id}</td>
-                <td>{post.title}</td>
-                <td>{post.writer}</td>
+                <td className="tr-cursor">{post.title}</td>
+                <td className="tr-cursor">{post.writer}</td>
                 <td>{post.date}</td>
                 <td>{post.type}</td>
                 <td>{post.views}</td>

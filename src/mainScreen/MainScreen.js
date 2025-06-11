@@ -4,7 +4,7 @@ import "./MainScreen.css";
 import MainEffect from "../mainRipple/MainEffect";
 import MainSplash from "../mainSplash/MainSplash";
 import { useNavigate } from "react-router";
-
+import { useLocation  } from "react-router";
 
 
 // 비디오 소스 배열 정의
@@ -21,11 +21,26 @@ function MainScreen() {
   const wrapperRef = useRef(null); // ripple 위치 계산용 ref
   const [query, setQuery] = useState(" ");
   const videoRefs = useRef([]);
-
   let navigate = useNavigate();
+  const introRef = useRef(null) // 소개 섹션 위치 참조
+  const location = useLocation();
+  
+
+  useEffect(()=>{
+    const params = new URLSearchParams(location.search);
+    const scrollTo = params.get("scroll");
+
+    if (scrollTo === "intro" && introRef.current){
+      introRef.current.scrollIntoView({behavior:"smooth"});
+    }
+  }, [location]);
+
+
+
+
+
 
   // 클릭 시 ripple 효과 위치 계산 및 추가 합니다
-
   const handleClick = (e) => {
     if (!wrapperRef.current) return;
     const rect = wrapperRef.current.getBoundingClientRect();
@@ -165,7 +180,7 @@ function MainScreen() {
       </div>
       <div className="mainScreen-intro-body">
         {/* 소개 */}
-        <div className="mainScreen-intro">
+        <div ref={introRef} className="mainScreen-intro"  id="abouttop">
           <div className="mainScreen-intro-image1">
             <img
               src="/images/mainIntroductionImage/introduction01.jpg"

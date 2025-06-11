@@ -13,8 +13,10 @@
 }
 
 .about-hero h1 {
-    font-size: 2.5rem;
-    color: #f7374f;
+  color: #f7374f;
+  margin-bottom: 30px;
+  font-size: 1.8rem;
+  text-align: center;
 }
 
 .about-hero p {
