@@ -60,7 +60,6 @@
     border-radius: .4em;
     text-align: center;
     box-shadow:2px 2px 4px rgba(139, 139, 139, 0.603);
-    /* border: 1px solid #444; */
 }
 
 .value-box::after {

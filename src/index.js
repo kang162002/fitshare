@@ -7,22 +7,24 @@ import { BrowserRouter, useLocation } from 'react-router';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-function ScrollTop(){
-  const {pathname} = useLocation();
+//페이지 이동시 항상 페이지 상단으로 이동하는 함수
+function ScrollTop() {
+  const { pathname } = useLocation();
 
-  useEffect(()=>{
-    window.scrollTo(0,0);
-  },[pathname]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return null;
 }
+
 root.render(
   <BrowserRouter>
-  <ScrollTop/>
-   <App />
+    <ScrollTop />
+    <App />
   </BrowserRouter>
-   
-  
+
+
 );
 
 // If you want to start measuring performance in your app, pass a function

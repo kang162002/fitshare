@@ -1,5 +1,3 @@
-// src/pages/AboutCompany.js
-import React from "react";
 import "./AboutCompany.css";
 
 function AboutCompany() {

@@ -1,7 +1,4 @@
-// src/pages/ErrorPage.js
-import React from "react";
 import '../errorPage/ErrorPage.css';
-import MainEffect from "../mainRipple/MainEffect";
 import { Link } from "react-router";
 
 
@@ -15,8 +12,6 @@ function ErrorPage() {
         죄송합니다. 페이지를 찾을 수 없습니다.</h2>
       <p>페이지가 존재하지 않거나, 사용할 수 없는 페이지입니다.<br></br>
             입력하신 주소가 정확한지 다시 한 번 확인해주세요.</p>
-        {/* <a href="/" className="error-btn">메인으로 돌아가기</a> */}
-
       <Link to="/" className="error-btn error-link">메인으로 돌아가기</Link>
   
     </div>

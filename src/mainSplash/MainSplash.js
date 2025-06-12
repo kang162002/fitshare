@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "../mainScreen/MainScreen.css";
 
 function MainSplash({ onFinish = () => { } }) {
+  // 서서히 사라지는 효과 Boolean
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
@@ -17,12 +18,10 @@ function MainSplash({ onFinish = () => { } }) {
   return (
     <div className={`mainScreen-Splash${fadeOut ? " fade-out" : ""}`}>
       <h1 className="mainScreen-splash-text">
-        {/* Loading<span className="main-dots">...</span> */}
         <img
           src="/images/mainImage/Fitlogo2.png"
           width="470"
           height="400"
-          // alt="Logo"
         />
       </h1>
     </div>

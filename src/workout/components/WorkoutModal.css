@@ -75,7 +75,7 @@
 .workout-tab {
     padding: 0.5rem 1rem;
     border: none;
-    background-color: #636363;
+    background-color: #8d8d8d;
     color: #fff;
     border-radius: 8px;
     cursor: pointer;
@@ -88,6 +88,11 @@
 
 .workout-tab.active {
     background-color: #6d6d6d;
+}
+
+.workout-active {
+    background-color: #5a5a5a;
+    cursor: default;
 }
 
 .workout-tab-content {

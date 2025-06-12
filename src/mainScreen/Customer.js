@@ -1,8 +1,6 @@
 // React에서 상태를 사용하기 위해 useState 훅 import
 import { useState } from "react";
 import "./Customer.css"; // 고객센터 전용 스타일
-import { Link } from "react-router";
-import React from "react";
 
 // 고객센터 컴포넌트 정의
 function Customer() {
@@ -17,17 +15,7 @@ function Customer() {
 
   return (
     <div className="customer-center">
-      {" "}
       {/* 전체 고객센터 박스 컨테이너 */}
-      {/* 오른쪽 상단에 닫기 버튼 (×) */}
-      <Link
-        to={"/"}
-        className="customer-close-button"
-        onClick={handleClose}
-        aria-label="닫기"
-      >
-        ×
-      </Link>
       {/* 고객센터 메인 제목 */}
       <h1>고객센터</h1>
       {/* 자주 묻는 질문 섹션 */}
