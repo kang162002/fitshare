@@ -1,5 +1,5 @@
 .account-sur-display {
-    position: absolute;
+    position: fixed;
     box-sizing: border-box;
 
     width: 100vw;

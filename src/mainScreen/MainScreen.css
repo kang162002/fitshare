@@ -293,7 +293,7 @@ body {
   align-items: center;
   height: 100vh;
   font-size: 2rem;
-  background-color: white;
+  background-color: #1b1b1b;
   opacity: 1;
   transition: opacity 0.5s ease-out;
   z-index: 100;
