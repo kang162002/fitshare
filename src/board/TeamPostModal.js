@@ -100,7 +100,7 @@ function TeamPostModal({ post, closeModal }) {
                             <h2>{cond.title}</h2>
                             {cond.img && (
                                 <img
-                                    src={cond.img}
+                                    src={process.env.PUBLIC_URL +  cond.img}
                                     alt={cond.title}
                                     style={{
                                         width: "100%",

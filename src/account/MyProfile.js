@@ -19,7 +19,7 @@ function MyProfile({ curAcct, setCurAcct, setOpenSurvey, accountData, setAccount
         <>
             <div className="user-profile-body">
                 <div className="user-profile-left">
-                    <div className="user-profile-img"><img src={curAcct.gender == 'female' ? "/images/female.png" : "/images/male.png"}></img></div>
+                    <div className="user-profile-img"><img src={process.env.PUBLIC_URL +  (curAcct.gender == 'female' ? "/images/female.png" : "/images/male.png")}></img></div>
                     <div className="user-profile-name"><p className='user-profile-info-text-name'>{curAcct.name}</p></div>
                     <div className="user-profile-name"><div className='user-profile-info-text'>나이</div>{curAcct.age ? curAcct.age : '미입력'}</div>
                     <div className="user-profile-name"><div className='user-profile-info-text'>키</div>{curAcct.height ? curAcct.height : '미입력'}</div>

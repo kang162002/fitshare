@@ -104,7 +104,7 @@ function HtPostModal({ post, closeModal }) {
                             <h2>{item.title}</h2>
                             {item.img && (
                                 <img
-                                    src={item.img}
+                                    src={process.env.PUBLIC_URL +  item.img}
                                     alt={item.title}
                                     style={{
                                         width: "100%",

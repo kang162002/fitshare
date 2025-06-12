@@ -55,7 +55,7 @@ const TipSection = ({ title, img, desc }) => (
     <div className="tip-title-t1">
         <h2 className="tip-title-t2">{title}</h2>
         <img
-            src={img}
+            src={process.env.PUBLIC_URL +  img}
             alt={title}
             className="tip-title-t3"
         />

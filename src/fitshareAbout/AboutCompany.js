@@ -82,7 +82,7 @@ function AboutCompany() {
             },
           ].map((member) => (
             <div className="team-card" key={member.name}>
-              <img src={member.image} alt={member.name} />
+              <img src={process.env.PUBLIC_URL + member.image} alt={member.name} />
               <h4>{member.name}</h4>
               <p>{member.role}</p>
             </div>
@@ -110,7 +110,7 @@ function AboutCompany() {
         <h2>BIOMIND의 비전</h2>
         <div className="vision-diagram">
           <img
-            src="/images/mainImage/Aboutdiagram.png"
+            src={process.env.PUBLIC_URL +  "/images/mainImage/Aboutdiagram.png"}
             alt="BIOMIND 비전 다이어그램"
           />
           <p>

@@ -72,7 +72,7 @@ function Fitshare() {
                 className="mainScreen-main-logo-image"
               >
                 <img
-                  src="/images/mainImage/Fitlogo2.png"
+                  src={process.env.PUBLIC_URL +  "/images/mainImage/Fitlogo2.png"}
                   width="90"
                   height="50"
                   alt="Logo"
@@ -162,16 +162,16 @@ function Fitshare() {
           <div className="footer-top">
             <div className="footer-links">
               <Link to="/AboutCompany">회사소개</Link>
-              <a href="/files/Term_of_use.html" target="_blank">
+              <a href={process.env.PUBLIC_URL +  "/files/Term_of_use.html"} target="_blank">
                 이용약관
               </a>
-              <a href="/files/Privacy_policy.html" target="_blank">
+              <a href={process.env.PUBLIC_URL +  "/files/Privacy_policy.html"} target="_blank">
                 개인정보처리방침
               </a>
               <Link
                 onClick={() => {
                   window.open(
-                    "/Customer",
+                    process.env.PUBLIC_URL + "/Customer",
                     "CustomerPopup",
                     "width=800,height=600"
                   );

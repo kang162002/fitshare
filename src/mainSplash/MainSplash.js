@@ -19,7 +19,7 @@ function MainSplash({ onFinish = () => { } }) {
     <div className={`mainScreen-Splash${fadeOut ? " fade-out" : ""}`}>
       <h1 className="mainScreen-splash-text">
         <img
-          src="/images/mainImage/Fitlogo2.png"
+          src={process.env.PUBLIC_URL +  "/images/mainImage/Fitlogo2.png"}
           width="470"
           height="400"
         />

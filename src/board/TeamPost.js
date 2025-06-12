@@ -43,7 +43,7 @@ const TeamPost = () => {
 const TeamSection = ({ title, img, desc }) => (
     <div className="mb-6">
         <h2 className="text-xl font-semibold mb-2">{title}</h2>
-        <img src={img} alt={title} className="w-full h-56 object-cover rounded-lg mb-2" />
+        <img src={process.env.PUBLIC_URL +  img} alt={title} className="w-full h-56 object-cover rounded-lg mb-2" />
         <p>{desc}</p>
     </div>
 );

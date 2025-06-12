@@ -30,7 +30,7 @@ function Workout_aero({ curAcct, setCurAcct, accountData, setAccountData }) {
 
     useEffect(() => {
         const index = workout_tags.indexOf(selectedTag);
-        setBackgroundImage(imageUrl[index]);
+        setBackgroundImage(process.env.PUBLIC_URL +  imageUrl[index]);
         setAnimationTrigger(true);
 
         const timer = setTimeout(() => {

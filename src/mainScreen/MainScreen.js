@@ -133,7 +133,7 @@ function MainScreen() {
             playsInline={true}
             autoPlay
           >
-            <source src={src} type="video/mp4" />
+            <source src={process.env.PUBLIC_URL +  src} type="video/mp4" />
           </video>
         ))}
 
@@ -172,7 +172,7 @@ function MainScreen() {
         <div ref={introRef} className="mainScreen-intro" id="abouttop">
           <div className="mainScreen-intro-image1">
             <img
-              src="/images/mainIntroductionImage/introduction01.jpg"
+              src={process.env.PUBLIC_URL +  "/images/mainIntroductionImage/introduction01.jpg"}
               alt=""
               width="800"
               height="500"
@@ -192,7 +192,7 @@ function MainScreen() {
         <div className="mainScreen-intro-section">
           <div className="mainScreen-intro-image2">
             <img
-              src="/images/mainIntroductionImage/introduction02.jpg"
+              src={process.env.PUBLIC_URL +  "/images/mainIntroductionImage/introduction02.jpg"}
               alt="운동 소개"
             />
           </div>
@@ -210,7 +210,7 @@ function MainScreen() {
           <div className="mainScreen-intro-box">
             <div className="mainScreen-intro-image3">
               <img
-                src="/images/mainIntroductionImage/introduction03.jpg"
+                src={process.env.PUBLIC_URL +  "/images/mainIntroductionImage/introduction03.jpg"}
                 alt="운동 설명 1"
               />
             </div>
@@ -220,7 +220,7 @@ function MainScreen() {
           <div className="mainScreen-intro-box">
             <div className="mainScreen-intro-image3">
               <img
-                src="/images/mainIntroductionImage/introduction04.jpg"
+                src={process.env.PUBLIC_URL +  "/images/mainIntroductionImage/introduction04.jpg"}
                 alt="운동 설명 2"
               />
             </div>
@@ -237,19 +237,19 @@ function MainScreen() {
             <div className="mainScreen-image-group">
               <div className="image-item">
                 <img
-                  src="/images/mainIntroductionImage/introduction05.jpg"
+                  src={process.env.PUBLIC_URL +  "/images/mainIntroductionImage/introduction05.jpg"}
                   alt="소개1"
                 />
               </div>
               <div className="image-item">
                 <img
-                  src="/images/mainIntroductionImage/introduction06.jpg"
+                  src={process.env.PUBLIC_URL +  "/images/mainIntroductionImage/introduction06.jpg"}
                   alt="소개2"
                 />
               </div>
               <div className="image-item">
                 <img
-                  src="/images/mainIntroductionImage/introduction07.jpg"
+                  src={process.env.PUBLIC_URL +  "/images/mainIntroductionImage/introduction07.jpg"}
                   alt="소개3"
                 />
               </div>

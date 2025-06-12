@@ -50,7 +50,7 @@ const GymPostTable = () => {
                             </td>
                             <td className="gym-image">
                                 <img
-                                    src={tip.img}
+                                    src={process.env.PUBLIC_URL +  tip.img}
                                     alt={tip.title}
                                     className="gym-img"
                                 />

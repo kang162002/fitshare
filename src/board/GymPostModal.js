@@ -87,7 +87,7 @@ function GymPostModal({ post, closeModal, posts }) {
                     {tips.map((tip, idx) => (
                         <div key={idx} style={{ marginBottom: "25px", borderBottom: "1px solid #ddd", paddingBottom: "15px" }}>
                             <h2>{tip.title}</h2>
-                            <img src={tip.img} alt={tip.title} style={{ width: "100%", maxHeight: "200px", objectFit: "cover", marginBottom: "10px", borderRadius: "8px" }} />
+                            <img src={process.env.PUBLIC_URL +  tip.img} alt={tip.title} style={{ width: "100%", maxHeight: "200px", objectFit: "cover", marginBottom: "10px", borderRadius: "8px" }} />
                             <p style={{ whiteSpace: "pre-line" }}>{tip.desc}</p>
                         </div>
                     ))}

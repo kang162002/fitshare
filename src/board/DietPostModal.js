@@ -110,7 +110,7 @@ function DietPostModal({ post, closeModal }) {
                             <h2>{plan.title}</h2>
                             {plan.img && (
                                 <img
-                                    src={plan.img}
+                                    src={process.env.PUBLIC_URL +  plan.img}
                                     alt={plan.title}
                                     style={{
                                         width: "100%",

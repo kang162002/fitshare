@@ -54,7 +54,7 @@ function WorkoutModal({ closeModal, workoutData, curAcct, setCurAcct, accountDat
 
                 <div className="workout-modal-body">
                     <div className="workout-image-area">
-                        <img src={workoutData.imgPath} />
+                        <img src={process.env.PUBLIC_URL +  workoutData.imgPath} />
                     </div>
 
                     <div className="workout-info-area">

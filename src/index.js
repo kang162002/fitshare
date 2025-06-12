@@ -20,9 +20,6 @@ function ScrollTop() {
 
 root.render(
   <BrowserRouter basename={process.env.PUBLIC_URL}>
-    <Routes>
-      <Route path="/" element={<Mainpage />} />
-    </Routes>
     <ScrollTop />
     <App />
   </BrowserRouter>
