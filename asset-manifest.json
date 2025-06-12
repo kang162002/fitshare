@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/fitshare/static/css/main.07480757.css",
+    "main.js": "/fitshare/static/js/main.8a66b4d0.js",
+    "static/js/453.54a09169.chunk.js": "/fitshare/static/js/453.54a09169.chunk.js",
+    "static/media/fa-solid-900.ttf": "/fitshare/static/media/fa-solid-900.2582b0e4bcf85eceead0.ttf",
+    "static/media/Fitlogo2.png": "/fitshare/static/media/Fitlogo2.4702d353092fec1e1d6f.png",
+    "static/media/fa-brands-400.ttf": "/fitshare/static/media/fa-brands-400.1815e00441357e01619e.ttf",
+    "static/media/fa-solid-900.woff2": "/fitshare/static/media/fa-solid-900.2463b90d9a316e4e5294.woff2",
+    "static/media/fa-brands-400.woff2": "/fitshare/static/media/fa-brands-400.c210719e60948b211a12.woff2",
+    "static/media/fa-regular-400.ttf": "/fitshare/static/media/fa-regular-400.914997e1bdfc990d0897.ttf",
+    "static/media/account_overlay_right.jpg": "/fitshare/static/media/account_overlay_right.a17c4022da030c9963af.jpg",
+    "static/media/gym_main.jpg": "/fitshare/static/media/gym_main.c260a869f736e4cc677b.jpg",
+    "static/media/account_overlay_left.jpg": "/fitshare/static/media/account_overlay_left.5057ec48fadce02bd479.jpg",
+    "static/media/workout_gym_main.jpg": "/fitshare/static/media/workout_gym_main.d95f325cc11e21d2aa07.jpg",
+    "static/media/running_main.jpg": "/fitshare/static/media/running_main.72ebc9258287b4416000.jpg",
+    "static/media/stretch_top_main.jpg": "/fitshare/static/media/stretch_top_main.fd10233dd0e6370e36a2.jpg",
+    "static/media/fa-regular-400.woff2": "/fitshare/static/media/fa-regular-400.89999bdf5d835c012025.woff2",
+    "static/media/filledStar.png": "/fitshare/static/media/filledStar.d0cbd94e0a4a62fc2bf4.png",
+    "static/media/fa-v4compatibility.ttf": "/fitshare/static/media/fa-v4compatibility.da94ef451f4969af06e6.ttf",
+    "static/media/fa-v4compatibility.woff2": "/fitshare/static/media/fa-v4compatibility.ea8f94e1d22e0d35ccd4.woff2",
+    "index.html": "/fitshare/index.html",
+    "main.07480757.css.map": "/fitshare/static/css/main.07480757.css.map",
+    "main.8a66b4d0.js.map": "/fitshare/static/js/main.8a66b4d0.js.map",
+    "453.54a09169.chunk.js.map": "/fitshare/static/js/453.54a09169.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.07480757.css",
+    "static/js/main.8a66b4d0.js"
+  ]
+}
