@@ -7,9 +7,6 @@ function Customer() {
   // 컴포넌트 열림 여부를 나타내는 상태 정의 (true: 열림, false: 닫힘)
   const [isOpen, setIsOpen] = useState(true);
 
-  // 닫기 버튼 클릭 시 호출되는 함수 (isOpen을 false로 바꿔 렌더링 제거)
-  const handleClose = () => setIsOpen(false);
-
   // 만약 닫힌 상태라면, 아무것도 렌더링하지 않음
   if (!isOpen) return null;
 

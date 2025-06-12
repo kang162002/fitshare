@@ -87,12 +87,13 @@
 }
 
 .workout-tab.active {
-    background-color: #6d6d6d;
+    background-color: #5a5a5a;
 }
 
 .workout-active {
-    background-color: #5a5a5a;
+    background-color: #6d6d6d;
     cursor: default;
+    pointer-events: none;
 }
 
 .workout-tab-content {

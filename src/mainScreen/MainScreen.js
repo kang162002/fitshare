@@ -1,5 +1,5 @@
 // MainScreen.js
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./MainScreen.css";
 import MainEffect from "../mainRipple/MainEffect";
 import MainSplash from "../mainSplash/MainSplash";
@@ -127,9 +127,8 @@ function MainScreen() {
             ref={(el) => {
               if (el) videoRefs.current[idx] = el;
             }}
-            className={`mainScreen-background-video ${
-              idx === 0 ? "active" : ""
-            }`}
+            className={`mainScreen-background-video ${idx === 0 ? "active" : ""
+              }`}
             muted
             playsInline={true}
             autoPlay
@@ -190,7 +189,7 @@ function MainScreen() {
           </div>
         </div>
         {/* 소개2 */}
-        <div className="mainScreen-intron-section">
+        <div className="mainScreen-intro-section">
           <div className="mainScreen-intro-image2">
             <img
               src="/images/mainIntroductionImage/introduction02.jpg"
@@ -207,7 +206,7 @@ function MainScreen() {
           </div>
         </div>
         {/* 소개3 */}
-        <div className="mainScreen-intron-section02">
+        <div className="mainScreen-intro-section02">
           <div className="mainScreen-intro-box">
             <div className="mainScreen-intro-image3">
               <img
@@ -234,7 +233,7 @@ function MainScreen() {
             </p>
           </div>
 
-          <div className="mainScreen-intron-temporary">
+          <div className="mainScreen-intro-temporary">
             <div className="mainScreen-image-group">
               <div className="image-item">
                 <img
