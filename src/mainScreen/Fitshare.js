@@ -59,7 +59,7 @@ function Fitshare() {
   const [ posts, setPosts ] = useState(allPosts.all);
 
   return (
-    <div className="fitshare-nav">
+    <div className="fitshare-nav" style={{minHeight:'100vh', display:'flex', flexDirection:'column'}}>
       {/* 네비게이션 바 */}
       {isLayoutVisible && (
         <div className="mainScreen-main-menu">
@@ -186,7 +186,7 @@ function Fitshare() {
           </div>
 
           <div className="footer-bottom">
-            <p>© 2025 BIOMIND Inc. | 사업자번호: 123-45-67890 | 대표: 김바이오</p>
+            <p>© 2025 BIOMIND Inc. | 사업자번호: 123-45-67890 | 대표: 김동욱</p>
             <p>
               주소: 충남 천안시 동남구 대흥로 215 7층 | 이메일: info@biomind.kr
             </p>

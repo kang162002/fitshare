@@ -36,7 +36,7 @@ function Survey({ curAcct, setCurAcct, setOpenSurvey, accountData, setAccountDat
             || !selectedPTExp || age.trim() == '' || height.trim() == '' || weight.trim() == '') {
             Swal.fire({
                 icon: 'error',
-                title: '설문조사를 완료 후 제출하기 버튼을 눌러주세요.',
+                title: '입력 완료 후 제출하기 버튼을 눌러주세요.',
                 text: '만약 원하지 않으시면 건너뛰기를 눌러주세요.',
             });
             return;

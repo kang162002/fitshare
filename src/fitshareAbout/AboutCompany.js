@@ -50,13 +50,13 @@ function AboutCompany() {
         <h2>연혁</h2>
         <ul className="about-timeline">
           <li>
-            <strong>2024.11</strong> - 서비스 기획 시작
+            <strong>2025.05.28</strong> - 프로젝트 시작
           </li>
           <li>
-            <strong>2025.01</strong> - 프로토타입 완성
+            <strong>2025.06.12</strong> - 프로토타입 최종 완성
           </li>
           <li>
-            <strong>2025.05</strong> - 공식 서비스 런칭
+            <strong>2025.06.13</strong> - 프로젝트 발표
           </li>
         </ul>
       </section>
@@ -66,21 +66,21 @@ function AboutCompany() {
         <h2>우리 팀</h2>
         <div className="team-section">
           {[
-            { name: "김바이오", role: "대표 / PM", image: "/images/team1.jpg" },
+            { name: "김동욱", role: "대표 / PM", image: "/images/member_DU.png" },
             {
-              name: "이프론트",
+              name: "진다솔",
               role: "프론트엔드 개발자",
-              image: "/images/team2.jpg",
+              image: "/images/member_DS.png",
             },
             {
-              name: "박백엔드",
-              role: "백엔드 개발자",
-              image: "/images/team3.jpg",
+              name: "이승권",
+              role: "프론트엔드 개발자",
+              image: "/images/member_SK.png",
             },
             {
-              name: "최디자인",
-              role: "UX/UI 디자이너",
-              image: "/images/team4.jpg",
+              name: "임진호",
+              role: "프론트엔드 개발자",
+              image: "/images/member_JH.png",
             },
           ].map((member) => (
             <div className="team-card" key={member.name}>

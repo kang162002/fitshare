@@ -82,9 +82,9 @@ function Account({ setCurAcct, setOpenSurvey, accountData, setAccountData }) {
                     icon: 'success',
                     title: '로그인이 완료되었습니다.',
                     text: '환영합니다.',
-                }).then(function(){
+                }).then(function () {
                     navigate("/");
-                    
+
                 });
 
                 // const loginState = accountData.find(user =>
@@ -94,7 +94,7 @@ function Account({ setCurAcct, setOpenSurvey, accountData, setAccountData }) {
                 setCurAcct(foundUser);
                 setSignInEmail('');
                 setSignInPassword('');
-                if(!foundUser.surveyComplete) {
+                if (!foundUser.surveyComplete) {
                     setOpenSurvey(true);
                 }
             }
@@ -381,13 +381,22 @@ function Account({ setCurAcct, setOpenSurvey, accountData, setAccountData }) {
                                 }}>Forgot your password?</a>
                                 <div className="account-social-links account-div">
                                     <div className='account-div'>
-                                        <a href="#"><i className="fab fa-facebook account-a" aria-hidden="true"></i></a>
+                                        <a
+                                            href="https://www.facebook.com/?locale=ko_KR"
+                                            target="_blank"
+                                        ><i className="fab fa-facebook account-a" aria-hidden="true"></i></a>
                                     </div>
                                     <div className='account-div'>
-                                        <a href="#"><i className="fab fa-twitter account-a" aria-hidden="true"></i></a>
+                                        <a
+                                            href="https://x.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJsYW5nIjoia28ifQ%3D%3D%22%7D"
+                                            target="_blank"
+                                        ><i className="fab fa-twitter account-a" aria-hidden="true"></i></a>
                                     </div>
                                     <div className='account-div'>
-                                        <a href="#"><i className="fab fa-linkedin account-a" aria-hidden="true"></i></a>
+                                        <a
+                                            href="https://instagram.com/biomind"
+                                            target="_blank"
+                                        ><i className="fab fa-linkedin account-a" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
                             </form>

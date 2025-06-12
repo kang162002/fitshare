@@ -109,7 +109,7 @@ export default function Board_all({posts, setPosts}) {
                 
 
                 <div className='board-nav'>
-                    <button onClick={() => setSelectedBoard("all")}>ALL게시판</button>
+                    <button onClick={() => setSelectedBoard("all")}>전체게시판</button>
                     <button onClick={() => setSelectedBoard("gym")}>GYM게시판</button>
                     <button onClick={() => setSelectedBoard("tips")}>팁공유게시판</button>
                     <button onClick={() => setSelectedBoard("sports")}>운동모임게시판</button>

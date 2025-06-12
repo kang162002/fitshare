@@ -1,6 +1,6 @@
 /* 고객센터 전체 컨테이너 */
 .customer-center {
-  max-width: 800px;            /* 최대 너비 제한 */
+  width: 100vh;
   margin: 0 auto;              /* 가운데 정렬 */
   padding: 40px 20px;          /* 내부 여백 */
   color: #333;                 /* 텍스트 색상 */
