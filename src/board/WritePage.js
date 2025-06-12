@@ -65,11 +65,11 @@ export default function WritePage({posts, setPosts}) {
             <div style={{ marginBottom: "10px" }}>
                 <label>종류: </label><br />
                 <select value={type} onChange={(e) => setType(e.target.value)}>
-                    <option value="GYM">GYM</option>
-                    <option value="TIP">TIP</option>
-                    <option value="TEAM">TEAM</option>
-                    <option value="DIET">DIET</option>
-                    <option value="HT">HT</option>
+                    <option value="GYM">GYM게시판</option>
+                    <option value="TIP">팁공유게시판</option>
+                    <option value="TEAM">운동모임게시판</option>
+                    <option value="DIET">다이어트게시판</option>
+                    <option value="HT">홈트레이닝게시판</option>
                 </select>
             </div>
 

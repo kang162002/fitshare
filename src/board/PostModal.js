@@ -3,10 +3,11 @@ import "./GymPostModal.css";
 
 function PostModal({ closeModal ,post }) {
         const [views, setViews] = useState(post.views-1);
-        const [likes, setLikes] = useState(post.likes);
+        const [likes, setLikes] = useState(post.likesCount);
         const [liked, setLiked] = useState(false);
         const [comments, setComments] = useState([]);
         const [commentInput, setCommentInput] = useState("");
+        const [commentCnt, setCommentCnt] = useState(post.commentsCount);
     
         useEffect(() => {
             setViews((prev) => prev +1);
@@ -27,6 +28,7 @@ function PostModal({ closeModal ,post }) {
             const newComments = [...comments, {id:Date.now(), text: commentInput}];
             setComments(newComments);
             setCommentInput("");
+            setCommentCnt(commentCnt+1);
             localStorage.setItem(post.id +"PostComment", JSON.stringify(newComments));
         };
     

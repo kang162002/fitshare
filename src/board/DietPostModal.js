@@ -35,9 +35,9 @@ const dietPlans = [
     },
     ];
 
-    function DietPostModal({ closeModal }) {
-    const [views, setViews] = useState(0);
-    const [likes, setLikes] = useState(0);
+    function DietPostModal({post,  closeModal }) {
+    const [views, setViews] = useState(post.view-1);
+    const [likes, setLikes] = useState(post.likesCount);
     const [liked, setLiked] = useState(false);
     const [comments, setComments] = useState([]);
     const [commentInput, setCommentInput] = useState("");

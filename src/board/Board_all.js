@@ -102,19 +102,21 @@ export default function Board_all({posts, setPosts}) {
 
     return (
         <div className='board-body'>
-            <div className='board-header' onClick={() => { setSelectedBoard("all"); setCurrentPage(1); }}>
-                <h3 style={{ fontWeight: 'bolder', cursor: 'pointer' }}>Board</h3>
-            </div>
+            <div className='board-tag-section'>
+                <div className='board-header' onClick={() => { setSelectedBoard("all"); setCurrentPage(1); }}>
+                    <h3 style={{ fontWeight: 'bolder', cursor: 'pointer' }}>게시판</h3>
+                </div>
+                
 
-            <div className='board-nav'>
-                <button onClick={() => setSelectedBoard("all")}>ALL게시판</button>
-                <button onClick={() => setSelectedBoard("gym")}>GYM게시판</button>
-                <button onClick={() => setSelectedBoard("tips")}>팁공유게시판</button>
-                <button onClick={() => setSelectedBoard("sports")}>운동모임게시판</button>
-                <button onClick={() => setSelectedBoard("diet")}>다이어트게시판</button>
-                <button onClick={() => setSelectedBoard("ht")}>홈트레이닝게시판</button>
+                <div className='board-nav'>
+                    <button onClick={() => setSelectedBoard("all")}>ALL게시판</button>
+                    <button onClick={() => setSelectedBoard("gym")}>GYM게시판</button>
+                    <button onClick={() => setSelectedBoard("tips")}>팁공유게시판</button>
+                    <button onClick={() => setSelectedBoard("sports")}>운동모임게시판</button>
+                    <button onClick={() => setSelectedBoard("diet")}>다이어트게시판</button>
+                    <button onClick={() => setSelectedBoard("ht")}>홈트레이닝게시판</button>
+                </div>
             </div>
-
             <div className='board-outer'>
                 <br />
                 <h2>{boardTitles[ selectedBoard ]}</h2>
@@ -211,14 +213,23 @@ export default function Board_all({posts, setPosts}) {
                                     setSelectedPost(post);
                                     setModalOpen(true);
                                 } else if (post.id === 78) {
+                                    post.views+=1;
+                                    setSelectedPost(post);
                                     setShowTipModal(true);
                                 } else if (post.id === 3) {
+                                    post.views+=1;
+                                    setSelectedPost(post);
                                     setShowTeamModal(true);
                                 } else if (post.id === 171) {
+                                    post.views+=1;
+                                    setSelectedPost(post);
                                     setShowDietModal(true);
                                 } else if (post.id === 5) {
+                                    post.views+=1;
+                                    setSelectedPost(post);
                                     setShowHtModal(true);
                                 } else {
+                                    post.views+=1;
                                     setSelectedPost(post);
                                     setShowPostModal(true);
                                 }
@@ -227,7 +238,6 @@ export default function Board_all({posts, setPosts}) {
 
 
                             }}
-                              
 
                             >
                                 <td>{post.id}</td>
@@ -236,7 +246,12 @@ export default function Board_all({posts, setPosts}) {
                                 <td>{post.date}</td>
                                 <td>{post.type}</td>
                                 <td>{post.views}</td>
-                                <td>{post.commentsCount || 0}</td>
+                                <td>{(() => {
+                                    const item = localStorage.getItem(post.id + "PostComment");
+                                    if (!item) return post.commentsCount;
+                                    const comments = JSON.parse(item);
+                                    return comments.length+post.commentsCount;
+                                })()}</td>
                                 <td>{post.likesCount || 0}</td>
                             </tr>
                         ))}
@@ -253,23 +268,23 @@ export default function Board_all({posts, setPosts}) {
                     )}
 
                     {showTipModal && (
-                        <TipPostModal closeModal={() => setShowTipModal(false)} posts={posts}/>
+                        <TipPostModal post={selectedPost} closeModal={() => {setShowTipModal(false);setSelectedPost(null);}} posts={posts}/>
                     )}
 
                     {showTeamModal && (
-                        <TeamPostModal closeModal={() => setShowTeamModal(false)} />
+                        <TeamPostModal post={selectedPost} closeModal={() => {setShowTeamModal(false);setSelectedPost(null);}} />
                     )}
 
                     {showDietModal && (
-                        <DietPostModal closeModal={() => setShowDietModal(false)} />
+                        <DietPostModal post={selectedPost} closeModal={() => {setShowDietModal(false);setSelectedPost(null);}} />
                     )}
 
                     {showHtModal && (
-                        <HtPostModal closeModal={() => setShowHtModal(false)} />
+                        <HtPostModal post={selectedPost} closeModal={() => {setShowHtModal(false);setSelectedPost(null);}} />
                     )}
 
                     {showPostModal && (
-                        <PostModal closeModal={()=> setShowPostModal(false)} post = {selectedPost}/>
+                        <PostModal closeModal={()=> {setShowPostModal(false);setSelectedPost(null);}} post = {selectedPost}/>
                     )}
                 </table>
 

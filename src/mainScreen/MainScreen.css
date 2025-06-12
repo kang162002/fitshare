@@ -848,3 +848,39 @@ footer.footer {
   text-align: center;
   width: 550px;
 }
+
+.header-user{
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+
+  right: 30px;
+  top: 25px;
+
+}
+
+.header-user-container {
+  display: flex;
+}
+
+.header-btn-logout {
+  display: block;
+  cursor: pointer;
+  background-color: #222;
+  color: #f7374f;
+
+  padding: 5px 15px;
+  margin-left: 20px;
+
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.header-btn-logout:hover {
+  background: rgba(49, 49, 49, 0.795);
+  color: white;
+}
+
+.header-user-account {
+  text-decoration: none;
+}
