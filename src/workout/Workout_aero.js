@@ -6,7 +6,7 @@ import aeroData from './data/aeroData';
 // Workout_gym.js, Workout_stretch.js 파일 구조 동일
 
 
-function Workout_aero({curAcct, setCurAcct, accountData, setAccountData}) {
+function Workout_aero({ curAcct, setCurAcct, accountData, setAccountData }) {
 
     //모달 띄우기 Boolean
     const [showModal, setShowModal] = useState(false);
@@ -43,7 +43,7 @@ function Workout_aero({curAcct, setCurAcct, accountData, setAccountData}) {
 
     return (
         <>
-        {/*================= header =================*/}
+            {/*================= header =================*/}
             <div className='workout-aero-header'>
                 <h1>유산소 운동</h1>
                 <p>살이 잘 빠지는 운동 모음</p>
@@ -75,7 +75,7 @@ function Workout_aero({curAcct, setCurAcct, accountData, setAccountData}) {
                         }
 
                         if (aeroDatas[index].tool === selectedTag) {
-                            return <div key={index} className={`workout-card ${animationTrigger ? 'workout-slide-animation' : ''}`}onClick={() => {
+                            return <div key={index} className={`workout-card ${animationTrigger ? 'workout-slide-animation' : ''}`} onClick={() => {
                                 setDataIndex(index);
                                 setShowModal(true);
                             }}>{name.title}</div>

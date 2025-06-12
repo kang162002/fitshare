@@ -65,7 +65,6 @@
 }
 
 .account-re-wrapper {
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -161,8 +160,6 @@
 
 .account-re-modal-close-btn {
     margin-top: 50px;
-
-
     /* 위 여백 */
     width: 200px;
     height: 40px;

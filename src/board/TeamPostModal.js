@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 
 const teamConditions = [
@@ -22,10 +22,10 @@ const teamConditions = [
         img: "/images/boardimg/만원.webp",
         desc: "월 회비 만원으로 경기 진행할 때 발생하는 비용을 처리 합니다. 회비가 쌓이면 야유회 및 회식비로 사용합니다!",
     },
-    ];
+];
 
-    function TeamPostModal({post,  closeModal }) {
-    const [views, setViews] = useState(post.views-1);
+function TeamPostModal({ post, closeModal }) {
+    const [views, setViews] = useState(post.views - 1);
     const [likes, setLikes] = useState(post.likesCount);
     const [liked, setLiked] = useState(false);
     const [comments, setComments] = useState([]);
@@ -35,7 +35,7 @@ const teamConditions = [
         setViews((prev) => prev + 1);
 
         const savedComments = localStorage.getItem("team-post-comments");
-        if(savedComments) {
+        if (savedComments) {
             setComments(JSON.parse(savedComments));
         }
     }, []);
@@ -47,7 +47,7 @@ const teamConditions = [
 
     const addComment = () => {
         if (commentInput.trim() === "") return;
-        const newComments = [...comments, {id:Date.now(), text:commentInput}];
+        const newComments = [...comments, { id: Date.now(), text: commentInput }];
         setComments(newComments);
         setCommentInput("");
         localStorage.setItem("team-post-comments", JSON.stringify(newComments));
@@ -55,105 +55,105 @@ const teamConditions = [
 
     return (
         <div className="team-modal-fullscreen" onClick={closeModal}>
-        <div className="team-modal-box" onClick={(e) => e.stopPropagation()}>
-            <div className="team-modal-header">
-            <h1 className="team-modal-title">BOAT FC 팀원 모집 합니다!</h1>
-            <button className="team-modal-close-button" onClick={closeModal}>
-                X
-            </button>
-            </div>
-
-            <div
-            style={{
-                padding: "0 20px",
-                fontSize: "0.9rem",
-                color: "#555",
-                marginBottom: "10px",
-            }}
-            >
-            <span>
-                작성자: <strong>BOATFC매니저</strong>
-            </span>{" "}
-            | <span>작성일: {new Date().toLocaleDateString()}</span> |{" "}
-            <span>조회수: {views}</span> |{" "}
-            <span style={{ cursor: "pointer" }} onClick={handleLike}>
-                ❤️ {likes}
-            </span>
-            </div>
-
-            <div className="team-modal-body post-style-body">
-            <p style={{ marginBottom: "30px", fontSize: "1rem" }}>
-                BOAT FC는 청주에서 일주일에 한 번 이상 운동하는 팀입니다. 자유로운
-                분위기와 20대로 구성되어 있어 더 열정적이고 에너지 넘치는 팀 입니다!
-                같이 운동할 팀원 구합니다!
-            </p>
-
-            {teamConditions.map((cond, idx) => (
-                <div
-                key={idx}
-                style={{
-                    marginBottom: "25px",
-                    borderBottom: "1px solid #ddd",
-                    paddingBottom: "15px",
-                }}
-                >
-                <h2>{cond.title}</h2>
-                {cond.img && (
-                    <img
-                    src={cond.img}
-                    alt={cond.title}
-                    style={{
-                        width: "100%",
-                        maxHeight: "200px",
-                        objectFit: "cover",
-                        marginBottom: "10px",
-                        borderRadius: "8px",
-                    }}
-                    />
-                )}
-                <p>{cond.desc}</p>
+            <div className="team-modal-box" onClick={(e) => e.stopPropagation()}>
+                <div className="team-modal-header">
+                    <h1 className="team-modal-title">BOAT FC 팀원 모집 합니다!</h1>
+                    <button className="team-modal-close-button" onClick={closeModal}>
+                        X
+                    </button>
                 </div>
-            ))}
 
-            <div
-                style={{
-                marginTop: "30px",
-                background: "#f9f9f9",
-                padding: "15px",
-                borderRadius: "10px",
-                }}
-            >
-                <strong>💡 정리:</strong>
-                <br />
-                실력보다는 인성 매너가 더 중요하고! 20대로 구성 되어 있어 열정과 에너지가
-                넘치고 친절한 사람들과 같이 운동해요!
-            </div>
+                <div
+                    style={{
+                        padding: "0 20px",
+                        fontSize: "0.9rem",
+                        color: "#555",
+                        marginBottom: "10px",
+                    }}
+                >
+                    <span>
+                        작성자: <strong>BOATFC매니저</strong>
+                    </span>{" "}
+                    | <span>작성일: {new Date().toLocaleDateString()}</span> |{" "}
+                    <span>조회수: {views}</span> |{" "}
+                    <span style={{ cursor: "pointer" }} onClick={handleLike}>
+                        ❤️ {likes}
+                    </span>
+                </div>
 
-            <div style={{ marginTop: "30px" }}>
-                <h3>💬 댓글</h3>
-                <input
-                type="text"
-                placeholder="댓글을 입력하세요"
-                value={commentInput}
-                onChange={(e) => setCommentInput(e.target.value)}
-                onKeyDown={(e)=>{
-                                if(e.key === "Enter") {
+                <div className="team-modal-body post-style-body">
+                    <p style={{ marginBottom: "30px", fontSize: "1rem" }}>
+                        BOAT FC는 청주에서 일주일에 한 번 이상 운동하는 팀입니다. 자유로운
+                        분위기와 20대로 구성되어 있어 더 열정적이고 에너지 넘치는 팀 입니다!
+                        같이 운동할 팀원 구합니다!
+                    </p>
+
+                    {teamConditions.map((cond, idx) => (
+                        <div
+                            key={idx}
+                            style={{
+                                marginBottom: "25px",
+                                borderBottom: "1px solid #ddd",
+                                paddingBottom: "15px",
+                            }}
+                        >
+                            <h2>{cond.title}</h2>
+                            {cond.img && (
+                                <img
+                                    src={cond.img}
+                                    alt={cond.title}
+                                    style={{
+                                        width: "100%",
+                                        maxHeight: "200px",
+                                        objectFit: "cover",
+                                        marginBottom: "10px",
+                                        borderRadius: "8px",
+                                    }}
+                                />
+                            )}
+                            <p>{cond.desc}</p>
+                        </div>
+                    ))}
+
+                    <div
+                        style={{
+                            marginTop: "30px",
+                            background: "#f9f9f9",
+                            padding: "15px",
+                            borderRadius: "10px",
+                        }}
+                    >
+                        <strong>💡 정리:</strong>
+                        <br />
+                        실력보다는 인성 매너가 더 중요하고! 20대로 구성 되어 있어 열정과 에너지가
+                        넘치고 친절한 사람들과 같이 운동해요!
+                    </div>
+
+                    <div style={{ marginTop: "30px" }}>
+                        <h3>💬 댓글</h3>
+                        <input
+                            type="text"
+                            placeholder="댓글을 입력하세요"
+                            value={commentInput}
+                            onChange={(e) => setCommentInput(e.target.value)}
+                            onKeyDown={(e) => {
+                                if (e.key === "Enter") {
                                     addComment();
                                 }
                             }}
-                style={{ width: "80%", marginRight: "10px", padding: "8px" }}
-                />
-                <button onClick={addComment}>댓글 추가</button>
-                <ul style={{ marginTop: "15px", paddingLeft: "20px" }}>
-                {comments.map((c) => (
-                    <li key={c.id}>- {c.text}</li>
-                ))}
-                </ul>
+                            style={{ width: "80%", marginRight: "10px", padding: "8px" }}
+                        />
+                        <button onClick={addComment}>댓글 추가</button>
+                        <ul style={{ marginTop: "15px", paddingLeft: "20px" }}>
+                            {comments.map((c) => (
+                                <li key={c.id}>- {c.text}</li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
             </div>
-            </div>
-        </div>
         </div>
     );
-    }
+}
 
 export default TeamPostModal;

@@ -1,4 +1,3 @@
-import { useSearchParams } from 'react-router';
 import './Survey.css';
 import { useState } from 'react';
 import Swal from 'sweetalert2';
@@ -94,7 +93,6 @@ function Survey({ curAcct, setCurAcct, setOpenSurvey, accountData, setAccountDat
                 <div className="account-sur-div account-sur-container" style={{ backgroundColor: '#222222' }}>
                     <div>
                         <h1 className='account-sur-h1'>추가정보</h1>
-
                     </div>
 
                     <div className='account-sur-hr'>
@@ -270,9 +268,7 @@ function Survey({ curAcct, setCurAcct, setOpenSurvey, accountData, setAccountDat
                             className='account-sur-btn'
                             type="button"
                             onClick={onSubmit}
-
                         >제출하기</button>
-
                         <button
                             className='account-sur-btn account-sur-skip'
                             type="button"
@@ -281,9 +277,7 @@ function Survey({ curAcct, setCurAcct, setOpenSurvey, accountData, setAccountDat
                             }}
                         >건너뛰기</button>
                     </div>
-
                 </div>
-
             </div>
         </div>
     );

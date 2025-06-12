@@ -9,13 +9,10 @@
     top: 0;
 
     z-index: 999;
-
-
 }
 
 
 .account-sur-body {
-
     display: flex;
 
     width: 100vw;
@@ -24,7 +21,6 @@
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.322);
-
 }
 
 .account-sur-container {
@@ -48,16 +44,11 @@
 .account-sur-hr {
     width: 100%;
     background-color: white;
-    /* border-style: dotted none none none;
-    border: 1px solid red;
-    border-width: 1px;
-    border-style: dotted; */
 }
 
 .account-sur-btn-div {
     display: flex;
     justify-content: space-between;
-
     width: 100%;
 }
 
@@ -70,10 +61,8 @@
     height: 50px;
     border-radius: 30px;
     font-size: 26px;
-    /* text-transform: uppercase; */
     cursor: pointer;
     letter-spacing: 1px;
-
     margin-top: 13px;
 }
 
@@ -140,9 +129,6 @@
 .account-sur-input-text {
     text-align: left;
 
-    /* ← 왼쪽 정렬 */
-    /* margin: 8px 0; */
-    /* 위아래 여백 추가 */
     padding: 10px;
     background: #ffffff;
     width: 60%;

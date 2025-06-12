@@ -5,7 +5,7 @@ import stretchData from './data/stretchData';
 
 
 
-function Workout_stretch({curAcct, setCurAcct, accountData, setAccountData}) {
+function Workout_stretch({ curAcct, setCurAcct, accountData, setAccountData }) {
 
     const [showModal, setShowModal] = useState(false);
 
@@ -13,9 +13,9 @@ function Workout_stretch({curAcct, setCurAcct, accountData, setAccountData}) {
 
     let [dataIndex, setDataIndex] = useState(0);
 
-    let workout_tags = ['모든 스트레칭', '허리', '허벅지', '가슴', '등', '어깨','엉덩이'];
+    let workout_tags = ['모든 스트레칭', '허리', '허벅지', '가슴', '등', '어깨', '엉덩이'];
     let [selectedTag, setSelectedTag] = useState(workout_tags[0]);
-    let imageUrl = ['/images/stretch_main.jpg', '/images/waist_main.jpg', '/images/thigh_main.jpg', '/images/chest_main.jpg', '/images/back_main.jpg', '/images/shoulder_main.jpg','/images/hips_main.jpg'];
+    let imageUrl = ['/images/stretch_main.jpg', '/images/waist_main.jpg', '/images/thigh_main.jpg', '/images/chest_main.jpg', '/images/back_main.jpg', '/images/shoulder_main.jpg', '/images/hips_main.jpg'];
 
     const [backgroundImage, setBackgroundImage] = useState(imageUrl[0]);
 
@@ -47,8 +47,6 @@ function Workout_stretch({curAcct, setCurAcct, accountData, setAccountData}) {
 
                             return <div key={index} className={`workout-tag ${selectedTag === name ? 'workout-tag-selected' : ''}`} onClick={() => {
                                 setSelectedTag(workout_tags[index]);
-                                // let workoutGrid = document.getElementsByClassName('workout-grid')[0];
-                                // workoutGrid.style.backgroundImage = "url('" + imageUrl[index] + "')";
                             }}>
                                 {name}
                             </div>
@@ -81,7 +79,7 @@ function Workout_stretch({curAcct, setCurAcct, accountData, setAccountData}) {
             </div>
 
             {showModal && (
-                <WorkoutModal closeModal={() => setShowModal(false)} workoutData={stretchDatas[dataIndex]} curAcct={curAcct} setCurAcct={setCurAcct} accountData={accountData} setAccountData={setAccountData}/>
+                <WorkoutModal closeModal={() => setShowModal(false)} workoutData={stretchDatas[dataIndex]} curAcct={curAcct} setCurAcct={setCurAcct} accountData={accountData} setAccountData={setAccountData} />
             )}
         </>
     );

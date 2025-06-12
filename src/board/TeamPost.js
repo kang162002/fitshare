@@ -1,4 +1,3 @@
-import React from "react";
 
 const TeamPost = () => {
     return (
@@ -33,11 +32,11 @@ const TeamPost = () => {
                 desc="월 회비 만원으로 경기 진행할때 발생하는 비용을 처리 합니다. 회비가 쌓이면 야유회 및 회식비로 사용합니다!"
             />
 
-        <div className="mt-6 text-lg font-semiblod">
-            정리:<br />
-            실력보다는 인성 매너가 더 중요하고! 20대로 구성 되어 있어 열정가 에너지가 넘치고 친절한 사람들과 같이 운동해요!
-        </div>
+            <div className="mt-6 text-lg font-semiblod">
+                정리:<br />
+                실력보다는 인성 매너가 더 중요하고! 20대로 구성 되어 있어 열정가 에너지가 넘치고 친절한 사람들과 같이 운동해요!
             </div>
+        </div>
     );
 };
 

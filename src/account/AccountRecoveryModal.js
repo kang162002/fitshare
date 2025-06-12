@@ -152,7 +152,6 @@ function AccountRecoveryModal({ setOpenModal, accountData, setAccountData }) {
 
     const [showTimer, setShowTimer] = useState(false);
     const [showTimerPass, setShowTimerPass] = useState(false);
-    const [timerKey, setTimerKey] = useState(0);
 
     //============= 타이머 function ==============
     function Timer({ duration }) {
@@ -229,7 +228,6 @@ function AccountRecoveryModal({ setOpenModal, accountData, setAccountData }) {
             })
         }
 
-        setTimerKey(prev => prev + 1);
         setShowTimer(true); // 타이머 표시
     };
 
@@ -288,7 +286,6 @@ function AccountRecoveryModal({ setOpenModal, accountData, setAccountData }) {
             })
         }
 
-        setTimerKey(prev => prev + 1);
         setShowTimerPass(true); // 타이머 표시
     };
 
@@ -442,11 +439,7 @@ function AccountRecoveryModal({ setOpenModal, accountData, setAccountData }) {
                             </div>
                         </div>
                     </div>
-
-
-
                 </div>
-
             </div>
         </div>
     );

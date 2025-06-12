@@ -156,17 +156,6 @@
     color: black;
 }
 
-
-/* 
-.tr-cursor:hover {
-    background-color: rgb(255, 124, 124);
-    color: rgb(0, 0, 0);
-    text-decoration: underline;
-    cursor: pointer;
-} */
-
-
-
 .board-search {
 
     display: flex;
@@ -189,7 +178,3 @@
     justify-content: space-evenly;
     
 }
-
-/* .board-dd:hover{
-    color
-} */

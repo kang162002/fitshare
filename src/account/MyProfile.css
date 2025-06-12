@@ -21,7 +21,6 @@
 }
 
 .user-profile-img {
-    /* border: 1px solid rgb(146, 146, 146); */
     margin: 30px;
     width: 80%;
     height: 200px;
@@ -102,7 +101,6 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     width: 80%;
-    /* background-color: #a3a3a3; */
     background-color: #f0f0f0;
 
     padding: 20px;
@@ -136,7 +134,6 @@
     box-shadow: 0 4px 8px rgb(182, 81, 77);
     color: white;
 
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -159,7 +156,6 @@
     box-shadow: 4px 2px 1px #caacac;
     background-color: #fdf6f6;
     border: none;
-    /* margin-left: 10px; */
     width: 160px;
     height: 30px;
     border-radius: 30px;

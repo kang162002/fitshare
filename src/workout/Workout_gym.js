@@ -5,7 +5,7 @@ import workoutData from './data/workoutData';
 
 
 
-function Workout_gym({curAcct, setCurAcct, accountData, setAccountData}) {
+function Workout_gym({ curAcct, setCurAcct, accountData, setAccountData }) {
 
     const [showModal, setShowModal] = useState(false);
 
@@ -47,8 +47,6 @@ function Workout_gym({curAcct, setCurAcct, accountData, setAccountData}) {
 
                             return <div key={index} className={`workout-tag ${selectedTag === name ? 'workout-tag-selected' : ''}`} onClick={() => {
                                 setSelectedTag(workout_tags[index]);
-                                // let workoutGrid = document.getElementsByClassName('workout-grid')[0];
-                                // workoutGrid.style.backgroundImage = "url('" + imageUrl[index] + "')";
                             }}>
                                 {name}
                             </div>
@@ -81,7 +79,7 @@ function Workout_gym({curAcct, setCurAcct, accountData, setAccountData}) {
             </div>
 
             {showModal && (
-                <WorkoutModal closeModal={() => setShowModal(false)} workoutData={workoutDatas[dataIndex]} curAcct={curAcct} setCurAcct={setCurAcct} accountData={accountData} setAccountData={setAccountData}/>
+                <WorkoutModal closeModal={() => setShowModal(false)} workoutData={workoutDatas[dataIndex]} curAcct={curAcct} setCurAcct={setCurAcct} accountData={accountData} setAccountData={setAccountData} />
             )}
         </>
     );

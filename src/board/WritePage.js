@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import allPosts from "./Posts";
 
 export default function WritePage({ posts, setPosts }) {
     const navigate = useNavigate();
@@ -8,9 +7,6 @@ export default function WritePage({ posts, setPosts }) {
     const [writer, setWriter] = useState("");
     const [content, setContent] = useState("");
     const [type, setType] = useState("GYM");
-
-    const [comments, setComments] = useState([]);
-    const [commentInput, setCommentInput] = useState("");
 
     const [hovered, setHovered] = useState(false);
 

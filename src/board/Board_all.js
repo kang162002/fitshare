@@ -1,8 +1,6 @@
 import './Board_all.css';
 import { useEffect, useState } from "react";
-import { POSTS_PER_PAGE } from './constants';
 import { useNavigate } from "react-router";
-import allPosts from './Posts';
 import GymPostModal from './GymPostModal';
 import TipPostModal from './TipPostModal';
 import TeamPostModal from './TeamPostModal';
@@ -17,31 +15,32 @@ import PostModal from './PostModal';
 
 
 
-export default function Board_all({posts, setPosts}) {
+export default function Board_all({ posts, setPosts }) {
     const navigate = useNavigate();
-    const [ selectedBoard, setSelectedBoard ] = useState("all");
-    const [ sortType, setSortType ] = useState("id"); // 'id', 'views', 'date'
-    const [ currentPage, setCurrentPage ] = useState(1);
-    const [ searchKeyword, setSearchKeyword ] = useState("");
-    const [ appliedKeyword, setAppliedKeyword ] = useState("");
-    const [ modalOpen, setModalOpen ] = useState(false);
-    const [ selectedPost, setSelectedPost ] = useState(null);
-    const [ showTipModal, setShowTipModal ] = useState(false);
-    const [ showTeamModal, setShowTeamModal ] = useState(false);
-    const [ showDietModal, setShowDietModal ] = useState(false);
-    const [ showHtModal, setShowHtModal ] = useState(false);
-    const [ showPostModal, setShowPostModal ] = useState(false);
+    const [selectedBoard, setSelectedBoard] = useState("all");
+    const [sortType, setSortType] = useState("id"); // 'id', 'views', 'date'
+    const [currentPage, setCurrentPage] = useState(1);
+    const [searchKeyword, setSearchKeyword] = useState("");
+    const [appliedKeyword, setAppliedKeyword] = useState("");
+    const [modalOpen, setModalOpen] = useState(false);
+    const [selectedPost, setSelectedPost] = useState(null);
+    const [showTipModal, setShowTipModal] = useState(false);
+    const [showTeamModal, setShowTeamModal] = useState(false);
+    const [showDietModal, setShowDietModal] = useState(false);
+    const [showHtModal, setShowHtModal] = useState(false);
+    const [showPostModal, setShowPostModal] = useState(false);
 
     const location = useLocation();
-    // const [posts, setPosts] = useState(allPosts.all);
 
-        useEffect(() => {
-            if (location.state?.newPost) {
-                setPosts(prev => [location.state.newPost, ...prev]);
-                
-                window.history.replaceState({}, document.title)
-                }
-        }, [location.state]);
+    const POSTS_PER_PAGE = 15;
+
+    useEffect(() => {
+        if (location.state?.newPost) {
+            setPosts(prev => [location.state.newPost, ...prev]);
+
+            window.history.replaceState({}, document.title)
+        }
+    }, [location.state]);
 
 
 
@@ -54,15 +53,15 @@ export default function Board_all({posts, setPosts}) {
             if (selectedBoard === "sports") return post.type === "TEAM";
             if (selectedBoard === "diet") return post.type === "DIET";
             if (selectedBoard === "ht") return post.type === "HT";
-            return true; 
-            });
-            
-            
-        
+            return true;
+        });
 
 
 
-    const sortedPosts = [ ...filteredPosts ].sort((a, b) => {
+
+
+
+    const sortedPosts = [...filteredPosts].sort((a, b) => {
         if (sortType === "views") return b.views - a.views;
         if (sortType === "date") return new Date(b.date) - new Date(a.date);
         if (sortType === "comments") return (b.commentsCount || 0) - (a.commentsCount || 0);
@@ -106,7 +105,7 @@ export default function Board_all({posts, setPosts}) {
                 <div className='board-header' onClick={() => { setSelectedBoard("all"); setCurrentPage(1); }}>
                     <h3 style={{ fontWeight: 'bolder', cursor: 'pointer' }}>게시판</h3>
                 </div>
-                
+
 
                 <div className='board-nav'>
                     <button onClick={() => setSelectedBoard("all")}>전체게시판</button>
@@ -119,7 +118,7 @@ export default function Board_all({posts, setPosts}) {
             </div>
             <div className='board-outer'>
                 <br />
-                <h2>{boardTitles[ selectedBoard ]}</h2>
+                <h2>{boardTitles[selectedBoard]}</h2>
 
                 <div className='board-search' style={{ margin: '20px 0', textAlign: 'left' }}>
                     <div>
@@ -155,9 +154,7 @@ export default function Board_all({posts, setPosts}) {
                         </button>
 
                     </div>
-                    {/* </div>
 
-                <div className='board-search' style={ {marginBottom: '16px', textAlign:'right'} }> */}
                     <div>
                         <button className='sort-button' onClick={() => { setSortType("views"); setCurrentPage(1); }} >조회수 많은순</button>
                         <button className='sort-button' onClick={() => { setSortType("date"); setCurrentPage(1); }} >최신순</button>
@@ -181,7 +178,7 @@ export default function Board_all({posts, setPosts}) {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr className='board-font-red' style={{color:"red"}}>
+                        <tr className='board-font-red' style={{ color: "red" }}>
                             <td>※</td>
                             <td className='tr-cursor'>공지사항</td>
                             <td className='tr-cursor'>FITSHARE 운영자</td>
@@ -191,7 +188,7 @@ export default function Board_all({posts, setPosts}) {
                             <td>99999</td>
                             <td>99999</td>
                         </tr>
-                        <tr className='board-font-red' style={{color:"red"}} >
+                        <tr className='board-font-red' style={{ color: "red" }} >
                             <td>※</td>
                             <td className='tr-cursor'>글 작성 가이드</td>
                             <td className='tr-cursor'>FITSHARE 운영자</td>
@@ -209,32 +206,32 @@ export default function Board_all({posts, setPosts}) {
                         {paginatedPosts.map((post) => (
                             <tr key={post.id} onClick={() => {
                                 if (post.id === 66) {
-                                    post.views+=1;
+                                    post.views += 1;
                                     setSelectedPost(post);
                                     setModalOpen(true);
                                 } else if (post.id === 78) {
-                                    post.views+=1;
+                                    post.views += 1;
                                     setSelectedPost(post);
                                     setShowTipModal(true);
                                 } else if (post.id === 3) {
-                                    post.views+=1;
+                                    post.views += 1;
                                     setSelectedPost(post);
                                     setShowTeamModal(true);
                                 } else if (post.id === 171) {
-                                    post.views+=1;
+                                    post.views += 1;
                                     setSelectedPost(post);
                                     setShowDietModal(true);
                                 } else if (post.id === 5) {
-                                    post.views+=1;
+                                    post.views += 1;
                                     setSelectedPost(post);
                                     setShowHtModal(true);
                                 } else {
-                                    post.views+=1;
+                                    post.views += 1;
                                     setSelectedPost(post);
                                     setShowPostModal(true);
                                 }
 
-                                
+
 
 
                             }}
@@ -250,7 +247,7 @@ export default function Board_all({posts, setPosts}) {
                                     const item = localStorage.getItem(post.id + "PostComment");
                                     if (!item) return post.commentsCount;
                                     const comments = JSON.parse(item);
-                                    return comments.length+post.commentsCount;
+                                    return comments.length + post.commentsCount;
                                 })()}</td>
                                 <td>{post.likesCount || 0}</td>
                             </tr>
@@ -268,23 +265,23 @@ export default function Board_all({posts, setPosts}) {
                     )}
 
                     {showTipModal && (
-                        <TipPostModal post={selectedPost} closeModal={() => {setShowTipModal(false);setSelectedPost(null);}} posts={posts}/>
+                        <TipPostModal post={selectedPost} closeModal={() => { setShowTipModal(false); setSelectedPost(null); }} posts={posts} />
                     )}
 
                     {showTeamModal && (
-                        <TeamPostModal post={selectedPost} closeModal={() => {setShowTeamModal(false);setSelectedPost(null);}} />
+                        <TeamPostModal post={selectedPost} closeModal={() => { setShowTeamModal(false); setSelectedPost(null); }} />
                     )}
 
                     {showDietModal && (
-                        <DietPostModal post={selectedPost} closeModal={() => {setShowDietModal(false);setSelectedPost(null);}} />
+                        <DietPostModal post={selectedPost} closeModal={() => { setShowDietModal(false); setSelectedPost(null); }} />
                     )}
 
                     {showHtModal && (
-                        <HtPostModal post={selectedPost} closeModal={() => {setShowHtModal(false);setSelectedPost(null);}} />
+                        <HtPostModal post={selectedPost} closeModal={() => { setShowHtModal(false); setSelectedPost(null); }} />
                     )}
 
                     {showPostModal && (
-                        <PostModal closeModal={()=> {setShowPostModal(false);setSelectedPost(null);}} post = {selectedPost}/>
+                        <PostModal closeModal={() => { setShowPostModal(false); setSelectedPost(null); }} post={selectedPost} />
                     )}
                 </table>
 

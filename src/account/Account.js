@@ -1,12 +1,12 @@
 import './Account.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import account_overlay_left from './image/account_overlay_left.jpg';
 import account_overlay_right from './image/account_overlay_right.jpg';
 import Swal from 'sweetalert2';
 
 import AccountRecoveryModal from './AccountRecoveryModal';
-import { Routes, Route, useNavigate } from 'react-router';
+import { useNavigate } from 'react-router';
 
 
 
@@ -86,9 +86,6 @@ function Account({ setCurAcct, setOpenSurvey, accountData, setAccountData }) {
                     navigate("/");
 
                 });
-
-                // const loginState = accountData.find(user =>
-                //     user.loginState);
 
                 setOpenSurvey(true);
                 setCurAcct(foundUser);
@@ -186,8 +183,6 @@ function Account({ setCurAcct, setOpenSurvey, accountData, setAccountData }) {
 
     //================================인증번호 ========================================
     const [showTimer, setShowTimer] = useState(false);
-    const [showTimerPass, setShowTimerPass] = useState(false);
-    const [timerKey, setTimerKey] = useState(0);
 
     const handleGetCode = () => {
 
@@ -202,7 +197,6 @@ function Account({ setCurAcct, setOpenSurvey, accountData, setAccountData }) {
             return;
         }
 
-        setTimerKey(prev => prev + 1);
         setShowTimer(true); // 타이머 표시
     };
 

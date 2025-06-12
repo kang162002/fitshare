@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const dietPlans = [
     {
@@ -33,10 +33,10 @@ const dietPlans = [
                 체중·인바디 체크  
                 성공 보상 준비 (맛있는 단백질 쉐이크나 운동복 구매!)`,
     },
-    ];
+];
 
-    function DietPostModal({post,  closeModal }) {
-    const [views, setViews] = useState(post.view-1);
+function DietPostModal({ post, closeModal }) {
+    const [views, setViews] = useState(post.views - 1);
     const [likes, setLikes] = useState(post.likesCount);
     const [liked, setLiked] = useState(false);
     const [comments, setComments] = useState([]);
@@ -46,7 +46,7 @@ const dietPlans = [
         setViews((prev) => prev + 1);
 
         const savedComments = localStorage.getItem("diet-post-comments");
-        if(savedComments) {
+        if (savedComments) {
             setComments(JSON.parse(savedComments));
         }
     }, []);
@@ -58,7 +58,7 @@ const dietPlans = [
 
     const addComment = () => {
         if (commentInput.trim() === "") return;
-        const newComments = [...comments, {id:Date.now(), text: commentInput }];
+        const newComments = [...comments, { id: Date.now(), text: commentInput }];
         setComments(newComments);
         setCommentInput("");
         localStorage.setItem("diet-post-comments", JSON.stringify(newComments));
@@ -66,104 +66,104 @@ const dietPlans = [
 
     return (
         <div className="diet-modal-fullscreen" onClick={closeModal}>
-        <div className="diet-modal-box" onClick={(e) => e.stopPropagation()}>
-            <div className="diet-modal-header">
-            <h1 className="diet-modal-title">다이어트 4주 감량 플랜 – 현실적으로 3~5kg 감량 도전!</h1>
-            <button className="diet-modal-close-button" onClick={closeModal}>
-                X
-            </button>
-            </div>
-
-            <div
-            style={{
-                padding: "0 20px",
-                fontSize: "0.9rem",
-                color: "#555",
-                marginBottom: "10px",
-            }}
-            >
-            <span>
-                작성자: <strong>다이어트코치</strong>
-            </span>{" "}
-            | <span>작성일: {new Date().toLocaleDateString()}</span> |{" "}
-            <span>조회수: {views}</span> |{" "}
-            <span style={{ cursor: "pointer" }} onClick={handleLike}>
-                ❤️ {likes}
-            </span>
-            </div>
-
-            <div className="diet-modal-body post-style-body">
-            <p style={{ marginBottom: "30px", fontSize: "1rem" }}>
-                다이어트는 단기간이 아닌 꾸준한 습관 만들기가 핵심입니다.  
-                이 4주 플랜은 누구나 시작할 수 있도록 구성된 기초 + 실천 중심 플랜 입니다.
-            </p>
-
-            {dietPlans.map((plan, idx) => (
-                <div
-                key={idx}
-                style={{
-                    marginBottom: "25px",
-                    borderBottom: "1px solid #ddd",
-                    paddingBottom: "15px",
-                }}
-                >
-                <h2>{plan.title}</h2>
-                {plan.img && (
-                    <img
-                    src={plan.img}
-                    alt={plan.title}
-                    style={{
-                        width: "100%",
-                        maxHeight: "200px",
-                        objectFit: "cover",
-                        marginBottom: "10px",
-                        borderRadius: "8px",
-                    }}
-                    />
-                )}
-                <pre className="whitespace-pre-wrap">{plan.desc}</pre>
+            <div className="diet-modal-box" onClick={(e) => e.stopPropagation()}>
+                <div className="diet-modal-header">
+                    <h1 className="diet-modal-title">다이어트 4주 감량 플랜 – 현실적으로 3~5kg 감량 도전!</h1>
+                    <button className="diet-modal-close-button" onClick={closeModal}>
+                        X
+                    </button>
                 </div>
-            ))}
 
-            <div
-                style={{
-                marginTop: "30px",
-                background: "#f9f9f9",
-                padding: "15px",
-                borderRadius: "10px",
-                }}
-            >
-                💡 <strong>TIP:</strong>
-                <br />
-                체중보다 중요한 건 습관 입니다.  
-                4주 플랜으로 당신의 다이어트 성공하기!
-            </div>
+                <div
+                    style={{
+                        padding: "0 20px",
+                        fontSize: "0.9rem",
+                        color: "#555",
+                        marginBottom: "10px",
+                    }}
+                >
+                    <span>
+                        작성자: <strong>다이어트코치</strong>
+                    </span>{" "}
+                    | <span>작성일: {new Date().toLocaleDateString()}</span> |{" "}
+                    <span>조회수: {views}</span> |{" "}
+                    <span style={{ cursor: "pointer" }} onClick={handleLike}>
+                        ❤️ {likes}
+                    </span>
+                </div>
 
-            <div style={{ marginTop: "30px" }}>
-                <h3>💬 댓글</h3>
-                <input
-                type="text"
-                placeholder="댓글을 입력하세요"
-                value={commentInput}
-                onChange={(e) => setCommentInput(e.target.value)}
-                onKeyDown={(e)=>{
-                                if(e.key === "Enter") {
+                <div className="diet-modal-body post-style-body">
+                    <p style={{ marginBottom: "30px", fontSize: "1rem" }}>
+                        다이어트는 단기간이 아닌 꾸준한 습관 만들기가 핵심입니다.
+                        이 4주 플랜은 누구나 시작할 수 있도록 구성된 기초 + 실천 중심 플랜 입니다.
+                    </p>
+
+                    {dietPlans.map((plan, idx) => (
+                        <div
+                            key={idx}
+                            style={{
+                                marginBottom: "25px",
+                                borderBottom: "1px solid #ddd",
+                                paddingBottom: "15px",
+                            }}
+                        >
+                            <h2>{plan.title}</h2>
+                            {plan.img && (
+                                <img
+                                    src={plan.img}
+                                    alt={plan.title}
+                                    style={{
+                                        width: "100%",
+                                        maxHeight: "200px",
+                                        objectFit: "cover",
+                                        marginBottom: "10px",
+                                        borderRadius: "8px",
+                                    }}
+                                />
+                            )}
+                            <pre className="whitespace-pre-wrap">{plan.desc}</pre>
+                        </div>
+                    ))}
+
+                    <div
+                        style={{
+                            marginTop: "30px",
+                            background: "#f9f9f9",
+                            padding: "15px",
+                            borderRadius: "10px",
+                        }}
+                    >
+                        💡 <strong>TIP:</strong>
+                        <br />
+                        체중보다 중요한 건 습관 입니다.
+                        4주 플랜으로 당신의 다이어트 성공하기!
+                    </div>
+
+                    <div style={{ marginTop: "30px" }}>
+                        <h3>💬 댓글</h3>
+                        <input
+                            type="text"
+                            placeholder="댓글을 입력하세요"
+                            value={commentInput}
+                            onChange={(e) => setCommentInput(e.target.value)}
+                            onKeyDown={(e) => {
+                                if (e.key === "Enter") {
                                     addComment();
                                 }
                             }}
-                style={{ width: "80%", marginRight: "10px", padding: "8px" }}
-                />
-                <button onClick={addComment}>댓글 추가</button>
-                <ul style={{ marginTop: "15px", paddingLeft: "20px" }}>
-                {comments.map((c) => (
-                    <li key={c.id}>- {c.text}</li>
-                ))}
-                </ul>
+                            style={{ width: "80%", marginRight: "10px", padding: "8px" }}
+                        />
+                        <button onClick={addComment}>댓글 추가</button>
+                        <ul style={{ marginTop: "15px", paddingLeft: "20px" }}>
+                            {comments.map((c) => (
+                                <li key={c.id}>- {c.text}</li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
             </div>
-            </div>
-        </div>
         </div>
     );
-    }
+}
 
 export default DietPostModal;

@@ -10,19 +10,19 @@ const categorizedPosts = rawPosts.reduce((acc, post) => {
     };
 
     const key = map[post.type] || 'etc';
-        acc.all.push(post);
-        acc[key] = acc[key] || [];
-        acc[key].push(post);
+    acc.all.push(post);
+    acc[key] = acc[key] || [];
+    acc[key].push(post);
 
-        return acc;
-    }, {
-        all: [],
-        gym: [],
-        tips: [],
-        sports: [],
-        diet: [],
-        ht: [],
-        etc: [],
-    });
+    return acc;
+}, {
+    all: [],
+    gym: [],
+    tips: [],
+    sports: [],
+    diet: [],
+    ht: [],
+    etc: [],
+});
 
 export { categorizedPosts };

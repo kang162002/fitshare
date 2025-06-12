@@ -1,4 +1,3 @@
-import React from "react";
 
 const tips = [
     {
@@ -28,47 +27,47 @@ const tips = [
         desc: `런닝머신이나 싸이클 할 때 유튜브, 넷플릭스, 음악을 틀면 지루함을 줄이고 꾸준함을 유지할 수 있어요.`,
         img: "https://source.unsplash.com/featured/?treadmill,headphones",
     },
-    ];
+];
 
-    const GymPostTable = () => {
+const GymPostTable = () => {
     return (
         <div className="gym-wrapper">
-        <h1 className="gym-title">
-            GYM 100% 이용하기 – 헬스장 제대로 활용하는 법!
-        </h1>
-        <p className="gym-intro">
-            헬스장 등록만 해놓고 잘 활용하지 못하고 있다면, 아래 팁들을 참고해보세요!
-            GYM을 제대로 써먹을 수 있는 실용적인 전략을 표로 정리했습니다 💪
-        </p>
+            <h1 className="gym-title">
+                GYM 100% 이용하기 – 헬스장 제대로 활용하는 법!
+            </h1>
+            <p className="gym-intro">
+                헬스장 등록만 해놓고 잘 활용하지 못하고 있다면, 아래 팁들을 참고해보세요!
+                GYM을 제대로 써먹을 수 있는 실용적인 전략을 표로 정리했습니다 💪
+            </p>
 
-        <table className="gym-table">
-            <tbody>
-            {tips.map((tip, idx) => (
-                <tr key={idx} className="gym-row">
-                <td className="gym-text">
-                    <h2 className="gym-subtitle">{tip.title}</h2>
-                    <p className="gym-description">{tip.desc}</p>
-                </td>
-                <td className="gym-image">
-                    <img
-                    src={tip.img}
-                    alt={tip.title}
-                    className="gym-img"
-                    />
-                </td>
-                </tr>
-            ))}
-            </tbody>
-        </table>
+            <table className="gym-table">
+                <tbody>
+                    {tips.map((tip, idx) => (
+                        <tr key={idx} className="gym-row">
+                            <td className="gym-text">
+                                <h2 className="gym-subtitle">{tip.title}</h2>
+                                <p className="gym-description">{tip.desc}</p>
+                            </td>
+                            <td className="gym-image">
+                                <img
+                                    src={tip.img}
+                                    alt={tip.title}
+                                    className="gym-img"
+                                />
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
 
-        <div className="gym-conclusion">
-            <strong className="gym-conclusion-title">✅ 결론</strong>
-            GYM은 단순히 운동하는 곳이 아니라, 장비·사우나·루틴 등을 전략적으로
-            활용하는 종합적인 공간입니다. <br />
-            헬스장을 ‘등록’만 하지 말고 ‘활용’하세요! 꾸준함이 곧 변화입니다.
-        </div>
+            <div className="gym-conclusion">
+                <strong className="gym-conclusion-title">✅ 결론</strong>
+                GYM은 단순히 운동하는 곳이 아니라, 장비·사우나·루틴 등을 전략적으로
+                활용하는 종합적인 공간입니다. <br />
+                헬스장을 ‘등록’만 하지 말고 ‘활용’하세요! 꾸준함이 곧 변화입니다.
+            </div>
         </div>
     );
-    };
+};
 
 export default GymPostTable;
